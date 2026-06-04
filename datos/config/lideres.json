@@ -1,0 +1,17 @@
+{
+  "lideres": [
+    {"key":"VIVIANA HERNANDEZ","nombre":"Viviana Marisol Hernández Pérez","pin_seed":"2257","_t":["PKHc0IUKBKAC11_tap_buhtig","jiV4JUXGrtVVPn3P_OBExCDuZ","973IwH453RH5I55EHvT7n9e1ZbUS6DpUZ9uCljZx4Nv"]},
+    {"key":"WALTER FERRO","nombre":"Walter Ferro","pin_seed":"2872","_t":["m4MK0IUKBKAC11_tap_buhtig","mF4wNyr057u4EY8p_bBdWDXPG","LzTJGcofJQEZY27IY3n9fNz1X5h2xRYYgExI5xBSeIM"]},
+    {"key":"GABRIELA ROJAS","nombre":"Gabriela Del Carmen Rojas Quezada","pin_seed":"7881","_t":["RJy10IUKBKAC11_tap_buhtig","PMcVGfAVotUROkZB_8576dGqr","oKg8rgBBYYGFLV2S771Vev5XXOcd5ZVRoeBRVH3a6aA"]},
+    {"key":"HUMBERTO BARBERIS","nombre":"Humberto Cristian Barberis Abendaño","pin_seed":"6597","_t":["Kd6Y0IUKBKAC11_tap_buhtig","SulghFsfz3yNQMY1_oRQVnXAW","HV23PV1HG664VSCSDunwVjU8wGtT25pB6L7X3gsvjMv"]},
+    {"key":"ESTEFANI GONZALEZ","nombre":"Estefani Francisca González Morales","pin_seed":"7597","_t":["DNe20IUKBKAC11_tap_buhtig","09ycrQkoRP0LZn7v_9WReibmJ","YKJDdp527N35DN3Io9cnCVQwZDlOEBJ9ctCyIMi4G6q"]},
+    {"key":"CAMILO MEDEL","nombre":"Camilo Jesus Medel Rojas","pin_seed":"5480","_t":["Daug0IUKBKAC11_tap_buhtig","lP1SnZoksJOhr2W1_PWEQwoyE","a0wqSFqmTRALU222lIj9DR5ye34Pue7gf1ViYHfqeXi"]},
+    {"key":"RAUL BUSTOS","nombre":"Raúl Alejandro Bustos Aguilera","pin_seed":"8872","_t":["GT5g0IUKBKAC11_tap_buhtig","8JUZvO35s8Hn4sDy_jeXWl7gf","oZIxsL4v4JLBUTG3WlIMyAK8PYLWm24Is8uDMjEmLSF"]},
+    {"key":"PATRICIA MARTINEZ","nombre":"Glenda Patricia Martínez Ortiz","pin_seed":"1345","_t":["LsyM0IUKBKAC11_tap_buhtig","cpG5yIAos1iAt2Kf_uPnT7FEV","Qaec2IgsR7WDZXETXQlScLys3fvucPFwiBirNmB46xQ"]},
+    {"key":"SUGEY VIVAS","nombre":"Sugey Mayelin Vivas Marquez","pin_seed":"2121","_t":["He9L0IUKBKAC11_tap_buhtig","58YdJ5KBqbMquGG6_GdewcWgZ","AU6wa3D5VQBUNNA51ewSFqJN1ZSD1h7tlKRW3ft0WZW"]}
+  ],
+  "gerentes": [
+    {"key":"ERNESTO OLIVA","nombre":"Ernesto Oliva","pin_seed":"7022","_t":["xj5B0IUKBKAC11_tap_buhtig","s0fDoXExcXchzTZM_ZWhnjMih","6ZZHoAgFGQURHX4SEKnnJ35vUaQTArVpNVldvFouvoG"]},
+    {"key":"RICARDO RAMIREZ","nombre":"Ricardo Ramírez","pin_seed":"9774","_t":["LQA20IUKBKAC11_tap_buhtig","AY7reSETd8lUzox7_w6QveFJl","sQD5RneZOV3W7M5O2asHhDkUlIvw2Jo9rzDUKzLfNCK"]}
+  ]
+}
