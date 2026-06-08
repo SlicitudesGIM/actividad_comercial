@@ -5,5 +5,12 @@
     "fecha": "2026-06-08",
     "resultado": "Cierre",
     "ts": 1780954879762
+  },
+  {
+    "id": 1780955364935,
+    "asesor": "DENISSE AMANDA PALMA GARRO",
+    "fecha": "2026-06-08",
+    "resultado": "Seguimiento",
+    "ts": 1780955364935
   }
 ]
