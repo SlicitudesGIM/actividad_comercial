@@ -12,5 +12,12 @@
     "fecha": "2026-06-04",
     "resultado": "Seguimiento",
     "ts": 1780955539269
+  },
+  {
+    "id": 1780955576765,
+    "asesor": "ANABEL DEL VALLE VELASQUEZ CARRENO",
+    "fecha": "2026-06-08",
+    "resultado": "Cierre",
+    "ts": 1780955576765
   }
 ]
