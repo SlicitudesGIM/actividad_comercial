@@ -33,5 +33,12 @@
     "fecha": "2026-06-04",
     "resultado": "Seguimiento",
     "ts": 1781029083141
+  },
+  {
+    "id": 1781029396289,
+    "asesor": "VERONICA MEDINA ARMIJO",
+    "fecha": "2026-06-04",
+    "resultado": "Pérdida",
+    "ts": 1781029396289
   }
 ]
