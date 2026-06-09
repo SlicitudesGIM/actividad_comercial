@@ -10,28 +10,28 @@
     "id": 1781023254521,
     "asesor": "DAISY VICTORIA CAROCA BUSTOS",
     "fecha": "2026-06-11",
-    "resultado": "PÃÂÃÂÃÂÃÂ©rdida",
+    "resultado": "PÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ©rdida",
     "ts": 1781023254521
   },
   {
     "id": 1781023272321,
     "asesor": "DAISY VICTORIA CAROCA BUSTOS",
     "fecha": "2026-06-10",
-    "resultado": "PÃÂÃÂ©rdida",
+    "resultado": "PÃÂÃÂÃÂÃÂ©rdida",
     "ts": 1781023272321
   },
   {
     "id": 1781023458275,
-    "asesor": "FERNANDA CAROLINA CRUCES GARCÃÂA",
+    "asesor": "FERNANDA CAROLINA CRUCES GARCÃÂÃÂA",
     "fecha": "2026-06-07",
     "resultado": "Seguimiento",
     "ts": 1781023458275
   },
   {
     "id": 1781023479380,
-    "asesor": "FERNANDA CAROLINA CRUCES GARCÃA",
+    "asesor": "FERNANDA CAROLINA CRUCES GARCÃÂA",
     "fecha": "2026-06-07",
-    "resultado": "PÃ©rdida",
+    "resultado": "PÃÂ©rdida",
     "ts": 1781023479381
   },
   {
@@ -40,5 +40,12 @@
     "fecha": "2026-06-02",
     "resultado": "Seguimiento",
     "ts": 1781023664997
+  },
+  {
+    "id": 1781023691287,
+    "asesor": "FRANCISCA ANDREA DELGADO LOYOLA",
+    "fecha": "2026-06-03",
+    "resultado": "Seguimiento",
+    "ts": 1781023691287
   }
 ]
