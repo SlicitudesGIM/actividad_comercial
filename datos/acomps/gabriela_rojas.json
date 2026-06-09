@@ -5,5 +5,12 @@
     "fecha": "2026-06-05",
     "resultado": "Seguimiento",
     "ts": 1781023178547
+  },
+  {
+    "id": 1781023254521,
+    "asesor": "DAISY VICTORIA CAROCA BUSTOS",
+    "fecha": "2026-06-11",
+    "resultado": "Pérdida",
+    "ts": 1781023254521
   }
 ]
