@@ -3,7 +3,14 @@
     "id": 1781014496962,
     "asesor": "LEONARDO EZEQUIEL BASCUR SAAVEDRA",
     "fecha": "2026-01-06",
-    "resultado": "Pérdida",
+    "resultado": "PÃ©rdida",
     "ts": 1781014496962
+  },
+  {
+    "id": 1781014558521,
+    "asesor": "LEONARDO EZEQUIEL BASCUR SAAVEDRA",
+    "fecha": "2026-02-06",
+    "resultado": "Pérdida",
+    "ts": 1781014558521
   }
 ]
