@@ -22,9 +22,16 @@
   },
   {
     "id": 1781031912258,
-    "asesor": "TOMÁS FERNANDO BATLLE CÁRCAMO",
+    "asesor": "TOMÃS FERNANDO BATLLE CÃRCAMO",
     "fecha": "2026-06-04",
     "resultado": "Seguimiento",
     "ts": 1781031912258
+  },
+  {
+    "id": 1781032026421,
+    "asesor": "MIRIAM PAOLA TALCIANI HERMOSILLO",
+    "fecha": "2026-06-05",
+    "resultado": "Cierre",
+    "ts": 1781032026421
   }
 ]
