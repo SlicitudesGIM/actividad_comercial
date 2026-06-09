@@ -10,14 +10,21 @@
     "id": 1781023254521,
     "asesor": "DAISY VICTORIA CAROCA BUSTOS",
     "fecha": "2026-06-11",
-    "resultado": "PÃ©rdida",
+    "resultado": "PÃÂ©rdida",
     "ts": 1781023254521
   },
   {
     "id": 1781023272321,
     "asesor": "DAISY VICTORIA CAROCA BUSTOS",
     "fecha": "2026-06-10",
-    "resultado": "Pérdida",
+    "resultado": "PÃ©rdida",
     "ts": 1781023272321
+  },
+  {
+    "id": 1781023458275,
+    "asesor": "FERNANDA CAROLINA CRUCES GARCÍA",
+    "fecha": "2026-06-07",
+    "resultado": "Seguimiento",
+    "ts": 1781023458275
   }
 ]
