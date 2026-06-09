@@ -38,7 +38,14 @@
     "id": 1781029396289,
     "asesor": "VERONICA MEDINA ARMIJO",
     "fecha": "2026-06-04",
-    "resultado": "Pérdida",
+    "resultado": "PÃ©rdida",
     "ts": 1781029396289
+  },
+  {
+    "id": 1781029442513,
+    "asesor": "VERONICA MEDINA ARMIJO",
+    "fecha": "2026-06-04",
+    "resultado": "Pérdida",
+    "ts": 1781029442513
   }
 ]
