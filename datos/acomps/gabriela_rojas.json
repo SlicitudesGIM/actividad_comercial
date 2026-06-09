@@ -10,7 +10,14 @@
     "id": 1781023254521,
     "asesor": "DAISY VICTORIA CAROCA BUSTOS",
     "fecha": "2026-06-11",
-    "resultado": "Pérdida",
+    "resultado": "PÃ©rdida",
     "ts": 1781023254521
+  },
+  {
+    "id": 1781023272321,
+    "asesor": "DAISY VICTORIA CAROCA BUSTOS",
+    "fecha": "2026-06-10",
+    "resultado": "Pérdida",
+    "ts": 1781023272321
   }
 ]
