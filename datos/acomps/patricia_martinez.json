@@ -19,5 +19,12 @@
     "fecha": "2026-06-05",
     "resultado": "Seguimiento",
     "ts": 1781125668448
+  },
+  {
+    "id": 1781126170079,
+    "asesor": "BRITHANY ELIZABETH GUAJALA MARTÍNEZ",
+    "fecha": "2026-06-09",
+    "resultado": "Cierre",
+    "ts": 1781126170079
   }
 ]
