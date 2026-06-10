@@ -26,5 +26,12 @@
     "fecha": "2026-06-09",
     "resultado": "Cierre",
     "ts": 1781126170079
+  },
+  {
+    "id": 1781126208779,
+    "asesor": "DENISSE XIOMARA MARTINEZ TENORIO",
+    "fecha": "2026-06-06",
+    "resultado": "Seguimiento",
+    "ts": 1781126208779
   }
 ]
