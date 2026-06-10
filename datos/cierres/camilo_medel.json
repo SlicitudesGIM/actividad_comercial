@@ -16,5 +16,14 @@
     "contrato": "109818",
     "fecha": "2026-06-10",
     "ts": 1781129377091
+  },
+  {
+    "id": 1781129468812,
+    "asesor": "RODRIGO IGNACIO CASTRO FIGUEROA",
+    "empresa": "VU",
+    "monto": 180000,
+    "contrato": "109819",
+    "fecha": "2026-06-10",
+    "ts": 1781129468812
   }
 ]
