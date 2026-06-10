@@ -52,5 +52,14 @@
     "contrato": "109807",
     "fecha": "2026-06-10",
     "ts": 1781124840213
+  },
+  {
+    "id": 1781124869348,
+    "asesor": "MARGARITA CRISTINA ROJAS QUEZADA",
+    "empresa": "PF",
+    "monto": 50000,
+    "contrato": "4650",
+    "fecha": "2026-06-10",
+    "ts": 1781124869348
   }
 ]
