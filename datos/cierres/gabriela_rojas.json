@@ -43,5 +43,14 @@
     "contrato": "109809",
     "fecha": "2026-06-10",
     "ts": 1781124814113
+  },
+  {
+    "id": 1781124840213,
+    "asesor": "MARGARITA CRISTINA ROJAS QUEZADA",
+    "empresa": "VU",
+    "monto": 100000,
+    "contrato": "109807",
+    "fecha": "2026-06-10",
+    "ts": 1781124840213
   }
 ]
