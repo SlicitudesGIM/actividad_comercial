@@ -79,5 +79,14 @@
     "contrato": "4365",
     "fecha": "2026-06-10",
     "ts": 1781124996992
+  },
+  {
+    "id": 1781125042999,
+    "asesor": "NAYARET TATIANA PUGA MARCHANT",
+    "empresa": "VU",
+    "monto": 20000,
+    "contrato": "109731",
+    "fecha": "2026-06-10",
+    "ts": 1781125042999
   }
 ]
