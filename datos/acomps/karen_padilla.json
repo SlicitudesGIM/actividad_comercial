@@ -22,7 +22,7 @@
   },
   {
     "id": 1781031912258,
-    "asesor": "TOMÃÂÃÂS FERNANDO BATLLE CÃÂÃÂRCAMO",
+    "asesor": "TOMÃÂÃÂÃÂÃÂS FERNANDO BATLLE CÃÂÃÂÃÂÃÂRCAMO",
     "fecha": "2026-06-04",
     "resultado": "Seguimiento",
     "ts": 1781031912258
@@ -47,5 +47,12 @@
     "fecha": "2026-06-09",
     "resultado": "Seguimiento",
     "ts": 1781075781723
+  },
+  {
+    "id": 1781075807867,
+    "asesor": "EVELYN SCHLACK ZAMORA",
+    "fecha": "2026-06-09",
+    "resultado": "Seguimiento",
+    "ts": 1781075807867
   }
 ]
