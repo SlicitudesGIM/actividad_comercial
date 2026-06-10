@@ -7,5 +7,14 @@
     "contrato": "46281",
     "fecha": "2026-06-10",
     "ts": 1781124339721
+  },
+  {
+    "id": 1781124576520,
+    "asesor": "LIDIA MONICA FLORES BRAVO",
+    "empresa": "VU",
+    "monto": 504000,
+    "contrato": "109814",
+    "fecha": "2026-06-10",
+    "ts": 1781124576520
   }
 ]
