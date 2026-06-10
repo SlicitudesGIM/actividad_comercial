@@ -40,5 +40,12 @@
     "fecha": "2026-06-07",
     "resultado": "Seguimiento",
     "ts": 1781126240059
+  },
+  {
+    "id": 1781126270881,
+    "asesor": "RODRIGO PERALTA BASTIAS",
+    "fecha": "2026-06-07",
+    "resultado": "Seguimiento",
+    "ts": 1781126270881
   }
 ]
