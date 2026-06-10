@@ -7,5 +7,14 @@
     "contrato": "4672",
     "fecha": "2026-06-10",
     "ts": 1781123292920
+  },
+  {
+    "id": 1781123510135,
+    "asesor": "ANABEL DEL VALLE VELASQUEZ CARRENO",
+    "empresa": "VU",
+    "monto": 100000,
+    "contrato": "109821",
+    "fecha": "2026-06-10",
+    "ts": 1781123510135
   }
 ]
