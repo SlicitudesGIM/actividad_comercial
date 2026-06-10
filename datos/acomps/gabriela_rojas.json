@@ -124,5 +124,12 @@
     "fecha": "2026-06-10",
     "resultado": "Seguimiento",
     "ts": 1781124457669
+  },
+  {
+    "id": 1781124532384,
+    "asesor": "LIDIA MONICA FLORES BRAVO",
+    "fecha": "2026-06-10",
+    "resultado": "Cierre",
+    "ts": 1781124532384
   }
 ]
