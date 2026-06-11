@@ -33,5 +33,12 @@
     "fecha": "2026-06-11",
     "resultado": "Seguimiento",
     "ts": 1781188547728
+  },
+  {
+    "id": 1781188563375,
+    "asesor": "LUIS ALBERTO OSORES OSORES",
+    "fecha": "2026-06-11",
+    "resultado": "Pérdida",
+    "ts": 1781188563375
   }
 ]
