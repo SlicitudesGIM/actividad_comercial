@@ -19,5 +19,12 @@
     "fecha": "2026-06-09",
     "resultado": "Seguimiento",
     "ts": 1781194243664
+  },
+  {
+    "id": 1781194256052,
+    "asesor": "ANDRÉS JESÚS ESCUDERO LÓPEZ",
+    "fecha": "2026-06-10",
+    "resultado": "Seguimiento",
+    "ts": 1781194256052
   }
 ]
