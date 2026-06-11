@@ -34,5 +34,14 @@
     "contrato": "109815",
     "fecha": "2026-06-11",
     "ts": 1781136897733
+  },
+  {
+    "id": 1781137020073,
+    "asesor": "WALTER FABRICIO SALAZAR LIMA",
+    "empresa": "PF",
+    "monto": 133000,
+    "contrato": "4692",
+    "fecha": "2026-06-11",
+    "ts": 1781137020073
   }
 ]
