@@ -47,5 +47,12 @@
     "fecha": "2026-06-11",
     "resultado": "Pérdida",
     "ts": 1781188574500
+  },
+  {
+    "id": 1781189250323,
+    "asesor": "ROCIO RAQUEL ALVAREZ SUAREZ",
+    "fecha": "2026-06-11",
+    "resultado": "Seguimiento",
+    "ts": 1781189250323
   }
 ]
