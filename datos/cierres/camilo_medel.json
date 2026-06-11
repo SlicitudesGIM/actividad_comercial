@@ -25,5 +25,14 @@
     "contrato": "109819",
     "fecha": "2026-06-10",
     "ts": 1781129468812
+  },
+  {
+    "id": 1781188515652,
+    "asesor": "LUIS ALBERTO OSORES OSORES",
+    "empresa": "PF",
+    "monto": 500000,
+    "contrato": "4671",
+    "fecha": "2026-06-11",
+    "ts": 1781188515652
   }
 ]
