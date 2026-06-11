@@ -61,5 +61,12 @@
     "fecha": "2026-06-09",
     "resultado": "Pérdida",
     "ts": 1781141789318
+  },
+  {
+    "id": 1781141841299,
+    "asesor": "FABIÁN ANDRÉS VALVERDE VALVERDE",
+    "fecha": "2026-06-01",
+    "resultado": "Seguimiento",
+    "ts": 1781141841299
   }
 ]
