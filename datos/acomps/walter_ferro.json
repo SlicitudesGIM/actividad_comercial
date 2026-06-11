@@ -26,5 +26,12 @@
     "fecha": "2026-06-10",
     "resultado": "Cierre",
     "ts": 1781184083336
+  },
+  {
+    "id": 1781211726671,
+    "asesor": "CAROLINA DEL PILAR ARAVENA DE LA FUENTE",
+    "fecha": "2026-06-11",
+    "resultado": "Seguimiento",
+    "ts": 1781211726671
   }
 ]
