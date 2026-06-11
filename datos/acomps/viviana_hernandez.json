@@ -96,5 +96,12 @@
     "fecha": "2026-06-11",
     "resultado": "Cierre",
     "ts": 1781137037271
+  },
+  {
+    "id": 1781137312953,
+    "asesor": "XIMENA DEL CARMEN LOPEZ ROZAS",
+    "fecha": "2026-06-11",
+    "resultado": "Cierre",
+    "ts": 1781137312953
   }
 ]
