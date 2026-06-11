@@ -19,5 +19,12 @@
     "fecha": "2026-06-04",
     "resultado": "Cierre",
     "ts": 1781140967720
+  },
+  {
+    "id": 1781141458151,
+    "asesor": "ANTONELLA ANDREA ORTEGA VILLANUEVA",
+    "fecha": "2026-06-05",
+    "resultado": "Seguimiento",
+    "ts": 1781141458151
   }
 ]
