@@ -82,5 +82,12 @@
     "fecha": "2026-06-11",
     "resultado": "Cierre",
     "ts": 1781189300758
+  },
+  {
+    "id": 1781189331425,
+    "asesor": "RODRIGO IGNACIO CASTRO FIGUEROA",
+    "fecha": "2026-06-11",
+    "resultado": "Seguimiento",
+    "ts": 1781189331425
   }
 ]
