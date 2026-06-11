@@ -43,5 +43,14 @@
     "contrato": "4692",
     "fecha": "2026-06-11",
     "ts": 1781137020073
+  },
+  {
+    "id": 1781137287453,
+    "asesor": "XIMENA DEL CARMEN LOPEZ ROZAS",
+    "empresa": "PF",
+    "monto": 252000,
+    "contrato": "4668",
+    "fecha": "2026-06-11",
+    "ts": 1781137287453
   }
 ]
