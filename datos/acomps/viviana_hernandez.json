@@ -103,5 +103,12 @@
     "fecha": "2026-06-11",
     "resultado": "Cierre",
     "ts": 1781137312953
+  },
+  {
+    "id": 1781137412697,
+    "asesor": "KARINA DEL VALLE ESCALONA GONZALEZ",
+    "fecha": "2026-06-11",
+    "resultado": "Seguimiento",
+    "ts": 1781137412698
   }
 ]
