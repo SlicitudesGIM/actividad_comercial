@@ -43,5 +43,14 @@
     "contrato": "4670",
     "fecha": "2026-06-11",
     "ts": 1781188788512
+  },
+  {
+    "id": 1781189223004,
+    "asesor": "ROCIO RAQUEL ALVAREZ SUAREZ",
+    "empresa": "PF",
+    "monto": 225000,
+    "contrato": "4597",
+    "fecha": "2026-06-11",
+    "ts": 1781189223004
   }
 ]
