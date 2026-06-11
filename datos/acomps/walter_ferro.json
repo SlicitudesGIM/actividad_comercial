@@ -19,5 +19,12 @@
     "fecha": "2026-06-10",
     "resultado": "Pérdida",
     "ts": 1781178019381
+  },
+  {
+    "id": 1781184083336,
+    "asesor": "ESTHEFFANY PADILLA TICSE",
+    "fecha": "2026-06-10",
+    "resultado": "Cierre",
+    "ts": 1781184083336
   }
 ]
