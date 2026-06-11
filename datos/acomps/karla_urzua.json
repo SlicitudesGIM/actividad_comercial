@@ -54,5 +54,12 @@
     "fecha": "2026-06-08",
     "resultado": "Seguimiento",
     "ts": 1781194526083
+  },
+  {
+    "id": 1781194607653,
+    "asesor": "PÍA KARINA GUTIÉRREZ SILVA",
+    "fecha": "2026-06-10",
+    "resultado": "Seguimiento",
+    "ts": 1781194607653
   }
 ]
