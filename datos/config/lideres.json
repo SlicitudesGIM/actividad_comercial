@@ -8,7 +8,8 @@
         "PKHc0IUKBKAC11_tap_buhtig",
         "jiV4JUXGrtVVPn3P_OBExCDuZ",
         "973IwH453RH5I55EHvT7n9e1ZbUS6DpUZ9uCljZx4Nv"
-      ]
+      ],
+      "activo": true
     },
     {
       "key": "WALTER FERRO",
@@ -18,7 +19,8 @@
         "m4MK0IUKBKAC11_tap_buhtig",
         "mF4wNyr057u4EY8p_bBdWDXPG",
         "LzTJGcofJQEZY27IY3n9fNz1X5h2xRYYgExI5xBSeIM"
-      ]
+      ],
+      "activo": true
     },
     {
       "key": "GABRIELA ROJAS",
@@ -28,7 +30,8 @@
         "RJy10IUKBKAC11_tap_buhtig",
         "PMcVGfAVotUROkZB_8576dGqr",
         "oKg8rgBBYYGFLV2S771Vev5XXOcd5ZVRoeBRVH3a6aA"
-      ]
+      ],
+      "activo": true
     },
     {
       "key": "ESTEFANI GONZALEZ",
@@ -38,7 +41,8 @@
         "DNe20IUKBKAC11_tap_buhtig",
         "09ycrQkoRP0LZn7v_9WReibmJ",
         "YKJDdp527N35DN3Io9cnCVQwZDlOEBJ9ctCyIMi4G6q"
-      ]
+      ],
+      "activo": true
     },
     {
       "key": "CAMILO MEDEL",
@@ -48,7 +52,8 @@
         "Daug0IUKBKAC11_tap_buhtig",
         "lP1SnZoksJOhr2W1_PWEQwoyE",
         "a0wqSFqmTRALU222lIj9DR5ye34Pue7gf1ViYHfqeXi"
-      ]
+      ],
+      "activo": true
     },
     {
       "key": "RAUL BUSTOS",
@@ -58,7 +63,8 @@
         "GT5g0IUKBKAC11_tap_buhtig",
         "8JUZvO35s8Hn4sDy_jeXWl7gf",
         "oZIxsL4v4JLBUTG3WlIMyAK8PYLWm24Is8uDMjEmLSF"
-      ]
+      ],
+      "activo": true
     },
     {
       "key": "PATRICIA MARTINEZ",
@@ -68,7 +74,8 @@
         "LsyM0IUKBKAC11_tap_buhtig",
         "cpG5yIAos1iAt2Kf_uPnT7FEV",
         "Qaec2IgsR7WDZXETXQlScLys3fvucPFwiBirNmB46xQ"
-      ]
+      ],
+      "activo": true
     },
     {
       "key": "SUGEY VIVAS",
@@ -78,67 +85,78 @@
         "He9L0IUKBKAC11_tap_buhtig",
         "58YdJ5KBqbMquGG6_GdewcWgZ",
         "AU6wa3D5VQBUNNA51ewSFqJN1ZSD1h7tlKRW3ft0WZW"
-      ]
+      ],
+      "activo": true
     },
     {
       "key": "KAREN PADILLA",
       "nombre": "Karen Padilla",
       "pin_seed": "2222",
-      "_t": []
+      "_t": [],
+      "activo": true
     },
     {
       "key": "OLIVIA BALBONTIN",
       "nombre": "Olivia Balbontin",
       "pin_seed": "5555",
-      "_t": []
+      "_t": [],
+      "activo": true
     },
     {
       "key": "PAOLA ALISTE",
       "nombre": "Paola Aliste",
       "pin_seed": "6666",
-      "_t": []
+      "_t": [],
+      "activo": true
     },
     {
       "key": "SOLANGE MARTINEZ",
       "nombre": "Solange Martinez",
       "pin_seed": "7777",
-      "_t": []
+      "_t": [],
+      "activo": true
     },
     {
       "key": "SOLEDAD RENGIFO",
       "nombre": "Soledad Rengifo",
       "pin_seed": "8888",
-      "_t": []
+      "_t": [],
+      "activo": true
     },
     {
       "key": "YOGLIMAR CAIBE",
       "nombre": "Yoglimar Caibe",
       "pin_seed": "9999",
-      "_t": []
+      "_t": [],
+      "activo": true
     },
     {
       "key": "ERNESTO OLIVA",
       "nombre": "Ernesto Oliva",
       "pin_seed": "3256",
-      "_t": []
+      "_t": [],
+      "activo": false
     },
     {
       "key": "FRANCESCA SANCHEZ",
       "nombre": "Francesca Sanchez",
       "pin_seed": "0740",
-      "_t": []
+      "_t": [],
+      "activo": true
     },
     {
       "key": "KARLA URZUA",
       "nombre": "Karla Urzua",
       "pin_seed": "6260",
-      "_t": []
+      "_t": [],
+      "activo": true
     },
     {
       "key": "MARIA SEPULVEDA",
       "nombre": "Maria Sepulveda",
       "pin_seed": "6196",
-      "_t": []
+      "_t": [],
+      "activo": true
     }
   ],
   "gerentes": [
