@@ -7,5 +7,14 @@
     "contrato": "4390",
     "fecha": "2026-06-03",
     "ts": 1781183977654
+  },
+  {
+    "id": 1781184095020,
+    "asesor": "ESTHEFFANY PADILLA TICSE",
+    "empresa": "PF",
+    "monto": 2000000,
+    "contrato": "4674",
+    "fecha": "2026-06-10",
+    "ts": 1781184095020
   }
 ]
