@@ -2050,6 +2050,8 @@ async function procesarBBDD(input){
 
       // ── Excluir registros basura (solo en REPORTE) ──
       const EXCLUIR_LIDERES = ['EJEMPLO','PRUEBA','TOP PERFORMANCE','ALVA'];
+      // Gerentes y admin nunca deben procesarse como líderes (ej. Ernesto, Ricardo)
+      const NO_SON_LIDERES = [...GERENTES_INFO, ...ADMIN_INFO].map(g=>normStr(g.key));
 
       // ── Filtro de filas válidas ──
       const filaValida = (r) => {
@@ -2057,6 +2059,7 @@ async function procesarBBDD(input){
         const asesor = normStr(r[colAsesor]);
         if(!lider || !asesor) return false;
         if(EXCLUIR_LIDERES.some(x=>lider.includes(x))) return false;
+        if(NO_SON_LIDERES.includes(lider)) return false; // gerentes/admin no son líderes
 
         if(esReporte){
           // REPORTE: debe tener DISTRITO y ESTADO ALTA/NORMAL/A
@@ -2082,7 +2085,7 @@ async function procesarBBDD(input){
           const rut    = String(r[colRut]||'').trim();
           const dist   = normStr(r[colDistrito]||'');
           if(lider && lider===asesor && rut && dist){
-            if(!EXCLUIR_LIDERES.some(x=>lider.includes(x))){
+            if(!EXCLUIR_LIDERES.some(x=>lider.includes(x)) && !NO_SON_LIDERES.includes(lider)){
               rutsPorLider[lider] = rutSeed(rut);
             }
           }
