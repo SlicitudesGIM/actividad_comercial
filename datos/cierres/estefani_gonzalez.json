@@ -16,5 +16,14 @@
     "contrato": "4702",
     "fecha": "2026-06-12",
     "ts": 1781281049453
+  },
+  {
+    "id": 1781281065001,
+    "asesor": "MARIA ALEJANDRA CAMEJO ACUNA",
+    "empresa": "VU",
+    "monto": 300000,
+    "contrato": "1016135",
+    "fecha": "2026-06-12",
+    "ts": 1781281065001
   }
 ]
