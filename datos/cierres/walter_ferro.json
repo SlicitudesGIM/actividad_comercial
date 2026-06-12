@@ -43,5 +43,14 @@
     "contrato": "4724",
     "fecha": "2026-06-12",
     "ts": 1781290992413
+  },
+  {
+    "id": 1781291121239,
+    "asesor": "FRANCESCA NICOLE SANCHEZ PACHECO",
+    "empresa": "PF",
+    "monto": 2800000,
+    "contrato": "4726",
+    "fecha": "2026-06-12",
+    "ts": 1781291121239
   }
 ]
