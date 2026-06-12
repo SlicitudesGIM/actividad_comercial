@@ -1,0 +1,2753 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Actividad Comercial — Protección Familiar</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap');
+:root{
+  --bg:#f4f6f8;--surface:#fff;--s2:#f0f2f5;--border:#dde1e8;--border2:#c8cdd8;
+  --green:#2db928;--gd:#239420;--gl:#e8f8e7;--g2:#8dc63f;
+  --black:#1a1a1a;--gray:#5a5a5a;--gray2:#8a8f9a;--gray3:#b8bcc8;
+  --red:#d63d3d;--rl:#fdecea;--amber:#f59e0b;--al:#fef3c7;--blue:#3b82f6;--bl:#eff6ff;
+  --r:10px;--sh:0 2px 8px rgba(0,0,0,.07);--shm:0 4px 16px rgba(0,0,0,.10);
+  --p:12px; /* padding base mobile */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Open Sans',sans-serif;background:var(--bg);color:var(--black);min-height:100vh;overflow-x:hidden;font-size:15px}
+
+/* ── NAV ── */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 var(--p);height:56px;background:var(--black);position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.25);gap:6px}
+.brand{display:flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.brand-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0}
+.brand span{color:var(--green)}
+.brand-sub{display:none} /* ocultar subtítulo en móvil */
+.nav-tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{padding:7px 13px;border-radius:6px;border:none;background:transparent;color:rgba(255,255,255,.6);font-family:'Open Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.nav-tab:hover{background:rgba(255,255,255,.1);color:#fff}
+.nav-tab.active{background:var(--green);color:#fff;font-weight:700}
+.nav-right{display:flex;align-items:center;gap:5px;flex-shrink:0}
+.user-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:4px 11px;font-size:12px;color:rgba(255,255,255,.75);display:none;white-space:nowrap}
+.user-badge strong{color:var(--green)}
+.btn-nav{padding:7px 12px;background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:6px;color:rgba(255,255,255,.7);font-size:12px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-nav:hover{border-color:rgba(255,255,255,.5);color:#fff}
+/* Ocultar "Exportar" en móvil pequeño */
+@media(max-width:480px){.btn-nav-export{display:none}}
+
+/* ── PAGES ── */
+.page{display:none;padding:var(--p)}
+.page.active{display:block}
+#pg-login{display:none;align-items:center;justify-content:center;min-height:calc(100vh - 56px);background:linear-gradient(135deg,#f4f6f8,#e8f8e7);padding:var(--p)}
+#pg-login.active{display:flex}
+
+/* ── LOGIN ── */
+.login-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px 24px;width:100%;max-width:420px;text-align:center;box-shadow:var(--shm)}
+.login-icon{width:56px;height:56px;background:var(--green);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px}
+.login-card h1{font-family:'Montserrat',sans-serif;font-size:21px;font-weight:800;color:var(--black);margin-bottom:4px}
+.login-card h1 span{color:var(--green)}
+.login-card p{color:var(--gray);font-size:14px;margin-bottom:20px}
+.login-card select{width:100%;padding:13px 14px;background:var(--s2);border:1.5px solid var(--border);border-radius:var(--r);color:var(--black);font-family:'Open Sans',sans-serif;font-size:16px;appearance:none;cursor:pointer;margin-bottom:13px;transition:border-color .2s}
+.login-card select:focus{outline:none;border-color:var(--green)}
+.btn-primary{width:100%;padding:14px;background:var(--green);border:none;border-radius:var(--r);color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s}
+.btn-primary:hover{background:var(--gd)}
+
+/* ── CARD ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;box-shadow:var(--sh);margin-bottom:14px}
+.card-title{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--black);margin-bottom:14px;padding-bottom:11px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px}
+.card-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.section-title{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:var(--black);margin-bottom:3px}
+.section-sub{color:var(--gray);font-size:13px;margin-bottom:16px}
+
+/* ── FORM ── */
+.form-group{margin-bottom:13px}
+.form-group label{display:block;font-size:12px;color:var(--gray2);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;font-weight:600}
+.form-group select,.form-group input[type=date],.form-group input[type=text]{width:100%;padding:11px 13px;background:var(--s2);border:1.5px solid var(--border);border-radius:8px;color:var(--black);font-family:'Open Sans',sans-serif;font-size:16px;appearance:none;transition:border-color .2s}
+.form-group select:focus,.form-group input:focus{outline:none;border-color:var(--green)}
+
+/* ── COUNTERS ── */
+.counter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.counter-label{font-size:12px;color:var(--gray2);text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px;font-weight:600}
+.counter-meta{font-size:11px;color:var(--green);font-weight:600;margin-bottom:5px}
+.counter-ctrl{display:flex;align-items:center;background:var(--s2);border:1.5px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .2s}
+.counter-ctrl:focus-within{border-color:var(--green)}
+.cbtn{width:38px;height:48px;background:transparent;border:none;color:var(--gd);font-size:22px;cursor:pointer;transition:background .15s;font-weight:700;flex-shrink:0}
+.cbtn:active{background:var(--gl)}
+.cval{flex:1;text-align:center;font-family:'Montserrat',sans-serif;font-size:24px;font-weight:800;background:transparent;border:none;color:var(--black);outline:none;-moz-appearance:textfield;padding:0;min-width:0}
+.cval::-webkit-outer-spin-button,.cval::-webkit-inner-spin-button{-webkit-appearance:none}
+
+/* ── BUTTONS ── */
+.btn-save{width:100%;padding:14px;background:var(--green);border:none;border-radius:var(--r);color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s}
+.btn-save:active{background:var(--gd)}
+.btn-save.dark{background:var(--black)}
+.btn-save.dark:active{background:#333}
+.btn-sm{padding:8px 14px;border-radius:7px;border:1.5px solid var(--border);background:var(--surface);color:var(--gray);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-sm.active{background:var(--black);border-color:var(--black);color:#fff}
+
+/* ── TABLE ── */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;padding:9px 10px;color:var(--gray2);border-bottom:2px solid var(--border);font-size:12px;text-transform:uppercase;letter-spacing:.4px;background:var(--s2);font-weight:700}
+.tbl td{padding:10px 10px;border-bottom:1px solid var(--border);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:none}
+.tbl-center th,.tbl-center td{text-align:center}
+.tbl-center th:first-child,.tbl-center td:first-child{text-align:left}
+
+/* ── BADGES ── */
+.badge{display:inline-block;padding:3px 9px;border-radius:10px;font-size:12px;font-weight:700}
+.badge-c{background:var(--gl);color:var(--gd)}
+.badge-p{background:#edf7ed;color:#4a8c3f}
+.badge-ci{background:var(--black);color:#fff}
+.badge-acomp{background:var(--bl);color:var(--blue)}
+.badge-cierre{background:#dcfce7;color:#166534}
+.badge-seguimiento{background:var(--al);color:#92400e}
+.badge-perdida{background:var(--rl);color:var(--red)}
+.badge-ok{background:var(--gl);color:var(--gd)}
+.badge-warn{background:var(--al);color:#92400e}
+.badge-bad{background:var(--rl);color:var(--red)}
+
+/* ── ALERT CARDS ── */
+.alert-card{background:var(--rl);border:1.5px solid #f5a3a3;border-radius:var(--r);padding:14px 16px;margin-bottom:9px;display:flex;align-items:flex-start;gap:11px}
+.alert-card.warn{background:var(--al);border-color:#fcd34d}
+.alert-icon{font-size:20px;flex-shrink:0}
+.alert-body{flex:1}
+.alert-title{font-weight:700;font-size:14px;color:var(--black);margin-bottom:3px}
+.alert-sub{font-size:12px;color:var(--gray)}
+
+/* ── KPI ── */
+.kpi-row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+@media(min-width:600px){.kpi-row{grid-template-columns:repeat(4,1fr)}}
+.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;position:relative;overflow:hidden;box-shadow:var(--sh)}
+.kpi-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
+.kpi-card.k0::after{background:var(--g2)}
+.kpi-card.k1::after{background:var(--black)}
+.kpi-card.k2::after{background:var(--gd)}
+.kpi-card.k3::after{background:var(--amber)}
+.kpi-label{font-size:11px;color:var(--gray2);text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px;font-weight:700}
+.kpi-val{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;line-height:1;color:var(--black)}
+.kpi-sub{font-size:11px;color:var(--gray2);margin-top:3px}
+.kpi-meta{font-size:11px;margin-top:4px;font-weight:600}
+.kpi-meta.ok{color:var(--gd)}.kpi-meta.warn{color:var(--amber)}.kpi-meta.bad{color:var(--red)}
+
+/* ── CHARTS ── */
+.charts-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
+@media(min-width:700px){.charts-grid{grid-template-columns:1fr 1fr}}
+.chart-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px;box-shadow:var(--sh)}
+.chart-title{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--black);margin-bottom:3px}
+.chart-sub{font-size:12px;color:var(--gray2);margin-bottom:13px}
+.full-col{grid-column:1/-1}
+
+/* ── PROGRESO HOY ── */
+.prog-hoy{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);margin-top:14px}
+.prog-hoy-header{padding:12px 16px;background:var(--s2);border-bottom:1px solid var(--border);font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--black);display:flex;align-items:center;justify-content:space-between}
+
+/* ── META BAR ── */
+.mbar-wrap{display:flex;align-items:center;gap:5px;min-width:70px}
+.mbar{flex:1;height:5px;background:var(--border);border-radius:3px;overflow:hidden}
+.mbar-fill{height:100%;border-radius:3px}
+.mbar-ok{background:var(--green)}.mbar-warn{background:var(--amber)}.mbar-bad{background:var(--red)}
+.mpct{font-size:12px;min-width:34px;text-align:right;font-weight:700}
+
+/* ── META INPUT ── */
+.meta-input{width:56px;padding:6px 8px;border:1.5px solid var(--border);border-radius:6px;text-align:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;background:var(--surface);color:var(--black);transition:border-color .2s}
+.meta-input:focus{outline:none;border-color:var(--green)}
+
+/* ── RANKING ── */
+.ranking-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px;box-shadow:var(--sh);margin-bottom:14px}
+
+/* ── PIN MODAL ── */
+#modal-pin{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(3px);padding:16px}
+.pin-card{background:#fff;border-radius:18px;padding:28px 24px;width:100%;max-width:340px;text-align:center;box-shadow:0 16px 60px rgba(0,0,0,.3)}
+.pin-logo{width:48px;height:48px;background:var(--black);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px}
+.pin-card h3{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;color:var(--black);margin-bottom:4px}
+.pin-who{display:inline-block;background:var(--gl);color:var(--gd);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;margin-bottom:18px;font-family:'Montserrat',sans-serif}
+.pin-label{font-size:10px;color:var(--gray2);text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:10px}
+.pin-dots{display:flex;justify-content:center;gap:12px;margin-bottom:14px}
+.pin-dot{width:16px;height:16px;border-radius:50%;border:2.5px solid var(--border2);background:transparent;transition:all .15s}
+.pin-dot.filled{background:var(--black);border-color:var(--black);transform:scale(1.1)}
+.pin-dot.error{background:var(--red);border-color:var(--red);animation:shake .4s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+#pin-input{width:160px;padding:14px;border:1.5px solid var(--border);border-radius:9px;font-size:28px;font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:14px;text-align:center;outline:none;color:transparent;caret-color:var(--black);background:var(--s2);transition:border-color .2s;display:block;margin:0 auto 6px}
+#pin-input:focus{border-color:var(--green)}
+#pin-error{font-size:11px;font-weight:600;color:var(--red);min-height:18px;margin-bottom:10px}
+.pin-back{background:transparent;border:1.5px solid var(--border);border-radius:8px;padding:8px 16px;color:var(--gray2);font-size:11px;cursor:pointer;transition:all .2s}
+
+/* ── CATÁLOGO PINs ── */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:11px;margin-bottom:18px}
+.cat-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;transition:border-color .2s}
+.cat-card:hover{border-color:var(--green)}
+.cat-card.rol-lider{border-left:3px solid var(--blue)}
+.cat-card.rol-gerente{border-left:3px solid var(--amber)}
+.cat-card.rol-admin{border-left:3px solid var(--green)}
+.cat-rol{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.cat-rol.rl{color:var(--blue)}.cat-rol.rg{color:#92400e}.cat-rol.ra{color:var(--gd)}
+.cat-nombre{font-size:13px;font-weight:700;color:var(--black);margin-bottom:11px;line-height:1.3}
+.cat-pin-row{display:flex;align-items:center;justify-content:space-between;background:var(--s2);border-radius:7px;padding:8px 11px;gap:8px}
+.cat-pin-val{font-family:'JetBrains Mono','Courier New',monospace;font-size:20px;font-weight:700;color:var(--blue);letter-spacing:4px;filter:blur(4px);transition:filter .25s;cursor:pointer}
+.cat-pin-val.shown{filter:blur(0);color:var(--gd)}
+.cat-eye{font-size:15px;cursor:pointer;color:var(--gray3);flex-shrink:0;transition:color .2s}
+.cat-eye:hover{color:var(--green)}
+.cat-seed{font-size:11px;color:var(--gray3);margin-top:6px;font-family:monospace}
+.cat-section-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray2);margin-bottom:9px;margin-top:4px}
+.toast{position:fixed;bottom:16px;right:16px;left:16px;background:var(--green);color:#fff;padding:13px 18px;border-radius:9px;font-weight:700;font-size:14px;opacity:0;transform:translateY(8px);transition:all .3s;pointer-events:none;z-index:9998;box-shadow:0 4px 16px rgba(45,185,40,.35);text-align:center}
+@media(min-width:480px){.toast{left:auto;right:20px;width:auto;max-width:340px}}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.err{background:var(--red);box-shadow:0 4px 16px rgba(214,61,61,.35)}
+
+/* ── MISC ── */
+.empty-state{text-align:center;padding:24px;color:var(--gray2);font-size:13px}
+.del-btn{background:transparent;border:none;color:var(--gray3);cursor:pointer;font-size:15px;padding:3px 6px;border-radius:4px;transition:all .15s}
+.del-btn:active{background:var(--rl);color:var(--red)}
+.ts-label{font-size:11px;color:var(--gray2)}
+.grid2{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:700px){.grid2{grid-template-columns:1fr 1fr}}
+.date-display{padding:10px 13px;background:var(--gl);border:1px solid #c3e6c2;border-radius:7px;font-size:14px;color:var(--gd);font-weight:600}
+.dash-controls{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.dash-controls label{font-size:13px;color:var(--gray2);font-weight:600;display:flex;align-items:center;gap:5px}
+.dash-controls input[type=date]{padding:8px 11px;background:var(--surface);border:1.5px solid var(--border);border-radius:7px;color:var(--black);font-family:'Open Sans',sans-serif;font-size:14px;transition:border-color .2s}
+.dash-controls input:focus{outline:none;border-color:var(--green)}
+.asesores-badge{display:inline-flex;align-items:center;gap:4px;background:var(--bl);color:var(--blue);border-radius:10px;padding:3px 9px;font-size:12px;font-weight:700}
+
+/* ── DESKTOP ENHANCEMENTS ── */
+@media(min-width:700px){
+  :root{--p:22px}
+  nav{height:60px;padding:0 26px}
+  .brand{font-size:15px}
+  .brand-sub{display:inline}
+  .nav-tab{padding:8px 16px;font-size:14px}
+  .btn-nav{font-size:13px;padding:8px 15px}
+  .page{padding:26px}
+  .card{padding:24px;margin-bottom:18px}
+  .card-title{font-size:16px}
+  .section-title{font-size:23px}
+  .section-sub{font-size:14px}
+  .kpi-val{font-size:36px}
+  .kpi-label{font-size:12px}
+  .tbl{font-size:15px}
+  .tbl th{font-size:12px;padding:10px 12px}
+  .tbl td{padding:11px 12px}
+  .cbtn{width:40px;height:46px}
+  .cval{font-size:24px}
+  .alert-title{font-size:15px}
+  .alert-sub{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand"><div class="brand-dot"></div><span>Protección Familiar</span> — Actividad Comercial</div>
+  <div class="nav-tabs">
+    <button class="nav-tab" id="tab-registro"  onclick="showPage('registro')">📋 Registro</button>
+    <button class="nav-tab" id="tab-metas"     onclick="showPage('metas');cargarPaginaMetas()">🎯 Metas</button>
+    <button class="nav-tab" id="tab-alertas"   onclick="showPage('alertas');renderAlertas()">🔔 Alertas</button>
+    <button class="nav-tab" id="tab-dashboard" onclick="showPage('dashboard');renderDashboard()">📊 Dashboard</button>
+    <button class="nav-tab" id="tab-cierres"   onclick="showPage('cierres');renderCierresPage()">💰 Cierres</button>
+    <button class="nav-tab" id="tab-admin"     onclick="showPage('admin');renderAdminResumen()">⚙️ Admin</button>
+    <button class="nav-tab" id="tab-catalogo"  onclick="showPage('catalogo');renderCatalogo()">🔑 PINs</button>
+  </div>
+  <div class="nav-right">
+    <div class="user-badge" id="user-badge">Sesión: <strong id="user-badge-name">—</strong></div>
+    <button class="btn-nav btn-nav-export" onclick="exportarExcel()">⬇ Exportar</button>
+    <button class="btn-nav" onclick="cerrarSesion()">↩ Salir</button>
+  </div>
+</nav>
+
+<!-- ══ LOGIN ══ -->
+<div id="pg-login" class="page active">
+  <div class="login-card">
+    <div class="login-icon">👨‍👩‍👧</div>
+    <h1><span>Protección Familiar</span></h1>
+    <p style="font-weight:700;font-size:12px;color:var(--gray);margin-bottom:4px">Grupo Iván Martínez</p>
+    <p>Sistema de Control de Actividad Comercial</p>
+    <select id="login-select"><option value="">— Selecciona tu nombre —</option></select>
+    <button class="btn-primary" onclick="iniciarSesion()">Ingresar →</button>
+  </div>
+</div>
+
+<!-- ══ REGISTRO (líderes) ══ -->
+<div id="pg-registro" class="page">
+  <div class="section-title">Registro Diario</div>
+  <div class="section-sub" id="reg-fecha-lbl">Hoy: —</div>
+
+  <div class="grid2">
+    <!-- Actividad por asesor -->
+    <div class="card">
+      <div class="card-title"><div class="card-dot" style="background:var(--green)"></div>Actividad por Asesor</div>
+      <div class="form-group">
+        <label>Asesor</label>
+        <select id="reg-sel-asesor" onchange="onAsesorChange()"><option value="">— Selecciona asesor —</option></select>
+      </div>
+      <div class="form-group">
+        <label>Fecha de la actividad</label>
+        <div style="display:flex;gap:8px;margin-bottom:8px">
+          <button class="btn-sm active" id="reg-btn-hoy" onclick="setFechaReg('hoy')">📅 Hoy</button>
+          <button class="btn-sm" id="reg-btn-otra" onclick="setFechaReg('otra')">📆 Otra fecha</button>
+        </div>
+        <div class="date-display" id="reg-fecha-display">—</div>
+        <input type="date" id="reg-fecha-input" style="display:none;width:100%;margin-top:6px;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;font-family:'Open Sans',sans-serif;font-size:13px" onchange="onAsesorChange()">
+      </div>
+      <div class="counter-grid" id="reg-counters" style="grid-template-columns:repeat(2,1fr)">
+        <div>
+          <div class="counter-label">Citas</div>
+          <div class="counter-meta" id="reg-meta-citas">Meta: —</div>
+          <div class="counter-ctrl">
+            <button class="cbtn" onclick="cc('citas',-1)">−</button>
+            <input type="number" class="cval" id="cnt-citas" value="0" min="0" oninput="sc('citas',this)">
+            <button class="cbtn" onclick="cc('citas',1)">+</button>
+          </div>
+        </div>
+        <div>
+          <div class="counter-label">Presentaciones</div>
+          <div class="counter-meta" id="reg-meta-pres">Meta: —</div>
+          <div class="counter-ctrl">
+            <button class="cbtn" onclick="cc('presentaciones',-1)">−</button>
+            <input type="number" class="cval" id="cnt-presentaciones" value="0" min="0" oninput="sc('presentaciones',this)">
+            <button class="cbtn" onclick="cc('presentaciones',1)">+</button>
+          </div>
+        </div>
+      </div>
+      <button class="btn-save" onclick="guardarActividadAsesor()">✓ Guardar citas y presentaciones</button>
+
+      <!-- Registrar cierre detallado -->
+      <div style="margin-top:18px;padding-top:16px;border-top:2px dashed var(--border)">
+        <div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--black);margin-bottom:4px">💰 Registrar Cierre</div>
+        <div style="font-size:11px;color:var(--gray2);margin-bottom:12px">Cada cierre se registra con empresa, monto y N° de contrato</div>
+        <div class="counter-meta" id="reg-meta-cierres" style="margin-bottom:10px">Meta cierres: —</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+          <div class="form-group" style="margin-bottom:0">
+            <label>Empresa</label>
+            <select id="cierre-empresa">
+              <option value="">— Empresa —</option>
+              <option value="PF">Protección Familiar</option>
+              <option value="VU">Valles Unidos</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label>N° Contrato (Jake Mate)</label>
+            <input type="text" id="cierre-contrato" placeholder="Ej: 1014405" inputmode="numeric">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Monto abonado (CLP)</label>
+          <input type="text" id="cierre-monto" placeholder="Ej: 150.000" inputmode="numeric" oninput="formatearMonto(this)">
+        </div>
+        <button class="btn-save" style="background:var(--gd)" onclick="guardarCierre()">💰 Registrar Cierre</button>
+
+        <div style="margin-top:14px">
+          <div style="font-size:13px;color:var(--gray2);font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">Cierres de hoy</div>
+          <div style="overflow-x:auto">
+            <table class="tbl"><thead><tr><th>Asesor</th><th>Empresa</th><th>Monto</th><th>Contrato</th><th></th></tr></thead>
+            <tbody id="tbl-cierres-hoy"></tbody></table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Acompañamiento -->
+    <div class="card">
+      <div class="card-title"><div class="card-dot" style="background:var(--black)"></div>Registrar Acompañamiento</div>
+      <div class="form-group">
+        <label>Asesor acompañado</label>
+        <select id="acomp-sel-asesor"><option value="">— Selecciona asesor —</option></select>
+      </div>
+      <div class="form-group">
+        <label>Resultado</label>
+        <select id="acomp-resultado">
+          <option value="">— Resultado —</option>
+          <option value="Cierre">✅ Cierre</option>
+          <option value="Seguimiento">🔁 Seguimiento</option>
+          <option value="Pérdida">❌ Pérdida</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Fecha</label>
+        <div style="display:flex;gap:8px;margin-bottom:8px">
+          <button class="btn-sm active" id="acomp-btn-hoy" onclick="setFechaAcomp('hoy')">Hoy</button>
+          <button class="btn-sm" id="acomp-btn-otra" onclick="setFechaAcomp('otra')">Otra fecha</button>
+        </div>
+        <div class="date-display" id="acomp-fecha-display">—</div>
+        <input type="date" id="acomp-fecha-input" onchange="renderAcompsHoy()" style="display:none;width:100%;margin-top:6px;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;font-family:'Open Sans',sans-serif;font-size:13px">
+      </div>
+      <button class="btn-save dark" onclick="guardarAcomp()">✓ Registrar Acompañamiento</button>
+
+      <div style="margin-top:18px">
+        <div id="acomps-hoy-titulo" style="font-size:11px;color:var(--gray2);font-weight:700;text-transform:uppercase;letter-spacing:.7px;margin-bottom:8px">Acompañamientos de hoy</div>
+        <table class="tbl"><thead><tr><th>Asesor</th><th>Resultado</th><th>Hora</th><th></th></tr></thead>
+        <tbody id="tbl-acomps-hoy"></tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progreso equipo hoy -->
+  <div class="prog-hoy">
+    <div class="prog-hoy-header">
+      <span>📊 Progreso del equipo — <span id="prog-fecha">hoy</span></span>
+      <span id="prog-resumen" style="font-size:12px;color:var(--gray2)"></span>
+    </div>
+    <div style="overflow-x:auto">
+      <table class="tbl tbl-center">
+        <thead><tr>
+          <th style="text-align:left">Asesor</th>
+          <th>Citas<br><small style="font-weight:400;text-transform:none">Real / Meta</small></th>
+          <th>Pres.<br><small style="font-weight:400;text-transform:none">Real / Meta</small></th>
+          <th>Cierres PF<br><small style="font-weight:400;text-transform:none">Real / Meta</small></th>
+          <th>Cierres VU<br><small style="font-weight:400;text-transform:none">Real / Meta</small></th>
+          <th>Acomps</th>
+          <th>Estado</th>
+        </tr></thead>
+        <tbody id="tbl-progreso-hoy"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══ METAS ══ -->
+<div id="pg-metas" class="page">
+  <div class="section-title">Gestión de Metas</div>
+  <div class="section-sub" id="metas-sub">—</div>
+
+  <!-- Metas globales (solo Anaís) -->
+  <div class="card" id="metas-globales-card" style="display:none">
+    <div class="card-title"><div class="card-dot" style="background:var(--amber)"></div>Metas Globales — Aplican a todos los asesores</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:420px">
+      <div class="form-group">
+        <label>Meta Citas / día</label>
+        <input type="number" id="meta-global-citas" value="3" min="1" style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:8px;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;text-align:center">
+      </div>
+      <div class="form-group">
+        <label>Meta Presentaciones / día</label>
+        <input type="number" id="meta-global-pres" value="1" min="1" style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:8px;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;text-align:center">
+      </div>
+    </div>
+    <button class="btn-save" style="max-width:240px" onclick="guardarMetasGlobales()">💾 Guardar metas globales</button>
+  </div>
+
+  <!-- Meta acompañamientos por líder (solo Ernesto) -->
+  <div class="card" id="metas-acomp-card" style="display:none">
+    <div class="card-title"><div class="card-dot" style="background:var(--blue)"></div>Meta de Acompañamientos — Global para todos los líderes</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:420px;margin-bottom:16px">
+      <div class="form-group">
+        <label>Acompañamientos diarios por líder</label>
+        <input type="number" id="meta-acomp-diaria" value="4" min="1" style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:8px;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;text-align:center">
+      </div>
+      <div class="form-group">
+        <label>Mínimo cierres en acomp. / día</label>
+        <input type="number" id="meta-acomp-cierres" value="1" min="0" style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:8px;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;text-align:center">
+      </div>
+    </div>
+    <button class="btn-save" style="max-width:280px;background:var(--blue)" onclick="guardarMetaAcomp()">💾 Guardar meta de acompañamientos</button>
+  </div>
+
+  <!-- Metas de cierres por asesor (líderes) -->
+  <div class="card" id="metas-cierres-card" style="display:none">
+    <div class="card-title"><div class="card-dot" style="background:var(--green)"></div>Meta de Cierres por Asesor — <span id="metas-lider-nombre" style="color:var(--gd)"></span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+      <span id="metas-asesores-count" class="asesores-badge">👥 0 asesores</span>
+      <div style="font-size:11px;color:var(--gray2)">Las metas de Citas (3/día) y Presentaciones (1/día) son globales — definidas por administración</div>
+    </div>
+    <div style="overflow-x:auto">
+      <table class="tbl tbl-center">
+        <thead><tr>
+          <th style="text-align:left">Asesor</th>
+          <th>Citas/día <span style="font-weight:400;color:var(--gray2)">(global)</span></th>
+          <th>Pres./día <span style="font-weight:400;color:var(--gray2)">(global)</span></th>
+          <th style="background:var(--gl);color:var(--gd)">Cierres PF/día <span style="font-weight:400">← defines</span></th>
+          <th style="background:#e0f2fe;color:#1e3a5f">Cierres VU/día <span style="font-weight:400">← defines</span></th>
+        </tr></thead>
+        <tbody id="tbl-metas-body"></tbody>
+        <tfoot><tr style="background:var(--gl);font-weight:700">
+          <td style="font-size:11px;color:var(--gd);text-align:left">TOTAL EQUIPO</td>
+          <td id="meta-tot-citas" style="font-family:'Montserrat',sans-serif;color:var(--gd)">0</td>
+          <td id="meta-tot-pres" style="font-family:'Montserrat',sans-serif;color:var(--gd)">0</td>
+          <td id="meta-tot-cierres-pf" style="font-family:'Montserrat',sans-serif;color:var(--gd)">0</td>
+          <td id="meta-tot-cierres-vu" style="font-family:'Montserrat',sans-serif;color:#1e3a5f">0</td>
+        </tr></tfoot>
+      </table>
+    </div>
+    <div style="margin-top:14px;text-align:right">
+      <button class="btn-save" style="width:auto;padding:10px 24px" onclick="guardarMetasCierres()">💾 Guardar metas de cierres</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ALERTAS (gerentes) ══ -->
+<div id="pg-alertas" class="page">
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:20px">
+    <div>
+      <div class="section-title">🔔 Alertas del Día</div>
+      <div class="section-sub">Líderes que requieren atención o coaching</div>
+    </div>
+    <div class="dash-controls">
+      <label>Fecha <input type="date" id="alerta-fecha" onchange="renderAlertas()"></label>
+      <button class="btn-sm" onclick="renderAlertas()">↺ Actualizar</button>
+    </div>
+  </div>
+  <div id="alertas-container"><div class="empty-state">Cargando alertas...</div></div>
+</div>
+
+<!-- ══ DASHBOARD ══ -->
+<div id="pg-dashboard" class="page">
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:20px">
+    <div>
+      <div class="section-title" id="dash-title">Dashboard</div>
+      <div class="section-sub" id="dash-sub">—</div>
+    </div>
+    <div class="dash-controls">
+      <button class="btn-sm active" id="btn-semana" onclick="filtrarSemana()">Esta semana</button>
+      <label>Desde <input type="date" id="dash-desde" onchange="filtrarRango()"></label>
+      <label>Hasta <input type="date" id="dash-hasta" onchange="filtrarRango()"></label>
+    </div>
+  </div>
+
+  <!-- Selectores de filtro -->
+  <div id="dash-lider-bar" style="display:none;margin-bottom:16px;align-items:center;gap:10px;flex-wrap:wrap">
+    <div id="dash-lider-group" style="display:flex;align-items:center;gap:8px">
+      <label style="font-size:13px;font-weight:600;color:var(--gray2)">Ver equipo de:</label>
+      <select id="dash-sel-lider" onchange="onDashLiderChange()" style="padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;background:var(--surface)">
+        <option value="">— Todos los líderes —</option>
+      </select>
+      <button class="btn-sm" onclick="verTodosLideres()">← Ver todos</button>
+    </div>
+    <div id="dash-asesor-group" style="display:none;align-items:center;gap:8px">
+      <label style="font-size:13px;font-weight:600;color:var(--gray2)">Asesor:</label>
+      <select id="dash-sel-asesor" onchange="renderDashboard()" style="padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;background:var(--surface)">
+        <option value="">— Todos los asesores —</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpi-row">
+    <div class="kpi-card k0"><div class="kpi-label">Citas</div><div class="kpi-val" id="kpi-c">0</div><div class="kpi-sub" id="kpi-c-sub">—</div><div class="kpi-meta" id="kpi-c-meta"></div></div>
+    <div class="kpi-card k1"><div class="kpi-label">Presentaciones</div><div class="kpi-val" id="kpi-pr">0</div><div class="kpi-sub" id="kpi-pr-sub">—</div><div class="kpi-meta" id="kpi-pr-meta"></div></div>
+    <div class="kpi-card k2"><div class="kpi-label">Cierres</div><div class="kpi-val" id="kpi-ci">0</div><div class="kpi-sub" id="kpi-ci-sub">—</div><div class="kpi-meta" id="kpi-ci-meta"></div></div>
+    <div class="kpi-card k3"><div class="kpi-label">Acompañamientos</div><div class="kpi-val" id="kpi-ac">0</div><div class="kpi-sub" id="kpi-ac-sub">—</div><div class="kpi-meta" id="kpi-ac-meta"></div></div>
+  </div>
+
+  <!-- Ranking -->
+  <div class="ranking-wrap" id="ranking-wrap">
+    <div class="chart-title" id="ranking-title">🏆 Ranking de Líderes</div>
+    <div class="chart-sub" id="ranking-sub">por cierres · meta vs real · asesores</div>
+    <div style="overflow-x:auto;margin-top:14px">
+      <table class="tbl tbl-center" id="tbl-ranking-outer">
+        <thead><tr>
+          <th style="text-align:left">#</th><th style="text-align:left">Líder</th>
+          <th>Asesores</th><th>Citas</th><th>Meta C.</th>
+          <th>Pres.</th><th>Meta P.</th>
+          <th>Cierres PF/VU</th><th>Monto</th>
+          <th>Acomps</th><th>Meta Ac.</th><th>Conv.</th>
+        </tr></thead>
+        <tbody id="tbl-ranking"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Panel equipo de un líder -->
+  <div id="equipo-panel" style="display:none" class="card" style="border:1.5px solid var(--green)">
+    <div style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;margin-bottom:3px" id="equipo-panel-title">Equipo de —</div>
+    <div style="font-size:11px;color:var(--gray2);margin-bottom:16px" id="equipo-panel-sub"></div>
+    <div style="overflow-x:auto">
+      <table class="tbl tbl-center">
+        <thead>
+          <tr>
+            <th style="text-align:left" rowspan="2">Asesor</th>
+            <th colspan="2" style="background:var(--gl);color:var(--gd)">Citas</th>
+            <th colspan="2" style="background:#f0f7e6;color:#3a6e1a">Presentaciones</th>
+            <th rowspan="2" style="background:var(--gl);color:var(--gd)">Cierres PF<br><small style="font-weight:400;text-transform:none">Real / Meta</small></th>
+            <th rowspan="2" style="background:#e0f2fe;color:#1e3a5f">Cierres VU<br><small style="font-weight:400;text-transform:none">Real / Meta</small></th>
+            <th rowspan="2">Acomps</th>
+          </tr>
+          <tr>
+            <th style="background:var(--gl);color:var(--gd)">Meta</th><th style="background:var(--gl);color:var(--gd)">Real</th>
+            <th style="background:#f0f7e6;color:#3a6e1a">Meta</th><th style="background:#f0f7e6;color:#3a6e1a">Real</th>
+          </tr>
+        </thead>
+        <tbody id="tbl-equipo"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="charts-grid">
+    <div class="chart-card"><div class="chart-title">Actividad por Líder</div><div class="chart-sub">Citas · Presentaciones · Cierres</div><canvas id="chart-barras" height="220"></canvas></div>
+    <div class="chart-card"><div class="chart-title">Conversión</div><div class="chart-sub">Ratio entre etapas</div><canvas id="chart-conv" height="220"></canvas></div>
+    <div class="chart-card full-col"><div class="chart-title">Tendencia Diaria — Cierres</div><div class="chart-sub">Evolución en el período seleccionado</div><canvas id="chart-tend" height="110"></canvas></div>
+  </div>
+</div>
+
+<!-- ══ CIERRES (Detalle) ══ -->
+<div id="pg-cierres" class="page">
+  <div class="section-title">💰 Detalle de Cierres</div>
+  <div class="section-sub">Listado de todos los cierres registrados — exportable a Excel</div>
+
+  <!-- Controles de filtro -->
+  <div class="card">
+    <div class="dash-controls" style="margin-bottom:0">
+      <button class="btn-sm active" id="cie-btn-semana" onclick="filtrarCierresSemana()">Esta semana</button>
+      <label>Desde <input type="date" id="cie-desde" onchange="renderCierresPage()"></label>
+      <label>Hasta <input type="date" id="cie-hasta" onchange="renderCierresPage()"></label>
+      <label>Líder
+        <select id="cie-sel-lider" onchange="onCieLiderChange()" style="padding:8px 11px;border:1.5px solid var(--border);border-radius:7px;font-size:14px;background:var(--surface)">
+          <option value="">— Todos —</option>
+        </select>
+      </label>
+      <label>Asesor
+        <select id="cie-sel-asesor" onchange="renderCierresPage()" style="padding:8px 11px;border:1.5px solid var(--border);border-radius:7px;font-size:14px;background:var(--surface)">
+          <option value="">— Todos —</option>
+        </select>
+      </label>
+      <label>Empresa
+        <select id="cie-sel-empresa" onchange="renderCierresPage()" style="padding:8px 11px;border:1.5px solid var(--border);border-radius:7px;font-size:14px;background:var(--surface)">
+          <option value="">— Ambas —</option>
+          <option value="PF">Protección Familiar</option>
+          <option value="VU">Valles Unidos</option>
+        </select>
+      </label>
+      <button class="btn-sm" style="background:var(--gd);color:#fff;border-color:var(--gd)" onclick="exportarCierres()">⬇ Exportar a Excel</button>
+    </div>
+  </div>
+
+  <!-- Resumen + tabla -->
+  <div class="card">
+    <div id="cierres-resumen" style="font-size:14px;color:var(--gray2);margin-bottom:14px">Cargando...</div>
+    <div style="overflow-x:auto">
+      <table class="tbl tbl-center">
+        <thead><tr>
+          <th style="text-align:left">Fecha</th>
+          <th style="text-align:left">Líder</th>
+          <th style="text-align:left">Asesor</th>
+          <th>Empresa</th>
+          <th>Monto</th>
+          <th>N° Contrato</th>
+        </tr></thead>
+        <tbody id="tbl-cierres-detalle"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ADMIN (Anaís) ══ -->
+<div id="pg-admin" class="page">
+  <div class="section-title">⚙️ Administración</div>
+  <div class="section-sub">Panel exclusivo — Anaís</div>
+
+  <!-- Paso 1: Subir Excel -->
+  <div class="card">
+    <div class="card-title"><div class="card-dot" style="background:var(--amber)"></div>Paso 1 — Subir nómina de líderes y asesores</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:14px">Sube el archivo <strong>REPORTE_DE_ASESORES.xlsx</strong> o <strong>BBDD_LIDERES_Y_ASESORES.xlsx</strong>. El sistema detecta el formato automáticamente. Solo se importan registros con <strong>DISTRITO</strong> asignado y <strong>ESTADO ALTA/NORMAL</strong> (Reporte) o <strong>ESTADO ACTIVO</strong> (BBDD).</p>
+    <div style="border:2px dashed var(--border2);border-radius:var(--r);padding:24px;text-align:center;cursor:pointer;transition:all .2s;background:var(--s2)" id="upload-zone" onclick="document.getElementById('file-bbdd').click()">
+      <input type="file" id="file-bbdd" accept=".xlsx,.xls" style="display:none" onchange="procesarBBDD(this)">
+      <div style="font-size:28px;margin-bottom:6px">📂</div>
+      <p style="font-size:13px;font-weight:600;color:var(--black)">Clic para subir REPORTE_DE_ASESORES.xlsx o BBDD_LIDERES_Y_ASESORES.xlsx</p>
+      <small style="color:var(--gray2)">El formato se detecta automáticamente</small>
+    </div>
+    <div style="margin-top:16px;padding:14px 16px;background:var(--s2);border-radius:8px;border:1px solid var(--border)">
+      <label style="display:block;font-size:11px;color:var(--gray2);text-transform:uppercase;letter-spacing:.7px;font-weight:700;margin-bottom:8px">🔑 Token GitHub (opcional)</label>
+      <input type="password" id="admin-gh-token" placeholder="Dejar vacío para usar el token del sistema"
+        style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:monospace;font-size:13px;background:var(--surface);transition:border-color .2s"
+        onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'">
+      <div style="font-size:11px;color:var(--gray2);margin-top:6px">El sistema ya tiene un token configurado. Solo ingresa uno propio si quieres usar tus credenciales.</div>
+    </div>
+    <div id="upload-status" style="display:none;margin-top:12px;padding:12px 16px;border-radius:8px;font-size:12px;font-weight:600"></div>
+  </div>
+
+  <!-- Paso 2: Preview y líderes nuevos -->
+  <div class="card" id="admin-preview-card" style="display:none">
+    <div class="card-title"><div class="card-dot" style="background:var(--blue)"></div>Paso 2 — Revisar y completar líderes nuevos</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:14px">Los líderes marcados en <span style="color:var(--amber);font-weight:700">⚠ naranja</span> son nuevos y necesitan su RUT para generar su PIN de acceso.</p>
+    <div style="overflow-x:auto">
+      <table class="tbl" id="tbl-preview-lideres">
+        <thead><tr><th>Líder</th><th>Asesores activos</th><th>Estado</th><th>RUT (sin DV)</th><th>PIN generado</th></tr></thead>
+        <tbody id="tbl-preview-body"></tbody>
+      </table>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn-save" style="width:auto;padding:10px 24px" onclick="publicarCambios()">🚀 Publicar cambios en GitHub</button>
+      <button class="btn-sm" onclick="cancelarPreview()">✕ Cancelar</button>
+    </div>
+    <div id="publicar-status" style="display:none;margin-top:12px;padding:12px 16px;border-radius:8px;font-size:12px;font-weight:600"></div>
+  </div>
+
+  <!-- Resumen actual -->
+  <div class="card">
+    <div class="card-title"><div class="card-dot" style="background:var(--green)"></div>Estado actual del sistema</div>
+    <div id="admin-resumen" style="font-size:13px;color:var(--gray)">Cargando...</div>
+  </div>
+</div>
+
+<!-- ══ CATÁLOGO PINs (Admin only) ══ -->
+<div id="pg-catalogo" class="page">
+  <div class="section-title">🔑 Catálogo de PINs</div>
+  <div class="section-sub">Uso exclusivo de administración — no compartir</div>
+
+  <div style="background:var(--rl);border:1px solid #f5a3a3;border-radius:10px;padding:11px 14px;font-size:11px;color:var(--red);margin-bottom:16px;display:flex;align-items:center;gap:10px">
+    <span style="font-size:16px;flex-shrink:0">⚠️</span>
+    <span><strong>CONFIDENCIAL</strong> — Los PINs se derivan de los últimos 4 dígitos del RUT sin DV. Se actualizan automáticamente cuando Anaís publica cambios en la nómina.</span>
+  </div>
+
+  <!-- Búsqueda -->
+  <div style="position:relative;margin-bottom:14px">
+    <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--gray2);pointer-events:none">🔍</span>
+    <input type="text" id="cat-search" placeholder="Buscar por nombre..."
+      style="width:100%;padding:10px 12px 10px 36px;background:var(--surface);border:1.5px solid var(--border);border-radius:9px;font-family:'Open Sans',sans-serif;font-size:13px;outline:none;transition:border-color .2s"
+      onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'"
+      oninput="filtrarCatalogo()">
+  </div>
+
+  <div id="cat-container"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ══ MODAL BIENVENIDA — RANKING DEL MES ══ -->
+<div id="modal-bienvenida" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9998;align-items:center;justify-content:center;backdrop-filter:blur(4px);padding:10px">
+  <div style="background:var(--surface);border-radius:20px;width:min(900px,98vw);height:calc(100vh - 20px);max-height:720px;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.4);overflow:hidden">
+
+    <!-- Header fijo -->
+    <div style="background:linear-gradient(135deg,var(--black) 0%,#2a2a2a 100%);border-radius:20px 20px 0 0;padding:12px 20px;flex-shrink:0;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:rgba(45,185,40,.12)"></div>
+      <div style="position:relative">
+        <div id="bienvenida-saludo" style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:1px">¡Bienvenido! 👋</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.6)">Ranking del mes · <span id="bienvenida-mes" style="color:var(--green);font-weight:700"></span></div>
+      </div>
+    </div>
+
+    <!-- Body scrollable -->
+    <div style="padding:10px 16px;overflow-y:auto;flex:1;min-height:0">
+
+      <!-- Posición del líder actual -->
+      <div id="bienvenida-mi-posicion" style="display:none;margin-bottom:10px;padding:8px 12px;background:linear-gradient(90deg,var(--gl),#f0f9ef);border:1.5px solid var(--green);border-radius:10px">
+        <div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;color:var(--gd);margin-bottom:5px">🎯 Tu posición este mes</div>
+        <div id="bienvenida-posicion-detalle" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+      </div>
+
+      <!-- Loading -->
+      <div id="bienvenida-loading" style="text-align:center;padding:20px;color:var(--gray2)">
+        <div style="font-size:24px;margin-bottom:6px">⏳</div>
+        <div style="font-size:12px">Cargando ranking del mes...</div>
+      </div>
+
+      <!-- Ranking tables -->
+      <div id="bienvenida-ranking" style="display:none">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
+          <div style="background:var(--s2);border-radius:8px;overflow:hidden">
+            <div style="padding:6px 10px;background:var(--black);color:#fff;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700">🏆 Cierres del Equipo</div>
+            <table style="width:100%;border-collapse:collapse" id="rank-cierres"></table>
+          </div>
+          <div style="background:var(--s2);border-radius:8px;overflow:hidden">
+            <div style="padding:6px 10px;background:#1e3a5f;color:#fff;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700">🤝 Acomp. con Cierre</div>
+            <table style="width:100%;border-collapse:collapse" id="rank-acomps"></table>
+          </div>
+          <div style="background:var(--s2);border-radius:8px;overflow:hidden">
+            <div style="padding:6px 10px;background:#1a5c2e;color:#fff;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700">📅 Citas Realizadas</div>
+            <table style="width:100%;border-collapse:collapse" id="rank-citas"></table>
+          </div>
+          <div style="background:var(--s2);border-radius:8px;overflow:hidden">
+            <div style="padding:6px 10px;background:#5c3d1a;color:#fff;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700">📊 Presentaciones</div>
+            <table style="width:100%;border-collapse:collapse" id="rank-presentaciones"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA fijo al fondo -->
+    <div style="padding:10px 16px;border-top:1px solid var(--border);background:var(--surface);border-radius:0 0 20px 20px;flex-shrink:0;text-align:center">
+      <button onclick="cerrarBienvenida()" style="background:linear-gradient(135deg,var(--green),var(--g2));border:none;border-radius:10px;padding:12px 0;color:#fff;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(45,185,40,.35);transition:transform .15s;letter-spacing:.3px;width:100%;max-width:400px"
+        onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+        🚀 ¡A actualizar mi equipo!
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ MODAL PIN ══ -->
+<div id="modal-pin">
+  <div class="pin-card">
+    <div class="pin-logo">🔐</div>
+    <h3>Verificación de acceso</h3>
+    <div id="pin-who" class="pin-who">—</div>
+    <div class="pin-label">PIN de 4 dígitos</div>
+    <div class="pin-dots" id="pin-dots">
+      <div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div>
+    </div>
+    <input type="password" id="pin-input" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="off" oninput="onPinInput()" onkeydown="if(event.key==='Enter')confirmarPin()">
+    <div id="pin-error"></div>
+    <button class="pin-back" onclick="cerrarModalPin()">← Cambiar usuario</button>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+// ROLES
+// ══════════════════════════════════════════
+// ROL_LIDER    → registra actividad por asesor, define metas de cierres
+// ROL_GERENTE  → dashboard, alertas
+// ROL_ADMIN    → metas globales (citas/pres), panel admin
+// ROL_ERNESTO  → gerente + define meta de acompañamientos
+
+function dt(p){return p.map(s=>s.split('').reverse().join('')).join('')}
+
+let LIDERES_INFO = [];
+let GERENTES_INFO = [];
+let ASESORES_POR_LIDER = {};
+let ADMIN_INFO = [];
+
+const CONFIG_URLS = {
+  lideres:  'datos/config/lideres.json',
+  asesores: 'datos/config/asesores.json'
+};
+
+// ── Embebidos ──
+const _DL = {"lideres":[{"key":"VIVIANA HERNANDEZ","nombre":"Viviana Marisol Hernández Pérez","pin_seed":"2257","_t":["PKHc0IUKBKAC11_tap_buhtig","jiV4JUXGrtVVPn3P_OBExCDuZ","973IwH453RH5I55EHvT7n9e1ZbUS6DpUZ9uCljZx4Nv"]},{"key":"WALTER FERRO","nombre":"Walter Ferro","pin_seed":"2872","_t":["m4MK0IUKBKAC11_tap_buhtig","mF4wNyr057u4EY8p_bBdWDXPG","LzTJGcofJQEZY27IY3n9fNz1X5h2xRYYgExI5xBSeIM"]},{"key":"GABRIELA ROJAS","nombre":"Gabriela Del Carmen Rojas Quezada","pin_seed":"7881","_t":["RJy10IUKBKAC11_tap_buhtig","PMcVGfAVotUROkZB_8576dGqr","oKg8rgBBYYGFLV2S771Vev5XXOcd5ZVRoeBRVH3a6aA"]},{"key":"HUMBERTO BARBERIS","nombre":"Humberto Cristian Barberis Abendaño","pin_seed":"6597","_t":["Kd6Y0IUKBKAC11_tap_buhtig","SulghFsfz3yNQMY1_oRQVnXAW","HV23PV1HG664VSCSDunwVjU8wGtT25pB6L7X3gsvjMv"]},{"key":"ESTEFANI GONZALEZ","nombre":"Estefani Francisca González Morales","pin_seed":"7597","_t":["DNe20IUKBKAC11_tap_buhtig","09ycrQkoRP0LZn7v_9WReibmJ","YKJDdp527N35DN3Io9cnCVQwZDlOEBJ9ctCyIMi4G6q"]},{"key":"CAMILO MEDEL","nombre":"Camilo Jesus Medel Rojas","pin_seed":"5480","_t":["Daug0IUKBKAC11_tap_buhtig","lP1SnZoksJOhr2W1_PWEQwoyE","a0wqSFqmTRALU222lIj9DR5ye34Pue7gf1ViYHfqeXi"]},{"key":"RAUL BUSTOS","nombre":"Raúl Alejandro Bustos Aguilera","pin_seed":"8872","_t":["GT5g0IUKBKAC11_tap_buhtig","8JUZvO35s8Hn4sDy_jeXWl7gf","oZIxsL4v4JLBUTG3WlIMyAK8PYLWm24Is8uDMjEmLSF"]},{"key":"PATRICIA MARTINEZ","nombre":"Glenda Patricia Martínez Ortiz","pin_seed":"1345","_t":["LsyM0IUKBKAC11_tap_buhtig","cpG5yIAos1iAt2Kf_uPnT7FEV","Qaec2IgsR7WDZXETXQlScLys3fvucPFwiBirNmB46xQ"]},{"key":"SUGEY VIVAS","nombre":"Sugey Mayelin Vivas Marquez","pin_seed":"2121","_t":["He9L0IUKBKAC11_tap_buhtig","58YdJ5KBqbMquGG6_GdewcWgZ","AU6wa3D5VQBUNNA51ewSFqJN1ZSD1h7tlKRW3ft0WZW"]}],"gerentes":[{"key":"ERNESTO OLIVA","nombre":"Ernesto Oliva","pin_seed":"7022","rol":"meta_acomp","_t":["xj5B0IUKBKAC11_tap_buhtig","s0fDoXExcXchzTZM_ZWhnjMih","6ZZHoAgFGQURHX4SEKnnJ35vUaQTArVpNVldvFouvoG"]},{"key":"RICARDO RAMIREZ","nombre":"Ricardo Ramírez","pin_seed":"9774","_t":["LQA20IUKBKAC11_tap_buhtig","AY7reSETd8lUzox7_w6QveFJl","sQD5RneZOV3W7M5O2asHhDkUlIvw2Jo9rzDUKzLfNCK"]}],"admin":[{"key":"ANAIS","nombre":"Anaís (Administradora)","pin_seed":"8291","_t":[]}]};
+// Fallback vacío — en producción siempre carga desde datos/config/asesores.json
+// Solo se usa si GitHub no responde (sin red)
+const _DA = {};
+
+async function initConfig() {
+  try {
+    const [rL,rA] = await Promise.all([fetch(CONFIG_URLS.lideres+'?t='+Date.now()),fetch(CONFIG_URLS.asesores+'?t='+Date.now())]);
+    if(rL.ok && rA.ok){
+      const c = await rL.json();
+      LIDERES_INFO = c.lideres||[]; GERENTES_INFO = c.gerentes||[]; ADMIN_INFO = c.admin||[];
+      ASESORES_POR_LIDER = await rA.json();
+      return;
+    }
+  } catch(e){}
+  LIDERES_INFO = _DL.lideres; GERENTES_INFO = _DL.gerentes; ADMIN_INFO = _DL.admin||[];
+  ASESORES_POR_LIDER = _DA;
+}
+
+// ══════════════════════════════════════════
+// ROLES HELPERS
+// ══════════════════════════════════════════
+function esGerente(k){ return GERENTES_INFO.some(g=>g.key===k); }
+function esAdmin(k){ return ADMIN_INFO.some(a=>a.key===k); }
+// Quien tiene rol "meta_acomp" en gerentes puede definir meta de acompañamientos
+// Se configura en datos/config/lideres.json → gerentes → rol: "meta_acomp"
+function esErnesto(k){ return GERENTES_INFO.some(g=>g.key===k && g.rol==='meta_acomp'); }
+function esLider(k){ return LIDERES_INFO.some(l=>l.key===k); }
+// Líder activo: puede hacer login. Los inactivos existen solo para histórico.
+function esLiderActivo(k){ return LIDERES_INFO.some(l=>l.key===k && l.activo!==false); }
+function lideresActivos(){ return LIDERES_INFO.filter(l=>l.activo!==false); }
+
+// ══════════════════════════════════════════
+// GITHUB STORAGE
+// ══════════════════════════════════════════
+const GH_OWNER='slicitudesgim', GH_REPO='actividad_comercial', GH_BRANCH='main';
+
+// Token compartido ofuscado — permiso solo a este repo (Contents R/W)
+// Permite que los líderes guarden con su PIN sin manejar tokens
+const _ST = ["dQA5ShSutA0IUKBKAC11_tap_buhtig","zhtOG0w2Xg9Qmh85WN4O9QjOJKoI_ha","pKRBksoRR7KTPZCVXzdrqX0oyNFkNwG"];
+
+function ghToken(){
+  // Admin (Anaís) puede ingresar su propio token manualmente; si no, usa el compartido
+  if(esAdmin(currentUser)){
+    const manual=document.getElementById('admin-gh-token')?.value?.trim();
+    if(manual) return manual;
+  }
+  // Todos usan el token compartido (escritura con solo PIN)
+  return dt(_ST);
+}
+function ghH(){ return {'Authorization':`token ${ghToken()}`,'Accept':'application/vnd.github+json','Content-Type':'application/json'}; }
+function safePath(k){ return k.toLowerCase().replace(/\s+/g,'_').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9_]/g,''); }
+function fpath(liderKey,tipo){ return `datos/${tipo}/${safePath(liderKey)}.json`; }
+
+const _sha={};
+async function ghRead(path){
+  // Si hay token, usar API autenticada (da SHA, necesario para escribir)
+  const token=ghToken();
+  if(token){
+    const r=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}?ref=${GH_BRANCH}&t=${Date.now()}`,{headers:ghH()});
+    if(r.status===404) return {content:null,sha:null};
+    if(!r.ok) throw new Error(`GH ${r.status}`);
+    const j=await r.json();
+    if(!j.content && j.download_url){
+      const r2=await fetch(j.download_url+'?t='+Date.now(),{cache:'no-store'});
+      return {content: r2.ok?await r2.json():null, sha:j.sha};
+    }
+    return {content:JSON.parse(b64ToUtf8(j.content)),sha:j.sha};
+  }
+  // Sin token → lectura pública vía raw (sin SHA — solo sirve para leer)
+  const r=await fetch(`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/${path}?t=${Date.now()}`);
+  if(!r.ok) return {content:null,sha:null};
+  try{ return {content:await r.json(), sha:null}; }
+  catch(e){ return {content:null,sha:null}; }
+}
+async function ghWrite(path,data,sha){
+  // sha debe venir siempre del ghRead inmediatamente anterior — nunca del caché
+  const b={message:`update ${path}`,content:btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2)))),branch:GH_BRANCH};
+  if(sha) b.sha=sha;
+  const r=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`,{method:'PUT',headers:ghH(),body:JSON.stringify(b)});
+  if(!r.ok){const e=await r.json();throw new Error(e.message||`GH write ${r.status}`);}
+  // Actualizar caché con SHA nuevo
+  const result=await r.json();
+  if(result?.content?.sha) _sha[path]=result.content.sha;
+  return result;
+}
+
+// Actividad: clave = liderKey/asesor/fecha → {citas,pres,cierres}
+// Archivo: datos/actividades/<lider>.json = { "ASESOR|FECHA": {citas,presentaciones,cierres,ts} }
+async function getActividadesLider(liderKey){
+  const p=fpath(liderKey,'actividades');
+  try{ const {content,sha}=await ghRead(p); _sha[p]=sha; return content||{}; }catch(e){return {};}
+}
+async function saveActividadesLider(liderKey,data){
+  const p=fpath(liderKey,'actividades');
+  await ghWrite(p,data,_sha[p]||null);
+  const {sha}=await ghRead(p); _sha[p]=sha;
+}
+async function getAllActividades(){
+  const res=await Promise.allSettled(LIDERES_INFO.map(l=>getActividadesLider(l.key).then(d=>({key:l.key,data:d}))));
+  const out={};
+  res.filter(r=>r.status==='fulfilled').forEach(r=>{out[r.value.key]=r.value.data;});
+  return out;
+}
+
+// ── Lecturas para dashboard/rankings — vía API autenticada (SIN caché CDN) ──
+// raw.githubusercontent cachea hasta 5 min; la API de contents siempre da lo último
+// Decodifica base64 → texto UTF-8 de forma segura (sin escape() deprecado)
+function b64ToUtf8(b64){
+  const bin=atob(b64.replace(/\s/g,''));
+  const bytes=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+  return new TextDecoder('utf-8').decode(bytes);
+}
+async function rawRead(path, fallback){
+  try{
+    const r=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}?ref=${GH_BRANCH}&t=${Date.now()}`,{
+      headers:{'Authorization':`token ${dt(_ST)}`,'Accept':'application/vnd.github+json'},
+      cache:'no-store'
+    });
+    if(!r.ok) return fallback;
+    const j=await r.json();
+    // Si el archivo es >1MB la API no incluye content → usar download_url
+    if(!j.content && j.download_url){
+      const r2=await fetch(j.download_url+'?t='+Date.now(),{cache:'no-store'});
+      return r2.ok ? await r2.json() : fallback;
+    }
+    return JSON.parse(b64ToUtf8(j.content));
+  }catch(e){ return fallback; }
+}
+async function getAllActividadesPub(){
+  const res=await Promise.all(LIDERES_INFO.map(async l=>{
+    const data=await rawRead(`datos/actividades/${safePath(l.key)}.json`, {});
+    return {key:l.key, data: (data&&typeof data==='object'&&!Array.isArray(data))?data:{}};
+  }));
+  const out={}; res.forEach(r=>{out[r.key]=r.data;}); return out;
+}
+async function getAllAcompsPub(){
+  const res=await Promise.all(LIDERES_INFO.map(async l=>{
+    const data=await rawRead(`datos/acomps/${safePath(l.key)}.json`, []);
+    return {key:l.key, data: Array.isArray(data)?data:[]};
+  }));
+  const out={}; res.forEach(r=>{out[r.key]=r.data;}); return out;
+}
+async function getAllMetasPub(){
+  const res=await Promise.all(LIDERES_INFO.map(async l=>{
+    const data=await rawRead(`datos/metas/${safePath(l.key)}.json`, {});
+    return {key:l.key, data:(data&&typeof data==='object'&&!Array.isArray(data))?data:{}};
+  }));
+  const out={}; res.forEach(r=>{out[r.key]=r.data;}); return out;
+}
+
+// Acompañamientos: datos/acomps/<lider>.json = [{id,asesor,fecha,resultado,ts}]
+async function getAcompsLider(liderKey){
+  const p=fpath(liderKey,'acomps');
+  try{ const {content,sha}=await ghRead(p); _sha[p]=sha; return Array.isArray(content)?content:[]; }catch(e){return [];}
+}
+async function saveAcompsLider(liderKey,data){
+  const p=fpath(liderKey,'acomps');
+  await ghWrite(p,data,_sha[p]||null);
+  const {sha}=await ghRead(p); _sha[p]=sha;
+}
+async function getAllAcomps(){
+  const res=await Promise.allSettled(LIDERES_INFO.map(l=>getAcompsLider(l.key).then(d=>({key:l.key,data:d}))));
+  const out={};
+  res.filter(r=>r.status==='fulfilled').forEach(r=>{out[r.value.key]=r.value.data;});
+  return out;
+}
+
+// Cierres detallados: datos/cierres/<lider>.json = [{id,asesor,empresa,monto,contrato,fecha,ts}]
+// empresa: 'VU' (Valles Unidos) | 'PF' (Protección Familiar)
+async function getCierresLider(liderKey){
+  const p=fpath(liderKey,'cierres');
+  try{ const {content,sha}=await ghRead(p); _sha[p]=sha; return Array.isArray(content)?content:[]; }catch(e){return [];}
+}
+async function saveCierresLider(liderKey,data){
+  const p=fpath(liderKey,'cierres');
+  await ghWrite(p,data,_sha[p]||null);
+  const {sha}=await ghRead(p); _sha[p]=sha;
+}
+async function getAllCierresPub(){
+  const res=await Promise.all(LIDERES_INFO.map(async l=>{
+    const data=await rawRead(`datos/cierres/${safePath(l.key)}.json`, []);
+    return {key:l.key, data: Array.isArray(data)?data:[]};
+  }));
+  const out={}; res.forEach(r=>{out[r.key]=r.data;}); return out;
+}
+
+// Metas cierres: datos/metas/<lider>.json = {"ASESOR":{cierres_vu:N, cierres_pf:N}}
+async function getMetasCierresLider(liderKey){
+  const p=fpath(liderKey,'metas');
+  try{ const {content,sha}=await ghRead(p); _sha[p]=sha; return content||{}; }catch(e){return {};}
+}
+async function saveMetasCierresLider(liderKey,data){
+  const p=fpath(liderKey,'metas');
+  await ghWrite(p,data,_sha[p]||null);
+  const {sha}=await ghRead(p); _sha[p]=sha;
+}
+
+// Metas globales: datos/config/metas_globales.json = {citas,presentaciones,acomp_diaria,acomp_min_cierres}
+async function getMetasGlobales(){
+  try{ const {content}=await ghRead('datos/config/metas_globales.json'); return content||{citas:3,presentaciones:1,acomp_diaria:4,acomp_min_cierres:1}; }
+  catch(e){ return {citas:3,presentaciones:1,acomp_diaria:4,acomp_min_cierres:1}; }
+}
+async function saveMetasGlobales(data){
+  const p='datos/config/metas_globales.json';
+  const {sha}=await ghRead(p).catch(()=>({sha:null}));
+  await ghWrite(p,data,sha||null);
+}
+
+// ══════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════
+let currentUser=null;
+let contadores={citas:0,presentaciones:0,cierres:0};
+let metasGlobales={citas:3,presentaciones:1,acomp_diaria:4,acomp_min_cierres:1};
+let metasCierresCache={};
+let acompFecha='hoy';
+let modoFechaReg='hoy';
+let charts={};
+let dashVistaLider=null;
+
+function hoy(){ return new Date().toISOString().split('T')[0]; }
+function fmtFecha(iso){ if(!iso)return'—'; const[y,m,d]=iso.split('-'); return`${d}/${m}/${y}`; }
+function fmtTS(ts){ if(!ts)return'—'; const d=new Date(ts),pad=n=>String(n).padStart(2,'0'); return`${pad(d.getDate())}/${pad(d.getMonth()+1)} ${pad(d.getHours())}:${pad(d.getMinutes())}`; }
+function actKey(asesor,fecha){ return `${asesor}|${fecha}`; }
+
+function getFechaReg(){
+  if(modoFechaReg==='hoy') return hoy();
+  return document.getElementById('reg-fecha-input').value || hoy();
+}
+function setFechaReg(modo){
+  modoFechaReg=modo;
+  document.getElementById('reg-btn-hoy').classList.toggle('active',modo==='hoy');
+  document.getElementById('reg-btn-otra').classList.toggle('active',modo==='otra');
+  document.getElementById('reg-fecha-display').style.display=modo==='hoy'?'block':'none';
+  document.getElementById('reg-fecha-input').style.display=modo==='otra'?'block':'none';
+  onAsesorChange(); // recargar datos para la nueva fecha
+}
+
+// ══════════════════════════════════════════
+// AUTH
+// ══════════════════════════════════════════
+function hashPin(s){ let h=0; for(let c of s) h=(h*31+c.charCodeAt(0))&0xfffffff; return String(1000+(h%9000)); }
+function expectedPin(k){
+  const all=[...LIDERES_INFO,...GERENTES_INFO,...ADMIN_INFO];
+  const i=all.find(l=>l.key===k);
+  return i?hashPin(i.pin_seed||''):'';
+}
+
+let _pendingKey=null;
+function iniciarSesion(){
+  const v=document.getElementById('login-select').value;
+  if(!v){toast('Selecciona tu nombre',true);return;}
+  _pendingKey=v;
+  const all=[...LIDERES_INFO,...GERENTES_INFO,...ADMIN_INFO];
+  const i=all.find(l=>l.key===v);
+  document.getElementById('pin-who').textContent=i?i.nombre:v;
+  document.getElementById('pin-input').value='';
+  document.getElementById('pin-error').textContent='';
+  document.querySelectorAll('.pin-dot').forEach(d=>{d.classList.remove('filled','error');});
+  document.getElementById('modal-pin').style.display='flex';
+  setTimeout(()=>document.getElementById('pin-input').focus(),100);
+}
+function cerrarModalPin(){ document.getElementById('modal-pin').style.display='none'; _pendingKey=null; document.getElementById('login-select').value=''; }
+function onPinInput(){
+  const v=document.getElementById('pin-input').value.replace(/\D/g,'').slice(0,4);
+  document.getElementById('pin-input').value=v;
+  document.querySelectorAll('.pin-dot').forEach((d,i)=>d.classList.toggle('filled',i<v.length));
+  if(v.length===4) setTimeout(confirmarPin,120);
+}
+function confirmarPin(){
+  const pin=document.getElementById('pin-input').value;
+  if(pin!==expectedPin(_pendingKey)){
+    document.getElementById('pin-error').textContent='⚠ PIN incorrecto';
+    document.getElementById('pin-input').value='';
+    document.querySelectorAll('.pin-dot').forEach(d=>{d.classList.remove('filled');d.classList.add('error');});
+    setTimeout(()=>document.querySelectorAll('.pin-dot').forEach(d=>d.classList.remove('error')),600);
+    document.getElementById('pin-input').focus();
+    return;
+  }
+  currentUser=_pendingKey;
+  sessionStorage.setItem('ac_user',currentUser);
+  document.getElementById('modal-pin').style.display='none';
+  _pendingKey=null;
+  toast('Acceso autorizado ✓');
+  entrarSistema();
+}
+function cerrarSesion(){
+  currentUser=null; sessionStorage.removeItem('ac_user');
+  document.getElementById('user-badge').style.display='none';
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('pg-login').classList.add('active');
+  document.getElementById('login-select').value='';
+}
+
+// ══════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════
+window.onload=async()=>{
+  await initConfig();
+  metasGlobales=await getMetasGlobales().catch(()=>({citas:3,presentaciones:1,acomp_diaria:4,acomp_min_cierres:1}));
+
+  const sel=document.getElementById('login-select');
+  lideresActivos().forEach(l=>{const o=document.createElement('option');o.value=l.key;o.textContent=l.nombre;sel.appendChild(o);});
+  const sep=document.createElement('option');sep.disabled=true;sep.textContent='── Gerentes ──';sel.appendChild(sep);
+  GERENTES_INFO.forEach(g=>{const o=document.createElement('option');o.value=g.key;o.textContent='👔 '+g.nombre;sel.appendChild(o);});
+  const sep2=document.createElement('option');sep2.disabled=true;sep2.textContent='── Administración ──';sel.appendChild(sep2);
+  ADMIN_INFO.forEach(a=>{const o=document.createElement('option');o.value=a.key;o.textContent='⚙️ '+a.nombre;sel.appendChild(o);});
+
+  // Selector gerencial — incluye inactivos (para ver histórico), marcados
+  const sg=document.getElementById('dash-sel-lider');
+  LIDERES_INFO.forEach(l=>{const o=document.createElement('option');o.value=l.key;o.textContent=l.nombre.split(' ').slice(0,3).join(' ')+(l.activo===false?' (inactivo)':'');sg.appendChild(o);});
+
+  document.getElementById('acomp-fecha-display').textContent=fmtFecha(hoy());
+  document.getElementById('reg-fecha-display').textContent=fmtFecha(hoy());
+  document.getElementById('reg-fecha-lbl').textContent='Hoy: '+fmtFecha(hoy());
+
+  initDashDates();
+  document.getElementById('alerta-fecha').value=hoy();
+
+  const saved=sessionStorage.getItem('ac_user');
+  if(saved&&[...LIDERES_INFO,...GERENTES_INFO,...ADMIN_INFO].find(l=>l.key===saved)){
+    currentUser=saved; entrarSistema();
+  }
+};
+
+async function entrarSistema(){
+  sessionStorage.setItem('ac_user',currentUser);
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+
+  const badge=document.getElementById('user-badge');
+  const all=[...LIDERES_INFO,...GERENTES_INFO,...ADMIN_INFO];
+  const info=all.find(l=>l.key===currentUser);
+  badge.style.display='flex';
+  document.getElementById('user-badge-name').textContent=info?info.nombre.split(' ')[0]:currentUser;
+
+  // Tabs visibles por rol
+  document.getElementById('tab-registro').style.display  = esLider(currentUser)?'':'none';
+  document.getElementById('tab-metas').style.display     = (esLider(currentUser)||esAdmin(currentUser)||esErnesto(currentUser))?'':'none';
+  document.getElementById('tab-alertas').style.display   = esGerente(currentUser)?'':'none';
+  document.getElementById('tab-admin').style.display     = esAdmin(currentUser)?'':'none';
+  document.getElementById('tab-catalogo').style.display  = esAdmin(currentUser)?'':'none';
+  document.getElementById('tab-dashboard').style.display = (esGerente(currentUser)||esLider(currentUser))?'':'none';
+  document.getElementById('tab-cierres').style.display   = (esGerente(currentUser)||esAdmin(currentUser))?'':'none';
+
+  if(esGerente(currentUser)){
+    document.getElementById('dash-lider-bar').style.display='flex';
+    document.getElementById('dash-lider-group').style.display='flex';
+    showPage('dashboard');
+    renderDashboard(); // carga en background
+  } else if(esAdmin(currentUser)){
+    showPage('metas');
+    cargarPaginaMetas();    // background
+    renderAdminResumen();   // background
+  } else {
+    // Líder — solo ve su propio equipo, sin selector de líder
+    document.getElementById('dash-lider-bar').style.display='flex';
+    document.getElementById('dash-lider-group').style.display='none';
+    // Líder — mostrar pantalla de registro de inmediato
+    showPage('registro');
+    // Mostrar modal de bienvenida inmediatamente — no esperar a los datos
+    mostrarBienvenida();
+    // Cargar resto de datos en background en paralelo
+    Promise.all([
+      getMetasCierresLider(currentUser).catch(()=>({})).then(m=>{ metasCierresCache[currentUser]=m; }),
+      cargarPaginaMetas().catch(()=>{}),
+      poblarSelectoresAsesor().catch(()=>{}),
+      renderProgresoHoy().catch(()=>{}),
+      renderAcompsHoy().catch(()=>{}),
+      renderCierresHoy().catch(()=>{}),
+    ]);
+  }
+}
+
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('pg-'+name).classList.add('active');
+  const t=document.getElementById('tab-'+name);
+  if(t) t.classList.add('active');
+}
+
+// ══════════════════════════════════════════
+// REGISTRO — ACTIVIDAD POR ASESOR
+// ══════════════════════════════════════════
+async function poblarSelectoresAsesor(){
+  const asesores=(ASESORES_POR_LIDER[currentUser]||[]).sort();
+  ['reg-sel-asesor','acomp-sel-asesor'].forEach(id=>{
+    const s=document.getElementById(id);
+    s.innerHTML='<option value="">— Selecciona asesor —</option>';
+    asesores.forEach(a=>{const o=document.createElement('option');o.value=a;o.textContent=a;s.appendChild(o);});
+  });
+}
+
+function cc(tipo,delta){
+  contadores[tipo]=Math.max(0,contadores[tipo]+delta);
+  document.getElementById('cnt-'+tipo).value=contadores[tipo];
+}
+function sc(tipo,input){
+  contadores[tipo]=Math.max(0,parseInt(input.value)||0);
+  input.value=contadores[tipo];
+}
+
+async function onAsesorChange(){
+  const asesor=document.getElementById('reg-sel-asesor').value;
+  if(!asesor){contadores={citas:0,presentaciones:0,cierres:0};['citas','presentaciones'].forEach(k=>{document.getElementById('cnt-'+k).value=0;});return;}
+  const fecha=getFechaReg();
+  document.getElementById('reg-fecha-display').textContent=fmtFecha(fecha);
+  try{
+    const data=await getActividadesLider(currentUser);
+    const key=actKey(asesor,fecha);
+    const saved=data[key]||{citas:0,presentaciones:0};
+    contadores={citas:saved.citas||0,presentaciones:saved.presentaciones||0,cierres:0};
+    ['citas','presentaciones'].forEach(k=>{document.getElementById('cnt-'+k).value=contadores[k];});
+  }catch(e){contadores={citas:0,presentaciones:0,cierres:0};}
+  const m=metasCierresCache[currentUser]||{};
+  const mc=m[asesor]||{};
+  document.getElementById('reg-meta-citas').textContent   =`Meta: ${metasGlobales.citas}/día`;
+  document.getElementById('reg-meta-pres').textContent    =`Meta: ${metasGlobales.presentaciones}/día`;
+  document.getElementById('reg-meta-cierres').textContent =`Meta: PF ${mc.cierres_pf||0} · VU ${mc.cierres_vu||0}`;
+  renderCierresHoy().catch(()=>{});
+}
+
+async function guardarActividadAsesor(){
+  const asesor=document.getElementById('reg-sel-asesor').value;
+  if(!asesor){toast('Selecciona un asesor',true);return;}
+  const fecha=getFechaReg();
+  if(!fecha){toast('Selecciona una fecha',true);return;}
+  toast('Guardando...');
+  try{
+    const data=await getActividadesLider(currentUser);
+    const key=actKey(asesor,fecha);
+    // Preservar cierres viejos si existían (formato antiguo)
+    const prev=data[key]||{};
+    data[key]={citas:contadores.citas,presentaciones:contadores.presentaciones,ts:Date.now()};
+    if(prev.cierres!==undefined) data[key].cierres=prev.cierres; // conservar cierre viejo "sin empresa"
+    await saveActividadesLider(currentUser,data);
+    toast(`✓ Guardado para ${asesor.split(' ')[0]} — ${fmtFecha(fecha)}`);
+    await renderProgresoHoy();
+  }catch(e){toast('Error: '+e.message,true);}
+}
+
+// ── Formateo de monto CLP con separador de miles ──
+function formatearMonto(input){
+  let v=input.value.replace(/\D/g,'');
+  input.value=v?Number(v).toLocaleString('es-CL'):'';
+}
+function montoANumero(str){ return parseInt(String(str).replace(/\D/g,''))||0; }
+
+// ── Registrar un cierre detallado ──
+async function guardarCierre(){
+  const asesor=document.getElementById('reg-sel-asesor').value;
+  if(!asesor){toast('Selecciona un asesor en el bloque de arriba',true);return;}
+  const empresa=document.getElementById('cierre-empresa').value;
+  const contrato=document.getElementById('cierre-contrato').value.trim();
+  const montoStr=document.getElementById('cierre-monto').value;
+  const monto=montoANumero(montoStr);
+  const fecha=getFechaReg();
+
+  if(!empresa){toast('Selecciona la empresa (PF o VU)',true);return;}
+  if(!contrato){toast('Ingresa el N° de contrato de Jake Mate',true);return;}
+  if(!monto){toast('Ingresa el monto abonado',true);return;}
+
+  toast('Registrando cierre...');
+  try{
+    const cierres=await getCierresLider(currentUser);
+    // Evitar duplicado de contrato
+    if(cierres.some(c=>c.contrato===contrato)){
+      toast(`⚠ El contrato ${contrato} ya fue registrado`,true);return;
+    }
+    cierres.push({id:Date.now(),asesor,empresa,monto,contrato,fecha,ts:Date.now()});
+    await saveCierresLider(currentUser,cierres);
+    // Limpiar campos
+    document.getElementById('cierre-empresa').value='';
+    document.getElementById('cierre-contrato').value='';
+    document.getElementById('cierre-monto').value='';
+    toast(`✓ Cierre ${empresa} registrado — contrato ${contrato}`);
+    await renderCierresHoy();
+    await renderProgresoHoy();
+  }catch(e){toast('Error: '+e.message,true);}
+}
+
+async function renderCierresHoy(){
+  const tbody=document.getElementById('tbl-cierres-hoy');
+  try{
+    const data=(await getCierresLider(currentUser)).filter(c=>c.fecha===getFechaReg()).sort((a,b)=>b.ts-a.ts);
+    if(!data.length){tbody.innerHTML='<tr><td colspan="5" class="empty-state">Sin cierres en esta fecha</td></tr>';return;}
+    tbody.innerHTML=data.map(c=>{
+      const badge=c.empresa==='VU'?'<span class="badge" style="background:#e0f2fe;color:#1e3a5f">VU</span>':'<span class="badge badge-ok">PF</span>';
+      return`<tr>
+        <td style="font-size:11px">${c.asesor.split(' ').slice(0,2).join(' ')}</td>
+        <td>${badge}</td>
+        <td style="font-family:'Montserrat',sans-serif;font-weight:700">$${c.monto.toLocaleString('es-CL')}</td>
+        <td style="font-size:11px">${c.contrato}</td>
+        <td><button class="del-btn" onclick="eliminarCierre(${c.id})">✕</button></td>
+      </tr>`;
+    }).join('');
+  }catch(e){tbody.innerHTML=`<tr><td colspan="5" style="color:var(--red);font-size:11px">Error</td></tr>`;}
+}
+
+async function eliminarCierre(id){
+  try{
+    const arr=(await getCierresLider(currentUser)).filter(c=>c.id!==id);
+    await saveCierresLider(currentUser,arr);
+    await renderCierresHoy();
+    await renderProgresoHoy();
+    toast('Cierre eliminado');
+  }catch(e){toast('Error: '+e.message,true);}
+}
+
+async function renderProgresoHoy(){
+  const fecha=hoy();
+  const tbody=document.getElementById('tbl-progreso-hoy');
+  document.getElementById('prog-fecha').textContent=fmtFecha(fecha);
+  try{
+    const data=await getActividadesLider(currentUser);
+    const acomps=(await getAcompsLider(currentUser)).filter(a=>a.fecha===fecha);
+    const cierres=(await getCierresLider(currentUser)).filter(c=>c.fecha===fecha);
+    const m=metasCierresCache[currentUser]||{};
+    const asesores=(ASESORES_POR_LIDER[currentUser]||[]).sort();
+    let sinRegistro=0;
+    tbody.innerHTML=asesores.map(a=>{
+      const key=actKey(a,fecha);
+      const d=data[key];
+      const mc=m[a]||{};
+      const nAcomps=acomps.filter(ac=>ac.asesor===a).length;
+      const ciPF=cierres.filter(c=>c.asesor===a&&c.empresa==='PF').length;
+      const ciVU=cierres.filter(c=>c.asesor===a&&c.empresa==='VU').length;
+      const tieneActividad = d || ciPF>0 || ciVU>0;
+      if(!tieneActividad){sinRegistro++;return`<tr>
+        <td style="font-size:11px">${a}</td>
+        <td>${mbarHtml(0,metasGlobales.citas)}</td>
+        <td>${mbarHtml(0,metasGlobales.presentaciones)}</td>
+        <td>${mbarHtml(0,mc.cierres_pf||0)}</td>
+        <td>${mbarHtml(0,mc.cierres_vu||0)}</td>
+        <td>${nAcomps>0?`<span class="badge badge-acomp">${nAcomps}</span>`:'<span style="color:var(--gray3)">0</span>'}</td>
+        <td><span class="badge" style="background:var(--s2);color:var(--gray2)">Sin registro</span></td>
+      </tr>`;}
+      const citas=(d&&d.citas)||0, pres=(d&&d.presentaciones)||0;
+      const okC=citas>=metasGlobales.citas, okP=pres>=metasGlobales.presentaciones;
+      const okCi=ciPF>=(mc.cierres_pf||0) && ciVU>=(mc.cierres_vu||0);
+      const estado=okC&&okP&&okCi?'<span class="badge badge-ok">✓ En meta</span>':
+        (citas>0||pres>0||ciPF>0||ciVU>0)?'<span class="badge badge-warn">En progreso</span>':
+        '<span class="badge badge-bad">Sin actividad</span>';
+      return`<tr>
+        <td style="font-size:11px">${a}</td>
+        <td>${mbarHtml(citas,metasGlobales.citas)}</td>
+        <td>${mbarHtml(pres,metasGlobales.presentaciones)}</td>
+        <td>${mbarHtml(ciPF,mc.cierres_pf||0)}</td>
+        <td>${mbarHtml(ciVU,mc.cierres_vu||0)}</td>
+        <td>${nAcomps>0?`<span class="badge badge-acomp">${nAcomps}</span>`:'0'}</td>
+        <td>${estado}</td>
+      </tr>`;
+    }).join('');
+    document.getElementById('prog-resumen').textContent=`${asesores.length-sinRegistro}/${asesores.length} asesores con registro hoy`;
+  }catch(e){tbody.innerHTML=`<tr><td colspan="7" style="color:var(--red);padding:16px">Error: ${e.message}</td></tr>`;}
+}
+
+function mbarHtml(real,meta){
+  if(!meta&&meta!==0) return `<strong>${real}</strong>`;
+  if(meta===0) return `<strong>${real}</strong>`;
+  const pct=Math.min(Math.round((real/meta)*100),100);
+  const cls=pct>=100?'mbar-ok':pct>=70?'mbar-warn':'mbar-bad';
+  const color=pct>=100?'var(--gd)':pct>=70?'var(--amber)':'var(--red)';
+  return`<div class="mbar-wrap"><div class="mbar"><div class="mbar-fill ${cls}" style="width:${pct}%"></div></div><span class="mpct" style="color:${color}">${real}/${meta}</span></div>`;
+}
+
+// ══════════════════════════════════════════
+// ACOMPAÑAMIENTOS
+// ══════════════════════════════════════════
+function getFechaAcomp(){
+  return acompFecha==='hoy'?hoy():(document.getElementById('acomp-fecha-input').value||hoy());
+}
+function setFechaAcomp(modo){
+  acompFecha=modo;
+  document.getElementById('acomp-btn-hoy').classList.toggle('active',modo==='hoy');
+  document.getElementById('acomp-btn-otra').classList.toggle('active',modo==='otra');
+  document.getElementById('acomp-fecha-display').style.display=modo==='hoy'?'block':'none';
+  document.getElementById('acomp-fecha-input').style.display=modo==='otra'?'block':'none';
+  renderAcompsHoy(); // refrescar lista a la nueva fecha
+}
+async function guardarAcomp(){
+  const asesor=document.getElementById('acomp-sel-asesor').value;
+  const resultado=document.getElementById('acomp-resultado').value;
+  if(!asesor){toast('Selecciona un asesor',true);return;}
+  if(!resultado){toast('Selecciona un resultado',true);return;}
+  const fecha=getFechaAcomp();
+  if(!fecha){toast('Selecciona una fecha',true);return;}
+  toast('Guardando...');
+  try{
+    const acomps=await getAcompsLider(currentUser);
+    acomps.push({id:Date.now(),asesor,fecha,resultado,ts:Date.now()});
+    await saveAcompsLider(currentUser,acomps);
+    document.getElementById('acomp-sel-asesor').value='';
+    document.getElementById('acomp-resultado').value='';
+    toast('✓ Acompañamiento registrado');
+    await renderAcompsHoy();
+    await renderProgresoHoy();
+  }catch(e){toast('Error: '+e.message,true);}
+}
+async function renderAcompsHoy(){
+  const tbody=document.getElementById('tbl-acomps-hoy');
+  const fecha=getFechaAcomp();
+  // Actualizar título de la tabla con la fecha seleccionada
+  const titulo=document.getElementById('acomps-hoy-titulo');
+  if(titulo) titulo.textContent = fecha===hoy() ? 'Acompañamientos de hoy' : `Acompañamientos del ${fmtFecha(fecha)}`;
+  try{
+    const data=(await getAcompsLider(currentUser)).filter(a=>a.fecha===fecha).sort((a,b)=>b.ts-a.ts);
+    if(!data.length){tbody.innerHTML=`<tr><td colspan="4" class="empty-state">Sin acompañamientos en esta fecha</td></tr>`;return;}
+    const rCls={Cierre:'badge-cierre',Seguimiento:'badge-seguimiento','Pérdida':'badge-perdida'};
+    tbody.innerHTML=data.map(a=>`<tr>
+      <td style="font-size:11px">${a.asesor.split(' ')[0]} ${a.asesor.split(' ')[1]||''}</td>
+      <td><span class="badge ${rCls[a.resultado]||''}">${a.resultado}</span></td>
+      <td class="ts-label">${fmtTS(a.ts)}</td>
+      <td><button class="del-btn" onclick="eliminarAcomp(${a.id})">✕</button></td>
+    </tr>`).join('');
+  }catch(e){tbody.innerHTML=`<tr><td colspan="4" style="color:var(--red);font-size:11px">Error</td></tr>`;}
+}
+async function eliminarAcomp(id){
+  try{
+    const arr=(await getAcompsLider(currentUser)).filter(a=>a.id!==id);
+    await saveAcompsLider(currentUser,arr);
+    await renderAcompsHoy();
+    await renderProgresoHoy();
+    toast('Eliminado');
+  }catch(e){toast('Error: '+e.message,true);}
+}
+
+// ══════════════════════════════════════════
+// METAS
+// ══════════════════════════════════════════
+async function cargarPaginaMetas(){
+  document.getElementById('metas-globales-card').style.display='none';
+  document.getElementById('metas-acomp-card').style.display='none';
+  document.getElementById('metas-cierres-card').style.display='none';
+
+  if(esAdmin(currentUser)){
+    document.getElementById('metas-sub').textContent='Configura metas globales que aplican a todos los asesores del equipo.';
+    document.getElementById('meta-global-citas').value=metasGlobales.citas||3;
+    document.getElementById('meta-global-pres').value=metasGlobales.presentaciones||1;
+    document.getElementById('metas-globales-card').style.display='block';
+  }
+  if(esErnesto(currentUser)){
+    document.getElementById('metas-sub').textContent='Define la meta de acompañamientos diarios para los líderes.';
+    document.getElementById('meta-acomp-diaria').value=metasGlobales.acomp_diaria||4;
+    document.getElementById('meta-acomp-cierres').value=metasGlobales.acomp_min_cierres||1;
+    document.getElementById('metas-acomp-card').style.display='block';
+  }
+  if(esLider(currentUser)){
+    const info=LIDERES_INFO.find(l=>l.key===currentUser);
+    document.getElementById('metas-sub').textContent='Define la meta de cierres para cada asesor de tu equipo.';
+    document.getElementById('metas-lider-nombre').textContent=info?info.nombre.split(' ').slice(0,2).join(' '):'';
+    const asesores=(ASESORES_POR_LIDER[currentUser]||[]).sort();
+    document.getElementById('metas-asesores-count').textContent=`👥 ${asesores.length} asesores`;
+    const metas=await getMetasCierresLider(currentUser).catch(()=>({}));
+    metasCierresCache[currentUser]=metas;
+    const tbody=document.getElementById('tbl-metas-body');
+    tbody.innerHTML=asesores.map(a=>{
+      const mc=metas[a]||{};
+      const pf=mc.cierres_pf!=null?mc.cierres_pf:(mc.cierres||0); // migra dato viejo a PF
+      const vu=mc.cierres_vu||0;
+      return`<tr>
+        <td style="font-size:11px;text-align:left">${a}</td>
+        <td style="color:var(--gray2)">${metasGlobales.citas}</td>
+        <td style="color:var(--gray2)">${metasGlobales.presentaciones}</td>
+        <td style="background:var(--gl)"><input class="meta-input" type="number" min="0" value="${pf}" data-asesor="${a}" data-emp="pf" oninput="actualizarTotalesMetas()"></td>
+        <td style="background:#e0f2fe"><input class="meta-input" type="number" min="0" value="${vu}" data-asesor="${a}" data-emp="vu" oninput="actualizarTotalesMetas()"></td>
+      </tr>`;
+    }).join('');
+    actualizarTotalesMetas();
+    document.getElementById('metas-cierres-card').style.display='block';
+  }
+}
+
+function actualizarTotalesMetas(){
+  const asesores=(ASESORES_POR_LIDER[currentUser]||[]).sort();
+  const tc=asesores.length*metasGlobales.citas;
+  const tp=asesores.length*metasGlobales.presentaciones;
+  let tpf=0,tvu=0;
+  document.querySelectorAll('#tbl-metas-body input[data-emp="pf"]').forEach(i=>{tpf+=parseInt(i.value)||0;});
+  document.querySelectorAll('#tbl-metas-body input[data-emp="vu"]').forEach(i=>{tvu+=parseInt(i.value)||0;});
+  document.getElementById('meta-tot-citas').textContent=tc;
+  document.getElementById('meta-tot-pres').textContent=tp;
+  document.getElementById('meta-tot-cierres-pf').textContent=tpf;
+  document.getElementById('meta-tot-cierres-vu').textContent=tvu;
+}
+
+async function guardarMetasGlobales(){
+  const citas=parseInt(document.getElementById('meta-global-citas').value)||3;
+  const pres=parseInt(document.getElementById('meta-global-pres').value)||1;
+  const data={...metasGlobales,citas,presentaciones:pres};
+  toast('Guardando...');
+  try{ await saveMetasGlobales(data); metasGlobales=data; toast('✓ Metas globales guardadas'); }
+  catch(e){toast('Error: '+e.message,true);}
+}
+
+async function guardarMetaAcomp(){
+  const diaria=parseInt(document.getElementById('meta-acomp-diaria').value)||4;
+  const cierres=parseInt(document.getElementById('meta-acomp-cierres').value)||1;
+  const data={...metasGlobales,acomp_diaria:diaria,acomp_min_cierres:cierres};
+  toast('Guardando...');
+  try{ await saveMetasGlobales(data); metasGlobales=data; toast('✓ Meta de acompañamientos guardada'); }
+  catch(e){toast('Error: '+e.message,true);}
+}
+
+async function guardarMetasCierres(){
+  const nuevas={};
+  document.querySelectorAll('#tbl-metas-body input[data-asesor]').forEach(i=>{
+    const a=i.dataset.asesor;
+    if(!nuevas[a]) nuevas[a]={cierres_pf:0,cierres_vu:0};
+    if(i.dataset.emp==='pf') nuevas[a].cierres_pf=parseInt(i.value)||0;
+    else nuevas[a].cierres_vu=parseInt(i.value)||0;
+  });
+  toast('Guardando...');
+  try{
+    await saveMetasCierresLider(currentUser,nuevas);
+    metasCierresCache[currentUser]=nuevas;
+    toast('✓ Metas de cierres guardadas');
+  }catch(e){toast('Error: '+e.message,true);}
+}
+
+// ══════════════════════════════════════════
+// ALERTAS
+// ══════════════════════════════════════════
+async function renderAlertas(){
+  const fecha=document.getElementById('alerta-fecha').value||hoy();
+  const container=document.getElementById('alertas-container');
+  container.innerHTML='<div class="empty-state">Cargando...</div>';
+  try{
+    const allAcomps=await getAllAcompsPub();
+    const alertas=[];
+    for(const l of LIDERES_INFO){
+      const acompsHoy=(allAcomps[l.key]||[]).filter(a=>a.fecha===fecha);
+      const nAcomps=acompsHoy.length;
+      const nCierres=acompsHoy.filter(a=>a.resultado==='Cierre').length;
+      const metaDiaria=metasGlobales.acomp_diaria||4;
+      const metaCierresAcomp=metasGlobales.acomp_min_cierres||1;
+
+      if(nAcomps<metaDiaria){
+        alertas.push({tipo:'bad',lider:l.nombre,
+          titulo:`Bajo en acompañamientos — ${nAcomps}/${metaDiaria}`,
+          sub:`Realizó ${nAcomps} de ${metaDiaria} acompañamientos requeridos el ${fmtFecha(fecha)}`});
+      } else if(nCierres<metaCierresAcomp){
+        alertas.push({tipo:'warn',lider:l.nombre,
+          titulo:`Sin cierres en acompañamientos — Requiere coaching`,
+          sub:`Completó ${nAcomps} acompañamientos pero obtuvo ${nCierres} cierre(s) (mínimo: ${metaCierresAcomp})`});
+      }
+    }
+    if(!alertas.length){
+      container.innerHTML=`<div class="card" style="text-align:center;padding:40px"><div style="font-size:36px;margin-bottom:10px">✅</div><div style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:var(--gd)">Sin alertas para ${fmtFecha(fecha)}</div><div style="font-size:12px;color:var(--gray2);margin-top:4px">Todos los líderes cumplen sus metas de acompañamiento</div></div>`;
+      return;
+    }
+    container.innerHTML=alertas.map(a=>`
+      <div class="alert-card ${a.tipo==='warn'?'warn':''}">
+        <div class="alert-icon">${a.tipo==='bad'?'🔴':'🟡'}</div>
+        <div class="alert-body">
+          <div class="alert-title">${a.lider}</div>
+          <div style="font-size:13px;font-weight:600;color:${a.tipo==='bad'?'var(--red)':'#92400e'};margin-bottom:2px">${a.titulo}</div>
+          <div class="alert-sub">${a.sub}</div>
+        </div>
+      </div>`).join('');
+  }catch(e){container.innerHTML=`<div style="color:var(--red);padding:20px">Error: ${e.message}</div>`;}
+}
+
+// ══════════════════════════════════════════
+// DASHBOARD
+// ══════════════════════════════════════════
+function initDashDates(){
+  const h=new Date(),dia=h.getDay(),diff=dia===0?-6:1-dia;
+  const lunes=new Date(h);lunes.setDate(h.getDate()+diff);
+  const dom=new Date(lunes);dom.setDate(lunes.getDate()+6);
+  document.getElementById('dash-desde').value=lunes.toISOString().split('T')[0];
+  document.getElementById('dash-hasta').value=dom.toISOString().split('T')[0];
+}
+function filtrarSemana(){initDashDates();document.getElementById('btn-semana').classList.add('active');renderDashboard();}
+function filtrarRango(){document.getElementById('btn-semana').classList.remove('active');renderDashboard();}
+function getDashFiltro(){return{desde:document.getElementById('dash-desde').value,hasta:document.getElementById('dash-hasta').value};}
+function onDashLiderChange(){dashVistaLider=document.getElementById('dash-sel-lider').value||null;renderDashboard();}
+function verTodosLideres(){dashVistaLider=null;document.getElementById('dash-sel-lider').value='';renderDashboard();}
+
+async function renderDashboard(){
+  const{desde,hasta}=getDashFiltro();
+  const dias=Math.max(1,Math.ceil((new Date(hasta)-new Date(desde))/86400000)+1);
+  try{
+    const [allAct,allAcomps,allMetas,allCierres]=await Promise.all([
+      getAllActividadesPub(),
+      getAllAcompsPub(),
+      getAllMetasPub(),
+      getAllCierresPub()
+    ]);
+
+    // Sumar actividad por líder en el período
+    const byLider={};
+    LIDERES_INFO.forEach(l=>{byLider[l.key]={nombre:l.nombre,citas:0,presentaciones:0,cierres:0,cierresPF:0,cierresVU:0,montoPF:0,montoVU:0,acomps:0,acompCierres:0};});
+    LIDERES_INFO.forEach(l=>{
+      const data=allAct[l.key]||{};
+      Object.entries(data).forEach(([key,v])=>{
+        const[asesor,fecha]=key.split('|');
+        if(fecha>=desde&&fecha<=hasta){byLider[l.key].citas+=v.citas||0;byLider[l.key].presentaciones+=v.presentaciones||0;byLider[l.key].cierres+=v.cierres||0;}
+      });
+      const acomps=(allAcomps[l.key]||[]).filter(a=>a.fecha>=desde&&a.fecha<=hasta);
+      byLider[l.key].acomps=acomps.length;
+      byLider[l.key].acompCierres=acomps.filter(a=>a.resultado==='Cierre').length;
+      // Cierres detallados por empresa
+      const cierres=(allCierres[l.key]||[]).filter(c=>c.fecha>=desde&&c.fecha<=hasta);
+      byLider[l.key].cierresPF=cierres.filter(c=>c.empresa==='PF').length;
+      byLider[l.key].cierresVU=cierres.filter(c=>c.empresa==='VU').length;
+      byLider[l.key].montoPF=cierres.filter(c=>c.empresa==='PF').reduce((s,c)=>s+(c.monto||0),0);
+      byLider[l.key].montoVU=cierres.filter(c=>c.empresa==='VU').reduce((s,c)=>s+(c.monto||0),0);
+    });
+
+    const vistaLider=esLider(currentUser)?currentUser:dashVistaLider;
+
+    // ── Gestión del selector de asesor ──
+    const asesorGroup=document.getElementById('dash-asesor-group');
+    const asesorSel=document.getElementById('dash-sel-asesor');
+    if(vistaLider){
+      // Poblar selector con los asesores de este líder (si cambió de líder)
+      const asesoresLider=(ASESORES_POR_LIDER[vistaLider]||[]).sort();
+      const prev=asesorSel.value;
+      if(asesorSel.dataset.lider!==vistaLider){
+        asesorSel.innerHTML='<option value="">— Todos los asesores —</option>'+
+          asesoresLider.map(a=>`<option value="${a}">${a}</option>`).join('');
+        asesorSel.dataset.lider=vistaLider;
+        asesorSel.value=''; // reset al cambiar de líder
+      } else {
+        asesorSel.value=prev;
+      }
+      asesorGroup.style.display='flex';
+    } else {
+      asesorGroup.style.display='none';
+      asesorSel.value=''; asesorSel.dataset.lider='';
+    }
+    const filtroAsesor=vistaLider?asesorSel.value:'';
+
+    if(vistaLider){
+      await renderDashEquipo(vistaLider,byLider[vistaLider],allAct[vistaLider]||{},allAcomps[vistaLider]||[],allMetas[vistaLider]||{},allCierres[vistaLider]||[],desde,hasta,dias,filtroAsesor);
+    } else {
+      renderDashGeneral(byLider,allMetas,dias);
+    }
+  }catch(e){toast('Error dashboard: '+e.message,true);}
+}
+
+let _cierresExport=[];
+
+// ══════════════════════════════════════════
+// PÁGINA DETALLE DE CIERRES (gerentes)
+// ══════════════════════════════════════════
+function initCierresDates(){
+  const h=new Date(),dia=h.getDay(),diff=dia===0?-6:1-dia;
+  const lunes=new Date(h);lunes.setDate(h.getDate()+diff);
+  const dom=new Date(lunes);dom.setDate(lunes.getDate()+6);
+  document.getElementById('cie-desde').value=lunes.toISOString().split('T')[0];
+  document.getElementById('cie-hasta').value=dom.toISOString().split('T')[0];
+}
+function filtrarCierresSemana(){
+  initCierresDates();
+  document.getElementById('cie-btn-semana').classList.add('active');
+  renderCierresPage();
+}
+function onCieLiderChange(){
+  // Repoblar asesores según el líder elegido
+  const liderKey=document.getElementById('cie-sel-lider').value;
+  const sel=document.getElementById('cie-sel-asesor');
+  if(liderKey){
+    const asesores=(ASESORES_POR_LIDER[liderKey]||[]).sort();
+    sel.innerHTML='<option value="">— Todos —</option>'+asesores.map(a=>`<option value="${a}">${a}</option>`).join('');
+  }else{
+    sel.innerHTML='<option value="">— Todos —</option>';
+  }
+  sel.value='';
+  renderCierresPage();
+}
+
+async function renderCierresPage(){
+  // Poblar selector de líderes la primera vez
+  const selL=document.getElementById('cie-sel-lider');
+  if(selL.options.length<=1){
+    selL.innerHTML='<option value="">— Todos —</option>'+LIDERES_INFO.map(l=>`<option value="${l.key}">${l.nombre.split(' ').slice(0,3).join(' ')}</option>`).join('');
+  }
+  if(!document.getElementById('cie-desde').value) initCierresDates();
+
+  const desde=document.getElementById('cie-desde').value;
+  const hasta=document.getElementById('cie-hasta').value;
+  const fLider=document.getElementById('cie-sel-lider').value;
+  const fAsesor=document.getElementById('cie-sel-asesor').value;
+  const fEmpresa=document.getElementById('cie-sel-empresa').value;
+
+  const tbody=document.getElementById('tbl-cierres-detalle');
+  tbody.innerHTML='<tr><td colspan="6" class="empty-state">Cargando...</td></tr>';
+
+  try{
+    const allCierres=await getAllCierresPub();
+    const lista=[];
+    LIDERES_INFO.forEach(l=>{
+      if(fLider && l.key!==fLider) return;
+      (allCierres[l.key]||[]).filter(c=>c.fecha>=desde&&c.fecha<=hasta).forEach(c=>{
+        if(fAsesor && c.asesor!==fAsesor) return;
+        if(fEmpresa && c.empresa!==fEmpresa) return;
+        lista.push({fecha:c.fecha,lider:l.nombre,asesor:c.asesor,empresa:c.empresa,monto:c.monto||0,contrato:c.contrato||''});
+      });
+    });
+    lista.sort((a,b)=>b.fecha.localeCompare(a.fecha));
+    _cierresExport=lista;
+
+    if(!lista.length){
+      tbody.innerHTML='<tr><td colspan="6" class="empty-state">Sin cierres registrados en el período</td></tr>';
+      document.getElementById('cierres-resumen').textContent='Sin cierres en el período seleccionado.';
+      return;
+    }
+    const totPF=lista.filter(c=>c.empresa==='PF');
+    const totVU=lista.filter(c=>c.empresa==='VU');
+    const mPF=totPF.reduce((s,c)=>s+c.monto,0);
+    const mVU=totVU.reduce((s,c)=>s+c.monto,0);
+    document.getElementById('cierres-resumen').innerHTML=
+      `<strong>${lista.length}</strong> cierres · `+
+      `<span class="badge badge-ok">PF</span> ${totPF.length} ($${mPF.toLocaleString('es-CL')}) · `+
+      `<span class="badge" style="background:#e0f2fe;color:#1e3a5f">VU</span> ${totVU.length} ($${mVU.toLocaleString('es-CL')}) · `+
+      `<strong>Total: $${(mPF+mVU).toLocaleString('es-CL')}</strong>`;
+
+    tbody.innerHTML=lista.map(c=>{
+      const badge=c.empresa==='VU'?'<span class="badge" style="background:#e0f2fe;color:#1e3a5f">VU</span>':
+                  c.empresa==='PF'?'<span class="badge badge-ok">PF</span>':
+                  `<span class="badge" style="background:var(--s2);color:var(--gray2)">${c.empresa||'—'}</span>`;
+      return`<tr>
+        <td style="text-align:left">${fmtFecha(c.fecha)}</td>
+        <td style="text-align:left;font-size:13px">${c.lider.split(' ').slice(0,2).join(' ')}</td>
+        <td style="text-align:left;font-size:13px">${c.asesor.split(' ').slice(0,2).join(' ')}</td>
+        <td>${badge}</td>
+        <td style="font-family:'Montserrat',sans-serif;font-weight:700">$${c.monto.toLocaleString('es-CL')}</td>
+        <td>${c.contrato}</td>
+      </tr>`;
+    }).join('');
+  }catch(e){
+    tbody.innerHTML=`<tr><td colspan="6" style="color:var(--red);padding:16px">Error: ${e.message}</td></tr>`;
+  }
+}
+
+// Exporta el listado de cierres actualmente filtrado
+async function exportarCierres(){
+  if(!_cierresExport.length){ toast('No hay cierres para exportar',true); return; }
+  toast('Generando Excel...');
+  try{
+    if(typeof XLSX==='undefined'){ toast('Cargando librería, reintenta',true); return; }
+    const wb=XLSX.utils.book_new();
+    const rows=[['Fecha','Líder','Asesor','Empresa','Monto (CLP)','N° Contrato']];
+    _cierresExport.forEach(c=>{
+      const emp=c.empresa==='VU'?'Valles Unidos':c.empresa==='PF'?'Protección Familiar':c.empresa||'';
+      rows.push([c.fecha,c.lider,c.asesor,emp,c.monto,c.contrato]);
+    });
+    const ws=XLSX.utils.aoa_to_sheet(rows);
+    ws['!cols']=[{wch:12},{wch:35},{wch:40},{wch:20},{wch:14},{wch:16}];
+    XLSX.utils.book_append_sheet(wb,ws,'Cierres');
+    XLSX.writeFile(wb,`Cierres_${hoy()}.xlsx`);
+    toast('✓ Cierres exportados');
+  }catch(e){toast('Error: '+e.message,true);}
+}
+
+function renderDashGeneral(byLider,allMetas,dias){
+  document.getElementById('ranking-wrap').style.display='block';
+  document.getElementById('equipo-panel').style.display='none';
+  document.getElementById('dash-title').textContent='Dashboard Gerencial';
+  document.getElementById('dash-sub').textContent='Todos los líderes — período seleccionado';
+
+  const vals=Object.values(byLider);
+  const totC=vals.reduce((s,l)=>s+l.citas,0);
+  const totPr=vals.reduce((s,l)=>s+l.presentaciones,0);
+  const totCiPF=vals.reduce((s,l)=>s+l.cierresPF,0);
+  const totCiVU=vals.reduce((s,l)=>s+l.cierresVU,0);
+  const totMontoPF=vals.reduce((s,l)=>s+l.montoPF,0);
+  const totMontoVU=vals.reduce((s,l)=>s+l.montoVU,0);
+  const totAc=vals.reduce((s,l)=>s+l.acomps,0);
+  const metaAcTotal=LIDERES_INFO.length*(metasGlobales.acomp_diaria||4)*dias;
+
+  setKPI('kpi-c',totC,0,'total período');
+  setKPI('kpi-pr',totPr,0,'total período');
+  setKPIcierres(totCiPF,totCiVU,totMontoPF,totMontoVU);
+  setKPI('kpi-ac',totAc,metaAcTotal,'total período');
+
+  const sorted=[...Object.entries(byLider)].map(([k,v])=>({key:k,...v})).filter(l=>esLiderActivo(l.key)).sort((a,b)=>(b.cierresPF+b.cierresVU)-(a.cierresPF+a.cierresVU));
+  document.getElementById('tbl-ranking-outer').tHead.style.display='';
+  document.getElementById('tbl-ranking').innerHTML=sorted.map((l,i)=>{
+    const nAs=(ASESORES_POR_LIDER[l.key]||[]).length;
+    const mets=allMetas[l.key]||{};
+    const metaAcDia=(metasGlobales.acomp_diaria||4)*dias;
+    const totCi=l.cierresPF+l.cierresVU;
+    const conv=l.citas>0?((totCi/l.citas)*100).toFixed(1):'0.0';
+    const medal=i===0?'🥇':i===1?'🥈':i===2?'🥉':(i+1);
+    return`<tr style="cursor:pointer" onclick="verEquipo('${l.key}')">
+      <td>${medal}</td><td style="font-weight:500">${l.nombre.split(' ').slice(0,3).join(' ')}</td>
+      <td><span class="asesores-badge">👥 ${nAs}</span></td>
+      <td>${l.citas}</td><td>${mbarHtml(l.citas,metasGlobales.citas*nAs*dias)}</td>
+      <td>${l.presentaciones}</td><td>${mbarHtml(l.presentaciones,metasGlobales.presentaciones*nAs*dias)}</td>
+      <td><strong class="badge badge-ok">PF ${l.cierresPF}</strong> <strong class="badge" style="background:#e0f2fe;color:#1e3a5f">VU ${l.cierresVU}</strong></td>
+      <td style="font-size:10px;color:var(--gray2)">$${(l.montoPF+l.montoVU).toLocaleString('es-CL')}</td>
+      <td>${l.acomps}</td><td>${mbarHtml(l.acomps,metaAcDia)}</td>
+      <td>${conv}%</td>
+    </tr>`;
+  }).join('');
+
+  renderCharts(sorted,'lider');
+}
+
+// Muestra el KPI de cierres dividido en PF y VU con montos
+function setKPIcierres(ciPF,ciVU,montoPF,montoVU){
+  const card=document.getElementById('kpi-ci')?.closest('.kpi-card');
+  const valEl=document.getElementById('kpi-ci');
+  if(valEl) valEl.innerHTML=`<span style="font-size:20px">PF ${ciPF} · VU ${ciVU}</span>`;
+  const subEl=valEl?.closest('.kpi-card')?.querySelector('.kpi-sub');
+  if(subEl) subEl.textContent=`$${(montoPF+montoVU).toLocaleString('es-CL')} total`;
+  const metaEl=valEl?.closest('.kpi-card')?.querySelector('.kpi-meta');
+  if(metaEl){ metaEl.textContent=`PF $${montoPF.toLocaleString('es-CL')} · VU $${montoVU.toLocaleString('es-CL')}`; metaEl.className='kpi-meta'; }
+}
+
+async function renderDashEquipo(liderKey,totales,actData,acomps,metas,cierresArr,desde,hasta,dias,filtroAsesor){
+  document.getElementById('ranking-wrap').style.display='none';
+  document.getElementById('equipo-panel').style.display='block';
+  const info=LIDERES_INFO.find(l=>l.key===liderKey);
+  document.getElementById('equipo-panel-title').textContent=`Equipo de ${info?.nombre||liderKey}`;
+  const subTxt = filtroAsesor ? `Asesor: ${filtroAsesor} · ${fmtFecha(desde)} — ${fmtFecha(hasta)}` : `${(ASESORES_POR_LIDER[liderKey]||[]).length} asesores · ${fmtFecha(desde)} — ${fmtFecha(hasta)}`;
+  document.getElementById('equipo-panel-sub').textContent=subTxt;
+  document.getElementById('dash-title').textContent=info?.nombre.split(' ').slice(0,2).join(' ')||'';
+  document.getElementById('dash-sub').textContent='Vista de equipo — Meta vs Real por asesor';
+
+  const cierresPeriodo=(cierresArr||[]).filter(c=>c.fecha>=desde&&c.fecha<=hasta);
+  const nAs=(ASESORES_POR_LIDER[liderKey]||[]).length;
+  const totCiPF=cierresPeriodo.filter(c=>c.empresa==='PF').length;
+  const totCiVU=cierresPeriodo.filter(c=>c.empresa==='VU').length;
+  const totMontoPF=cierresPeriodo.filter(c=>c.empresa==='PF').reduce((s,c)=>s+(c.monto||0),0);
+  const totMontoVU=cierresPeriodo.filter(c=>c.empresa==='VU').reduce((s,c)=>s+(c.monto||0),0);
+
+  setKPI('kpi-c',totales?.citas||0,metasGlobales.citas*nAs*dias,'equipo período');
+  setKPI('kpi-pr',totales?.presentaciones||0,metasGlobales.presentaciones*nAs*dias,'equipo período');
+  setKPIcierres(totCiPF,totCiVU,totMontoPF,totMontoVU);
+  setKPI('kpi-ac',totales?.acomps||0,(metasGlobales.acomp_diaria||4)*dias,'período');
+
+  const asesores=(ASESORES_POR_LIDER[liderKey]||[]).sort().filter(a=>!filtroAsesor||a===filtroAsesor);
+  let sumRC=0,sumRP=0,sumMC=0,sumMP=0,sumPF=0,sumVU=0,sumMPF=0,sumMVU=0;
+  const rows=asesores.map(a=>{
+    let rC=0,rP=0;
+    Object.entries(actData).forEach(([key,v])=>{
+      const[as,fecha]=key.split('|');
+      if(as===a&&fecha>=desde&&fecha<=hasta){rC+=v.citas||0;rP+=v.presentaciones||0;}
+    });
+    const ciPF=cierresPeriodo.filter(c=>c.asesor===a&&c.empresa==='PF').length;
+    const ciVU=cierresPeriodo.filter(c=>c.asesor===a&&c.empresa==='VU').length;
+    const mC=metasGlobales.citas*dias, mP=metasGlobales.presentaciones*dias;
+    const ma=metas[a]||{};
+    const mPF=(ma.cierres_pf!=null?ma.cierres_pf:(ma.cierres||0))*dias;
+    const mVU=(ma.cierres_vu||0)*dias;
+    sumRC+=rC;sumRP+=rP;sumMC+=mC;sumMP+=mP;sumPF+=ciPF;sumVU+=ciVU;sumMPF+=mPF;sumMVU+=mVU;
+    const nAcomps=acomps.filter(ac=>ac.asesor===a&&ac.fecha>=desde&&ac.fecha<=hasta).length;
+    return`<tr>
+      <td style="font-size:13px;text-align:left">${a}</td>
+      <td style="background:var(--gl)">${mC}</td><td style="background:var(--gl)">${mbarHtml(rC,mC)}</td>
+      <td style="background:#f0f7e6">${mP}</td><td style="background:#f0f7e6">${mbarHtml(rP,mP)}</td>
+      <td style="background:var(--gl)">${mbarHtml(ciPF,mPF)}</td>
+      <td style="background:#e0f2fe">${mbarHtml(ciVU,mVU)}</td>
+      <td>${nAcomps>0?`<span class="badge badge-acomp">${nAcomps}</span>`:'0'}</td>
+    </tr>`;
+  });
+  // Fila TOTAL solo cuando no hay filtro de asesor (con filtro hay una sola fila)
+  const totalRow = filtroAsesor ? '' : `<tr style="background:var(--gl);font-weight:700">
+    <td style="font-size:13px;color:var(--gd);text-align:left">TOTAL</td>
+    <td style="background:var(--gl)">${sumMC}</td><td style="background:var(--gl)">${mbarHtml(sumRC,sumMC)}</td>
+    <td style="background:#f0f7e6">${sumMP}</td><td style="background:#f0f7e6">${mbarHtml(sumRP,sumMP)}</td>
+    <td style="background:var(--gl)">${mbarHtml(sumPF,sumMPF)}</td>
+    <td style="background:#e0f2fe">${mbarHtml(sumVU,sumMVU)}</td>
+    <td>${totales?.acomps||0}</td>
+  </tr>`;
+  document.getElementById('tbl-equipo').innerHTML=rows.join('')+totalRow;
+
+  // Charts del equipo
+  const asData=asesores.map(a=>{
+    let rC=0,rP=0;
+    Object.entries(actData).forEach(([key,v])=>{const[as,fecha]=key.split('|');if(as===a&&fecha>=desde&&fecha<=hasta){rC+=v.citas||0;rP+=v.presentaciones||0;}});
+    const ci=cierresPeriodo.filter(c=>c.asesor===a).length;
+    return{nombre:a.split(' ')[0]+' '+(a.split(' ')[1]||''),citas:rC,presentaciones:rP,cierres:ci};
+  });
+  renderCharts(asData,'asesor');
+}
+
+function verEquipo(liderKey){
+  dashVistaLider=liderKey;
+  document.getElementById('dash-sel-lider').value=liderKey;
+  renderDashboard();
+}
+
+function setKPI(id,real,meta,sub){
+  document.getElementById(id).textContent=real;
+  document.getElementById(id+'-sub').textContent=sub;
+  const m=document.getElementById(id+'-meta');
+  if(!m)return;
+  if(!meta){m.textContent='';return;}
+  const pct=Math.round((real/meta)*100);
+  const cls=pct>=100?'ok':pct>=70?'warn':'bad';
+  m.className='kpi-meta '+cls;
+  m.textContent=`${pct}% de meta (${real}/${meta})`;
+}
+
+function renderCharts(items,tipo){
+  const labels=items.map(l=>l.nombre.split(' ').slice(0,2).join(' '));
+  rChart('chart-barras','bar',{labels,datasets:[
+    {label:'Citas',data:items.map(l=>l.citas),backgroundColor:'rgba(141,198,63,.8)',borderRadius:5},
+    {label:'Presentaciones',data:items.map(l=>l.presentaciones),backgroundColor:'rgba(35,148,32,.75)',borderRadius:5},
+    {label:'Cierres',data:items.map(l=>l.cierres),backgroundColor:'rgba(26,26,26,.85)',borderRadius:5}
+  ]},{scales:{x:{ticks:{font:{size:10}}},y:{ticks:{}}}});
+
+  const totC=items.reduce((s,l)=>s+l.citas,0);
+  const totPr=items.reduce((s,l)=>s+l.presentaciones,0);
+  const totCi=items.reduce((s,l)=>s+l.cierres,0);
+  rChart('chart-conv','bar',{
+    labels:['Pres./Citas','Cierres/Pres.','Cierres/Citas'],
+    datasets:[{label:'%',data:[totC>0?(totPr/totC*100).toFixed(1):0,totPr>0?(totCi/totPr*100).toFixed(1):0,totC>0?(totCi/totC*100).toFixed(1):0],backgroundColor:['rgba(141,198,63,.8)','rgba(35,148,32,.8)','rgba(26,26,26,.85)'],borderRadius:7}]
+  },{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{max:100,ticks:{callback:v=>v+'%'}}}});
+
+  // Tendencia vacía por ahora (requiere datos por fecha del período)
+  rChart('chart-tend','line',{labels:[],datasets:[{label:'Cierres',data:[],borderColor:'#2db928',backgroundColor:'rgba(45,185,40,.08)',tension:.4,fill:true}]},{plugins:{legend:{display:false}}});
+}
+
+function rChart(id,type,data,opts){
+  if(charts[id]) charts[id].destroy();
+  const ctx=document.getElementById(id);
+  if(!ctx)return;
+  charts[id]=new Chart(ctx,{type,data,options:{responsive:true,animation:{duration:350},plugins:{legend:{labels:{color:'#5a5a5a',font:{size:11}}}},scales:{x:{ticks:{color:'#8a8f9a'},grid:{color:'#eee'}},y:{ticks:{color:'#8a8f9a'},grid:{color:'#eee'}}},...opts}});
+}
+
+// ══════════════════════════════════════════
+// ADMIN
+// ══════════════════════════════════════════
+async function renderAdminResumen(){
+  document.getElementById('admin-resumen').innerHTML=`
+    <p>Líderes activos: <strong>${LIDERES_INFO.length}</strong></p>
+    <p style="margin-top:6px">Total asesores: <strong>${Object.values(ASESORES_POR_LIDER).reduce((s,a)=>s+a.length,0)}</strong></p>
+    <p style="margin-top:6px">Meta global citas: <strong>${metasGlobales.citas}/día</strong> · Presentaciones: <strong>${metasGlobales.presentaciones}/día</strong></p>
+    <p style="margin-top:6px">Meta acompañamientos por líder: <strong>${metasGlobales.acomp_diaria||4}/día</strong> · Mínimo cierres: <strong>${metasGlobales.acomp_min_cierres||1}</strong></p>
+  `;
+}
+
+// ══════════════════════════════════════════
+// EXPORT
+// ══════════════════════════════════════════
+async function exportarExcel(){
+  toast('Generando Excel...');
+  try{
+    if(typeof XLSX==='undefined'){ toast('Cargando librería, reintenta en unos segundos',true); return; }
+    const wb=XLSX.utils.book_new();
+
+    const [allAct, allAcomps, allCierres] = await Promise.all([getAllActividadesPub(), getAllAcompsPub(), getAllCierresPub()]);
+
+    // Hoja 1: Actividad (citas y presentaciones)
+    const rowsAct=[['Líder','Asesor','Fecha','Citas','Presentaciones','Hora registro']];
+    LIDERES_INFO.forEach(l=>{
+      Object.entries(allAct[l.key]||{}).forEach(([key,v])=>{
+        const[asesor,fecha]=key.split('|');
+        rowsAct.push([l.nombre,asesor,fecha,v.citas||0,v.presentaciones||0,v.ts?new Date(v.ts).toLocaleString('es-CL'):'']);
+      });
+    });
+    const wsAct=XLSX.utils.aoa_to_sheet(rowsAct);
+    wsAct['!cols']=[{wch:35},{wch:45},{wch:12},{wch:8},{wch:16},{wch:20}];
+    XLSX.utils.book_append_sheet(wb,wsAct,'Actividad');
+
+    // Hoja 2: Cierres detallados (empresa, monto, contrato)
+    const rowsCi=[['Líder','Asesor','Fecha','Empresa','Monto (CLP)','N° Contrato','Hora registro']];
+    LIDERES_INFO.forEach(l=>{
+      (allCierres[l.key]||[]).forEach(c=>{
+        const emp=c.empresa==='VU'?'Valles Unidos':c.empresa==='PF'?'Protección Familiar':c.empresa||'';
+        rowsCi.push([l.nombre,c.asesor,c.fecha,emp,c.monto||0,c.contrato||'',c.ts?new Date(c.ts).toLocaleString('es-CL'):'']);
+      });
+    });
+    const wsCi=XLSX.utils.aoa_to_sheet(rowsCi);
+    wsCi['!cols']=[{wch:35},{wch:45},{wch:12},{wch:20},{wch:14},{wch:16},{wch:20}];
+    XLSX.utils.book_append_sheet(wb,wsCi,'Cierres');
+
+    // Hoja 3: Acompañamientos
+    const rowsAc=[['Líder','Asesor','Fecha','Resultado','Hora registro']];
+    LIDERES_INFO.forEach(l=>{
+      (allAcomps[l.key]||[]).forEach(a=>{
+        rowsAc.push([l.nombre,a.asesor,a.fecha,a.resultado,a.ts?new Date(a.ts).toLocaleString('es-CL'):'']);
+      });
+    });
+    const wsAc=XLSX.utils.aoa_to_sheet(rowsAc);
+    wsAc['!cols']=[{wch:35},{wch:45},{wch:12},{wch:14},{wch:20}];
+    XLSX.utils.book_append_sheet(wb,wsAc,'Acompañamientos');
+
+    XLSX.writeFile(wb,`Actividad_Comercial_${hoy()}.xlsx`);
+    toast('✓ Excel exportado');
+  }catch(e){toast('Error: '+e.message,true);}
+}
+
+// ══════════════════════════════════════════
+// ADMIN — PROCESAMIENTO BBDD EXCEL
+// ══════════════════════════════════════════
+
+let _bbddPreview = null; // {asesoresNuevos, lideresNuevos, lideresExistentes}
+
+function normStr(s){ return typeof s==='string'?s.trim().toUpperCase():'';}
+
+function rutSeed(rut){
+  if(!rut) return null;
+  let r = String(rut).replace(/[\s\.]/g,'').split('-')[0].replace(/[^0-9]/g,'');
+  return r.length>=4 ? r.slice(-4) : null;
+}
+
+async function procesarBBDD(input){
+  const file = input.files[0];
+  if(!file) return;
+  const status = document.getElementById('upload-status');
+  status.style.display='block';
+  status.style.background='var(--al)';
+  status.style.color='#92400e';
+  status.textContent='⏳ Procesando archivo...';
+
+  const reader = new FileReader();
+  reader.onload = async (e) => {
+    try{
+      const wb = XLSX.read(new Uint8Array(e.target.result), {type:'array'});
+
+      // ── Detectar formato por nombre de hoja ──
+      // Formato A: BBDD_LIDERES_Y_ASESORES → hoja BBDD_TOTAL
+      // Formato B: REPORTE_DE_ASESORES     → hoja "Hoja 1" con columnas NOMBRE_LIDER / NOMBRE_ASESOR / DISTRITO
+      const sheetNames = wb.SheetNames.map(s=>s.toUpperCase());
+      const esReporte  = sheetNames.some(s=>s.includes('HOJA')) && !sheetNames.some(s=>s.includes('BBDD'));
+      const sheetName  = esReporte
+        ? wb.SheetNames[0]
+        : (wb.SheetNames.find(s=>s.toUpperCase().includes('BBDD')||s.toUpperCase().includes('TOTAL')) || wb.SheetNames[0]);
+
+      const ws   = wb.Sheets[sheetName];
+      const rows = XLSX.utils.sheet_to_json(ws, {defval:''});
+      if(!rows.length){ status.textContent='⚠ El archivo está vacío.'; return; }
+
+      const keys    = Object.keys(rows[0]);
+      const findCol = (...c) => keys.find(k=>c.some(x=>normStr(k).includes(normStr(x))));
+
+      // ── Columnas comunes ──
+      // Nota: buscar ESTADO con coincidencia exacta para no confundir con ESTADO_CIVIL
+      const colEstado  = keys.find(k=>normStr(k)==='ESTADO') || findCol('ESTADO');
+      const colRut     = findCol('RUT');
+
+      // ── Columnas según formato ──
+      const colDistrito = findCol('DISTRITO');                       // solo REPORTE
+      const colLider    = findCol('NOMBRE_LIDER','LIDER','LÍDER');
+      const colAsesor   = findCol('NOMBRE_ASESOR','ASESOR');
+      const colNomLider = findCol('NOMBRE_LIDER');                   // columna específica REPORTE
+
+      if(!colLider||!colAsesor){
+        status.textContent=`⚠ No se encontraron columnas de líder/asesor. Columnas detectadas: ${keys.join(', ')}`;
+        return;
+      }
+
+      // ── Excluir registros basura (solo en REPORTE) ──
+      const EXCLUIR_LIDERES = ['EJEMPLO','PRUEBA','TOP PERFORMANCE','ALVA'];
+      // Gerentes y admin nunca deben procesarse como líderes (ej. Ernesto, Ricardo)
+      const NO_SON_LIDERES = [...GERENTES_INFO, ...ADMIN_INFO].map(g=>normStr(g.key));
+
+      // ── Filtro de filas válidas ──
+      const filaValida = (r) => {
+        const lider  = normStr(r[colLider]);
+        const asesor = normStr(r[colAsesor]);
+        if(!lider || !asesor) return false;
+        if(EXCLUIR_LIDERES.some(x=>lider.includes(x))) return false;
+        if(NO_SON_LIDERES.includes(lider)) return false; // gerentes/admin no son líderes
+
+        if(esReporte){
+          // REPORTE: debe tener DISTRITO y ESTADO ALTA/NORMAL/A
+          const distrito = normStr(r[colDistrito]||'');
+          const estado   = normStr(r[colEstado]||'');
+          if(!distrito) return false;
+          if(!['ALTA','NORMAL','A'].includes(estado)) return false;
+          // Excluir fila donde líder==asesor (esas son las filas del propio líder con su RUT)
+          // las procesamos aparte para extraer RUT
+          return lider !== asesor;
+        } else {
+          // BBDD: debe tener ESTADO ACTIVO
+          return !colEstado || normStr(r[colEstado])==='ACTIVO';
+        }
+      };
+
+      // ── Extraer RUTs de líderes (solo REPORTE: fila donde NOMBRE_LIDER==NOMBRE_ASESOR) ──
+      const rutsPorLider = {};
+      if(esReporte && colNomLider){
+        rows.forEach(r=>{
+          const lider  = normStr(r[colNomLider]);
+          const asesor = normStr(r[colAsesor]);
+          const rut    = String(r[colRut]||'').trim();
+          const dist   = normStr(r[colDistrito]||'');
+          if(lider && lider===asesor && rut && dist){
+            if(!EXCLUIR_LIDERES.some(x=>lider.includes(x)) && !NO_SON_LIDERES.includes(lider)){
+              rutsPorLider[lider] = rutSeed(rut);
+            }
+          }
+        });
+      }
+
+      // ── Agrupar asesores por líder ──
+      const nuevosAsesores = {};
+      rows.filter(filaValida).forEach(r=>{
+        const lider  = normStr(r[colLider]);
+        const asesor = normStr(r[colAsesor]);
+        if(!nuevosAsesores[lider]) nuevosAsesores[lider]={asesores:[], rutLider: rutsPorLider[lider]||null};
+        if(!nuevosAsesores[lider].asesores.includes(asesor))
+          nuevosAsesores[lider].asesores.push(asesor);
+      });
+      Object.keys(nuevosAsesores).forEach(k=>nuevosAsesores[k].asesores.sort());
+
+      // ── Rellenar RUT de líderes que ya conocemos del REPORTE ──
+      // (para líderes que aparecen en el REPORTE aunque no tengan fila propia)
+      if(esReporte){
+        Object.keys(nuevosAsesores).forEach(lider=>{
+          if(!nuevosAsesores[lider].rutLider && rutsPorLider[lider])
+            nuevosAsesores[lider].rutLider = rutsPorLider[lider];
+        });
+      }
+
+      // ── Comparar con líderes existentes ──
+      const lideresExistentes = LIDERES_INFO.map(l=>l.key);
+      const lideresEnExcel    = Object.keys(nuevosAsesores).sort();
+      const lideresNuevos     = lideresEnExcel.filter(l=>!lideresExistentes.includes(l));
+      const lideresActualizados = lideresEnExcel.filter(l=>lideresExistentes.includes(l));
+
+      const totalAsesores = Object.values(nuevosAsesores).reduce((s,v)=>s+v.asesores.length,0);
+      const formato = esReporte ? 'REPORTE DE ASESORES' : 'BBDD LÍDERES Y ASESORES';
+
+      _bbddPreview = { nuevosAsesores, lideresNuevos, lideresActualizados, lideresEnExcel, esReporte };
+
+      document.getElementById('admin-preview-card').style.display='block';
+      renderPreviewLideres();
+
+      status.style.background='var(--gl)';
+      status.style.color='var(--gd)';
+      status.textContent=`✅ Formato detectado: ${formato} · ${totalAsesores} asesores activos · ${lideresEnExcel.length} líderes (${lideresNuevos.length} nuevos)`;
+      input.value='';
+    }catch(err){
+      status.style.background='var(--rl)'; status.style.color='var(--red)';
+      status.textContent='❌ Error: '+err.message;
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function renderPreviewLideres(){
+  if(!_bbddPreview) return;
+  const {nuevosAsesores, lideresNuevos} = _bbddPreview;
+  const tbody = document.getElementById('tbl-preview-body');
+
+  const rows = Object.keys(nuevosAsesores).sort().map(lider=>{
+    const esNuevo    = lideresNuevos.includes(lider);
+    const nAs        = nuevosAsesores[lider].asesores.length;
+    const rutAutoKey = nuevosAsesores[lider].rutLider; // seed del RUT extraído del REPORTE
+    const infoExist  = LIDERES_INFO.find(l=>l.key===lider);
+    const safeKey    = lider.replace(/\s/g,'_');
+
+    let rutCell, pinCell, estadoBadge;
+
+    if(!esNuevo){
+      // Líder ya existe — solo mostrar confirmación
+      estadoBadge = `<span class="badge badge-ok">✓ Existe</span>`;
+      rutCell     = `<span style="color:var(--gray2);font-size:11px">— ya registrado —</span>`;
+      pinCell     = `<span class="badge badge-ok">PIN configurado</span>`;
+    } else if(rutAutoKey){
+      // Líder nuevo con RUT detectado automáticamente del REPORTE
+      estadoBadge = `<span class="badge badge-warn">⚠ Nuevo</span>`;
+      rutCell     = `<span style="color:var(--gd);font-size:11px;font-weight:700">✓ Detectado: ****${rutAutoKey}</span>`;
+      pinCell     = `<span id="pin-prev-${safeKey}" style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--gd)">${hashPin(rutAutoKey)}</span>`;
+      // Guardar seed en un campo oculto para publicarCambios
+      setTimeout(()=>{
+        const hidden = document.getElementById('rut-hidden-'+safeKey);
+        if(hidden) hidden.value = rutAutoKey;
+      }, 50);
+      rutCell += `<input type="hidden" id="rut-hidden-${safeKey}" value="${rutAutoKey}">`;
+    } else {
+      // Líder nuevo sin RUT — pedir manualmente
+      estadoBadge = `<span class="badge badge-warn">⚠ Nuevo</span>`;
+      rutCell     = `<input type="text" id="rut-${safeKey}" placeholder="ej: 12345678" maxlength="9"
+                      style="width:110px;padding:5px 8px;border:1.5px solid var(--amber);border-radius:6px;font-size:12px"
+                      oninput="actualizarPinPreview('${safeKey}',this.value)">`;
+      pinCell     = `<span id="pin-prev-${safeKey}" style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--gray3)">—</span>`;
+    }
+
+    return `<tr>
+      <td style="font-weight:600;font-size:12px">${lider}</td>
+      <td><span class="asesores-badge">👥 ${nAs}</span></td>
+      <td>${estadoBadge}</td>
+      <td>${rutCell}</td>
+      <td>${pinCell}</td>
+    </tr>`;
+  });
+  tbody.innerHTML = rows.join('');
+}
+
+function actualizarPinPreview(liderKey, rutVal){
+  const seed = rutSeed(rutVal);
+  const pinEl = document.getElementById('pin-prev-'+liderKey);
+  if(!pinEl) return;
+  if(seed&&seed.length===4){
+    pinEl.textContent = hashPin(seed);
+    pinEl.style.color = 'var(--gd)';
+  } else {
+    pinEl.textContent = '—';
+    pinEl.style.color = 'var(--gray3)';
+  }
+}
+
+function cancelarPreview(){
+  _bbddPreview = null;
+  document.getElementById('admin-preview-card').style.display='none';
+  document.getElementById('upload-status').style.display='none';
+}
+
+async function publicarCambios(){
+  if(!_bbddPreview){ toast('No hay datos para publicar',true); return; }
+  const {nuevosAsesores, lideresNuevos, lideresEnExcel} = _bbddPreview;
+
+  // Validar RUTs de líderes nuevos sin auto-detección
+  const faltanRut = [];
+  for(const lider of lideresNuevos){
+    const safeKey  = lider.replace(/\s/g,'_');
+    const autoSeed = nuevosAsesores[lider].rutLider;
+    const manualRut= document.getElementById('rut-'+safeKey)?.value||'';
+    if(!autoSeed && !rutSeed(manualRut)) faltanRut.push(lider);
+  }
+  if(faltanRut.length){
+    toast(`Faltan RUTs para: ${faltanRut.slice(0,3).join(', ')}${faltanRut.length>3?'...':''}`, true);
+    return;
+  }
+
+  const statusEl = document.getElementById('publicar-status');
+  statusEl.style.display='block';
+  statusEl.style.background='var(--al)';
+  statusEl.style.color='#92400e';
+
+  const log = (msg) => { statusEl.textContent = msg; };
+
+  try{
+    // ── Fecha límite: hace 30 días ──
+    const fechaLimite = new Date();
+    fechaLimite.setDate(fechaLimite.getDate()-30);
+    const isoLimite = fechaLimite.toISOString().split('T')[0];
+
+    // ── 1. Determinar líderes que salen del REPORTE → se marcan inactivos (no se borran) ──
+    const lideresQueSalen = LIDERES_INFO.filter(l => !lideresEnExcel.includes(l.key));
+
+    log(`⏳ Paso 1/5 — Procesando ${lideresQueSalen.length} líderes que salen...`);
+    if(lideresQueSalen.length){
+      console.log('Líderes marcados inactivos:', lideresQueSalen.map(l=>l.key));
+    }
+
+    // ── 2. Construir lideres.json ──
+    // Líderes que siguen en el REPORTE → activos (reactiva si estaba inactivo)
+    // Líderes que salen → se conservan con activo:false (mantienen su historial)
+    // Líderes nuevos → se agregan activos
+    log('⏳ Paso 2/5 — Construyendo nueva nómina de líderes...');
+    const lideresActualizados = [];
+    const nuevosPinesLog = [];
+
+    // Los existentes: marcar activo según si están en el Excel
+    LIDERES_INFO.forEach(l=>{
+      const sigueActivo = lideresEnExcel.includes(l.key);
+      lideresActualizados.push({ ...l, activo: sigueActivo });
+    });
+
+    // Los nuevos
+    for(const lider of lideresNuevos){
+      const safeKey  = lider.replace(/\s/g,'_');
+      const autoSeed = nuevosAsesores[lider].rutLider;
+      const manualRut= document.getElementById('rut-'+safeKey)?.value||'';
+      const seed     = autoSeed || rutSeed(manualRut);
+      const nombre   = lider.split(' ').map(w=>w.charAt(0)+w.slice(1).toLowerCase()).join(' ');
+      lideresActualizados.push({ key: lider, nombre, pin_seed: seed, _t: [], activo: true });
+      nuevosPinesLog.push({ nombre, pin: hashPin(seed) });
+    }
+
+    // ── 3. Construir asesores.json — solo de líderes activos ──
+    // Los inactivos conservan sus archivos de datos pero no nómina de asesores nueva
+    log('⏳ Paso 3/5 — Actualizando nómina de asesores...');
+    const newAsesores = {};
+    Object.keys(nuevosAsesores).sort().forEach(l=>{ newAsesores[l] = nuevosAsesores[l].asesores; });
+
+    // ── 4. Publicar lideres.json y asesores.json ──
+    // Siempre leer SHA fresco para evitar conflictos si el archivo fue editado manualmente
+    log('⏳ Paso 4/5 — Publicando configuración en GitHub...');
+    const configLideres = { lideres: lideresActualizados, gerentes: GERENTES_INFO, admin: ADMIN_INFO };
+
+    const [resL, resA] = await Promise.all([
+      ghRead('datos/config/lideres.json').catch(()=>({sha:null})),
+      ghRead('datos/config/asesores.json').catch(()=>({sha:null}))
+    ]);
+    // Escribir secuencialmente para evitar conflictos de rate limit
+    await ghWrite('datos/config/lideres.json',  configLideres, resL.sha||null);
+    await ghWrite('datos/config/asesores.json', newAsesores,   resA.sha||null);
+
+    // ── 5. Crear archivos vacíos para líderes nuevos ──
+    for(const lider of lideresNuevos){
+      const safe = lider.toLowerCase().replace(/\s+/g,'_').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9_]/g,'');
+      await Promise.allSettled([
+        ghWrite(`datos/actividades/${safe}.json`, {}, null),
+        ghWrite(`datos/acomps/${safe}.json`,      [], null),
+        ghWrite(`datos/cierres/${safe}.json`,     [], null),
+        ghWrite(`datos/metas/${safe}.json`,       {}, null)
+      ]);
+    }
+
+    // ── 6. Limpiar historial > 30 días en todos los líderes activos ──
+    log('⏳ Paso 5/5 — Limpiando historial mayor a 30 días...');
+    let registrosEliminados = 0;
+
+    await Promise.allSettled(lideresActualizados.map(async (l) => {
+      const safe = l.key.toLowerCase().replace(/\s+/g,'_').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9_]/g,'');
+
+      // Limpiar actividades (objeto: "ASESOR|FECHA" → datos)
+      try{
+        const { content: actData, sha: actSha } = await ghRead(`datos/actividades/${safe}.json`);
+        if(actData && typeof actData === 'object'){
+          const filtrado = {};
+          Object.entries(actData).forEach(([key, val]) => {
+            const fecha = key.split('|')[1] || '';
+            if(fecha >= isoLimite) filtrado[key] = val;
+            else registrosEliminados++;
+          });
+          if(Object.keys(filtrado).length !== Object.keys(actData).length){
+            await ghWrite(`datos/actividades/${safe}.json`, filtrado, actSha||null);
+          }
+        }
+      }catch(e){ /* archivo no existe aún */ }
+
+      // Limpiar acompañamientos (array: [{fecha,...}])
+      try{
+        const { content: acompData, sha: acompSha } = await ghRead(`datos/acomps/${safe}.json`);
+        if(Array.isArray(acompData)){
+          const filtrado = acompData.filter(a => (a.fecha||'') >= isoLimite);
+          registrosEliminados += acompData.length - filtrado.length;
+          if(filtrado.length !== acompData.length){
+            await ghWrite(`datos/acomps/${safe}.json`, filtrado, acompSha||null);
+          }
+        }
+      }catch(e){ /* archivo no existe aún */ }
+
+      // Limpiar cierres detallados (array: [{fecha,...}])
+      try{
+        const { content: ciData, sha: ciSha } = await ghRead(`datos/cierres/${safe}.json`);
+        if(Array.isArray(ciData)){
+          const filtrado = ciData.filter(c => (c.fecha||'') >= isoLimite);
+          registrosEliminados += ciData.length - filtrado.length;
+          if(filtrado.length !== ciData.length){
+            await ghWrite(`datos/cierres/${safe}.json`, filtrado, ciSha||null);
+          }
+        }
+      }catch(e){ /* archivo no existe aún */ }
+    }));
+
+    // ── 7. Actualizar estado en memoria ──
+    LIDERES_INFO       = lideresActualizados;
+    ASESORES_POR_LIDER = newAsesores;
+
+    // Reconstruir selector de login (solo activos)
+    const sel = document.getElementById('login-select');
+    sel.innerHTML='<option value="">— Selecciona tu nombre —</option>';
+    lideresActivos().forEach(l=>{const o=document.createElement('option');o.value=l.key;o.textContent=l.nombre;sel.appendChild(o);});
+    const sep=document.createElement('option');sep.disabled=true;sep.textContent='── Gerentes ──';sel.appendChild(sep);
+    GERENTES_INFO.forEach(g=>{const o=document.createElement('option');o.value=g.key;o.textContent='👔 '+g.nombre;sel.appendChild(o);});
+    const sep2=document.createElement('option');sep2.disabled=true;sep2.textContent='── Administración ──';sel.appendChild(sep2);
+    ADMIN_INFO.forEach(a=>{const o=document.createElement('option');o.value=a.key;o.textContent='⚙️ '+a.nombre;sel.appendChild(o);});
+
+    // Reconstruir selector gerencial del dashboard (incluye inactivos marcados)
+    const sg = document.getElementById('dash-sel-lider');
+    sg.innerHTML='<option value="">— Todos los líderes —</option>';
+    LIDERES_INFO.forEach(l=>{const o=document.createElement('option');o.value=l.key;o.textContent=l.nombre.split(' ').slice(0,3).join(' ')+(l.activo===false?' (inactivo)':'');sg.appendChild(o);});
+
+    // ── Resumen final ──
+    const resumen = [
+      `✅ Publicado correctamente`,
+      `${Object.keys(newAsesores).length} líderes activos`,
+      `${Object.values(newAsesores).reduce((s,a)=>s+a.length,0)} asesores`,
+      lideresQueSalen.length ? `${lideresQueSalen.length} líder(es) removido(s)` : null,
+      lideresNuevos.length   ? `${lideresNuevos.length} líder(es) nuevo(s)` : null,
+      registrosEliminados    ? `${registrosEliminados} registros > 30 días eliminados` : null,
+    ].filter(Boolean).join(' · ');
+
+    statusEl.style.background='var(--gl)';
+    statusEl.style.color='var(--gd)';
+    statusEl.textContent = resumen;
+
+    _bbddPreview = null;
+    document.getElementById('admin-preview-card').style.display='none';
+    await renderAdminResumen();
+
+    // Mostrar PINes de nuevos líderes en un panel separado
+    if(nuevosPinesLog.length){
+      const pinesHtml = nuevosPinesLog.map(x=>`<strong>${x.nombre}</strong>: ${x.pin}`).join(' &nbsp;·&nbsp; ');
+      statusEl.innerHTML += `<div style="margin-top:10px;padding:10px 14px;background:#fff;border-radius:8px;border:1px solid var(--border)">
+        <div style="font-size:11px;color:var(--gray2);margin-bottom:6px;font-weight:700">🔑 PINES NUEVOS LÍDERES — guardar antes de cerrar</div>
+        <div style="font-size:13px">${pinesHtml}</div>
+      </div>`;
+    }
+
+  }catch(err){
+    statusEl.style.background='var(--rl)'; statusEl.style.color='var(--red)';
+    statusEl.textContent='❌ Error al publicar: '+err.message;
+  }
+}
+
+// ══════════════════════════════════════════
+// MODAL BIENVENIDA — RANKING DEL MES
+// ══════════════════════════════════════════
+
+// ══════════════════════════════════════════
+// MENSAJES COMPETITIVOS CONTEXTUALES
+// ══════════════════════════════════════════
+
+// Genera el mensaje motivacional según posición y distancia con rivales
+function mensajeCompetitivo(pos, miVal, sorted, campo, nombre){
+  const n = sorted.length;
+  if(n === 0) return null;
+
+  // Nombre corto del rival
+  const rivalNombre = (idx) => sorted[idx]?.nombre.split(' ')[0] || 'el siguiente';
+  const diff = (idxA, idxB) => Math.abs((sorted[idxA]?.[campo]||0) - (sorted[idxB]?.[campo]||0));
+
+  const UMBRAL = 2; // diferencia "peligrosamente cerca"
+
+  if(pos === 1){
+    // Líder absoluto — mirar al 2do
+    if(n >= 2){
+      const d = diff(0,1);
+      if(d <= UMBRAL)
+        return { tipo:'alerta', msg:`⚠️ ¡Cuidado! ${rivalNombre(1)} está a solo ${d} ${d===1?'punto':'puntos'} de ti. ¡No bajes la guardia!` };
+      return { tipo:'oro', msg:`👑 ¡Eres el líder! ${rivalNombre(1)} está a ${d} puntos. Sigue así y nadie te alcanza.` };
+    }
+    return { tipo:'oro', msg:`👑 ¡Primero en el ranking! Eres el referente del equipo.` };
+  }
+
+  if(pos === 2){
+    const dArriba = diff(1,0);
+    const dAbajo  = n>=3 ? diff(1,2) : 999;
+    let msg = `🥈 Estás a ${dArriba} ${dArriba===1?'punto':'puntos'} de ${rivalNombre(0)}.`;
+    if(dArriba <= UMBRAL)
+      msg = `🔥 ¡A solo ${dArriba} de ${rivalNombre(0)}! Un cierre más y lo superas. ¡Ahora!`;
+    if(dAbajo <= UMBRAL)
+      msg += ` Y ${rivalNombre(2)} te persigue a ${dAbajo}. ¡Aprieta!`;
+    return { tipo:'plata', msg };
+  }
+
+  if(pos === 3){
+    const dArriba = diff(2,1);
+    const dAbajo  = n>=4 ? diff(2,3) : 999;
+    let msg = `🥉 A ${dArriba} puntos del 2do (${rivalNombre(1)}).`;
+    if(dArriba <= UMBRAL)
+      msg = `⚡ ¡Tan cerca! Solo ${dArriba} puntos te separan de ${rivalNombre(1)}. ¡Hoy puede ser el día!`;
+    if(dAbajo <= UMBRAL)
+      msg += ` Pero ${rivalNombre(3)} te respira en la nuca a ${dAbajo}.`;
+    return { tipo:'bronce', msg };
+  }
+
+  if(pos === 4){
+    const dArriba = diff(3,2);
+    const dAbajo  = n>=5 ? diff(3,4) : 999;
+    let msg = `💪 A ${dArriba} puntos del podio (${rivalNombre(2)}).`;
+    if(dArriba <= UMBRAL)
+      msg = `🎯 ¡El podio está a ${dArriba} puntos! ${rivalNombre(2)} es tuyo si cierras hoy.`;
+    if(dAbajo <= UMBRAL)
+      msg += ` Ojo: ${rivalNombre(4)} viene a solo ${dAbajo}.`;
+    return { tipo:'cerca', msg };
+  }
+
+  if(pos === 5){
+    const dArriba = diff(4,3);
+    const dAbajo  = n>=6 ? diff(4,5) : 999;
+    let msg = `🏅 Estás en el Top 5. A ${dArriba} puntos del 4to (${rivalNombre(3)}).`;
+    if(dAbajo <= UMBRAL)
+      msg = `🚨 ¡${rivalNombre(5)} te alcanza! Te separan solo ${dAbajo} puntos. ¡Defiende tu posición!`;
+    else if(dArriba <= UMBRAL)
+      msg = `📈 ¡A solo ${dArriba} del 4to! Sube con cada acompañamiento que cierres.`;
+    return { tipo:'top5', msg };
+  }
+
+  // Fuera del Top 5
+  if(pos === 6){
+    const dArriba = diff(5, 4); // diferencia con el 5to
+    if(dArriba <= UMBRAL)
+      return { tipo:'cazador', msg:`🎯 ¡A solo ${dArriba} puntos del Top 5 (${rivalNombre(4)})! Un cierre y entras. ¡Vamos!` };
+    return { tipo:'cazador', msg:`🔓 Estás a ${dArriba} puntos del Top 5. Cada acompañamiento con cierre cuenta. ¡Tú puedes!` };
+  }
+
+  // 7mo o más
+  const distTop5 = (sorted[4]?.[campo]||0) - miVal;
+  const distSiguiente = pos >= 2 ? ((sorted[pos-2]?.[campo]||0) - miVal) : 0;
+  if(distSiguiente <= UMBRAL && pos >= 2)
+    return { tipo:'remontada', msg:`⚡ Solo ${distSiguiente} puntos de ${rivalNombre(pos-2)}. ¡Esta semana puedes superarlo!` };
+  return { tipo:'remontada', msg:`🚀 El Top 5 está a ${distTop5} puntos. Empieza la remontada hoy — tu equipo te necesita.` };
+}
+
+// Colores por tipo de mensaje
+function colorMensaje(tipo){
+  const map = {
+    oro:       {bg:'linear-gradient(90deg,#fef3c7,#fffbeb)', border:'#f59e0b', color:'#92400e'},
+    plata:     {bg:'linear-gradient(90deg,#f0f9ff,#e0f2fe)', border:'#3b82f6', color:'#1e3a5f'},
+    bronce:    {bg:'linear-gradient(90deg,#fff7ed,#ffedd5)', border:'#f97316', color:'#7c2d12'},
+    cerca:     {bg:'linear-gradient(90deg,#f0fdf4,#dcfce7)', border:'#22c55e', color:'#14532d'},
+    top5:      {bg:'linear-gradient(90deg,#faf5ff,#ede9fe)', border:'#8b5cf6', color:'#4c1d95'},
+    cazador:   {bg:'linear-gradient(90deg,var(--gl),#f0f9ef)', border:'var(--green)', color:'var(--gd)'},
+    alerta:    {bg:'linear-gradient(90deg,var(--rl),#fff5f5)', border:'var(--red)', color:'var(--red)'},
+    remontada: {bg:'linear-gradient(90deg,var(--al),#fffbeb)', border:'var(--amber)', color:'#92400e'},
+  };
+  return map[tipo] || map.remontada;
+}
+
+async function mostrarBienvenida(){
+  const modal = document.getElementById('modal-bienvenida');
+  modal.style.display = 'flex';
+
+  const info = LIDERES_INFO.find(l=>l.key===currentUser);
+  const nombre = info ? info.nombre.split(' ')[0] : currentUser;
+  const hora = new Date().getHours();
+  const saludo = hora<12?'¡Buenos días':hora<19?'¡Buenas tardes':'¡Buenas noches';
+  document.getElementById('bienvenida-saludo').textContent = `${saludo}, ${nombre}! 👋`;
+
+  const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  const ahora = new Date();
+  document.getElementById('bienvenida-mes').textContent = `${meses[ahora.getMonth()]} ${ahora.getFullYear()}`;
+
+  const primerDiaMes = `${ahora.getFullYear()}-${String(ahora.getMonth()+1).padStart(2,'0')}-01`;
+  const hoyStr = hoy();
+
+  const totales = {};
+  lideresActivos().forEach(l=>{
+    totales[l.key] = { key:l.key, nombre:l.nombre, cierres:0, cierresPF:0, cierresVU:0, acompsCierre:0, acomps:0, citas:0, presentaciones:0 };
+  });
+
+  try{
+    const actPromises = LIDERES_INFO.map(async l=>{
+      const data = await rawRead(`datos/actividades/${safePath(l.key)}.json`, {});
+      return { key: l.key, data: (data&&typeof data==='object'&&!Array.isArray(data))?data:{} };
+    });
+    const acompPromises = LIDERES_INFO.map(async l=>{
+      const data = await rawRead(`datos/acomps/${safePath(l.key)}.json`, []);
+      return { key: l.key, data: Array.isArray(data)?data:[] };
+    });
+    const cierrePromises = LIDERES_INFO.map(async l=>{
+      const data = await rawRead(`datos/cierres/${safePath(l.key)}.json`, []);
+      return { key: l.key, data: Array.isArray(data)?data:[] };
+    });
+
+    const [actResults, acompResults, cierreResults] = await Promise.all([
+      Promise.all(actPromises), Promise.all(acompPromises), Promise.all(cierrePromises)
+    ]);
+
+    actResults.forEach(({key,data})=>{
+      Object.entries(data).forEach(([k,v])=>{
+        const fecha=k.split('|')[1]||'';
+        if(fecha>=primerDiaMes&&fecha<=hoyStr&&totales[key]){
+          totales[key].citas         +=v.citas||0;
+          totales[key].presentaciones+=v.presentaciones||0;
+          // cierres viejos "sin empresa" se suman al total general
+          totales[key].cierres       +=v.cierres||0;
+        }
+      });
+    });
+    acompResults.forEach(({key,data})=>{
+      if(!totales[key]) return;
+      const arr = (Array.isArray(data)?data:[]).filter(a=>a.fecha>=primerDiaMes&&a.fecha<=hoyStr);
+      totales[key].acomps       = arr.length;
+      totales[key].acompsCierre = arr.filter(a=>a.resultado==='Cierre').length;
+    });
+    cierreResults.forEach(({key,data})=>{
+      if(!totales[key]) return;
+      const arr = (Array.isArray(data)?data:[]).filter(c=>c.fecha>=primerDiaMes&&c.fecha<=hoyStr);
+      totales[key].cierresPF = arr.filter(c=>c.empresa==='PF').length;
+      totales[key].cierresVU = arr.filter(c=>c.empresa==='VU').length;
+      // total de cierres = detallados (PF+VU) + viejos sin empresa
+      totales[key].cierres += totales[key].cierresPF + totales[key].cierresVU;
+    });
+  }catch(e){ console.warn('Ranking:', e.message); }
+
+  const vals = Object.values(totales);
+
+  renderRankingTop5('rank-cierres',        vals, 'cierres',        currentUser);
+  renderRankingTop5('rank-acomps',         vals, 'acompsCierre',   currentUser);
+  renderRankingTop5('rank-citas',          vals, 'citas',          currentUser);
+  renderRankingTop5('rank-presentaciones', vals, 'presentaciones', currentUser);
+
+  const miData = totales[currentUser];
+  const sortedBy = (campo) => [...vals].sort((a,b)=>b[campo]-a[campo]);
+  const posEnRanking = (campo) => sortedBy(campo).findIndex(l=>l.key===currentUser)+1;
+
+  const posC  = posEnRanking('cierres');
+  const posA  = posEnRanking('acompsCierre');
+  const posCi = posEnRanking('citas');
+  const posPr = posEnRanking('presentaciones');
+
+  if(miData){
+    document.getElementById('bienvenida-mi-posicion').style.display='block';
+
+    // Tarjetas de posición
+    document.getElementById('bienvenida-posicion-detalle').innerHTML = [
+      {label:'🏆 Cierres',       pos:posC,  val:miData.cierres,        importante:true},
+      {label:'🤝 Acomp. Cierre', pos:posA,  val:miData.acompsCierre,   importante:true},
+      {label:'📅 Citas',         pos:posCi, val:miData.citas,          importante:false},
+      {label:'📊 Presentaciones',pos:posPr, val:miData.presentaciones, importante:false},
+    ].map(({label,pos,val,importante})=>{
+      const medal = pos===1?'🥇':pos===2?'🥈':pos===3?'🥉':pos<=5?`🏅 #${pos}`:`#${pos}`;
+      const color = pos===1?'var(--gd)':pos<=3?'var(--amber)':pos<=5?'var(--blue)':'var(--gray2)';
+      const ring  = importante ? `border:2px solid ${pos<=5?'var(--green)':'var(--border)'}` : '';
+      return `<div style="text-align:center;min-width:72px;padding:7px 5px;border-radius:10px;background:${pos<=5?'rgba(45,185,40,.07)':'transparent'};${ring}">
+        <div style="font-size:16px;margin-bottom:2px">${medal}</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:${color};line-height:1">${val}</div>
+        <div style="font-size:9px;color:var(--gray2);font-weight:600;margin-top:2px">${label}</div>
+      </div>`;
+    }).join('');
+
+    // Mensaje competitivo — basado en cierres (categoría más importante)
+    const sortedCierres = sortedBy('cierres');
+    const msg = mensajeCompetitivo(posC, miData.cierres, sortedCierres, 'cierres', nombre);
+    if(msg){
+      const c = colorMensaje(msg.tipo);
+      document.getElementById('bienvenida-mi-posicion').innerHTML += `
+        <div style="margin-top:10px;padding:9px 13px;background:${c.bg};border-left:3px solid ${c.border};border-radius:0 8px 8px 0;font-size:11px;font-weight:600;color:${c.color};line-height:1.4">
+          ${msg.msg}
+        </div>`;
+    }
+  }
+
+  document.getElementById('bienvenida-loading').style.display='none';
+  document.getElementById('bienvenida-ranking').style.display='block';
+}
+
+function renderRankingTop5(tableId, vals, campo, myKey){
+  const sorted = [...vals].sort((a,b)=>b[campo]-a[campo]);
+  const top5   = sorted.slice(0,5);
+  const miPos  = sorted.findIndex(l=>l.key===myKey);
+  const miData = sorted[miPos];
+  const enTop5 = miPos < 5;
+
+  const table = document.getElementById(tableId);
+
+  // Filas del Top 5
+  let rows = top5.map((l,i)=>{
+    const esYo = l.key===myKey;
+    const medal = i===0?'🥇':i===1?'🥈':i===2?'🥉':`🏅`;
+    const bg = esYo
+      ? 'background:linear-gradient(90deg,rgba(45,185,40,.18),rgba(141,198,63,.1))'
+      : (i%2===0?'background:#fff':'background:var(--s2)');
+    const nombreCorto = l.nombre.split(' ').slice(0,2).join(' ');
+    return `<tr style="${bg}">
+      <td style="padding:3px 6px;width:20px;font-size:11px;line-height:1.3">${medal}</td>
+      <td style="padding:3px 3px;font-size:10px;line-height:1.3;color:${esYo?'var(--gd)':'var(--black)'};font-weight:${esYo?700:400};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:110px">${nombreCorto}${esYo?' ★':''}</td>
+      <td style="padding:3px 8px;text-align:right;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;line-height:1.3;color:${esYo?'var(--gd)':'var(--black)'}">${l[campo]}</td>
+    </tr>`;
+  }).join('');
+
+  // Si el líder NO está en el Top 5 → mostrar su posición separada con mensaje
+  if(!enTop5 && miData){
+    const nombreCorto = miData.nombre.split(' ').slice(0,2).join(' ');
+    rows += `<tr style="background:var(--s2)">
+      <td colspan="3" style="padding:2px 6px;text-align:center;font-size:9px;color:var(--gray3)">· · ·</td>
+    </tr>
+    <tr style="background:linear-gradient(90deg,rgba(245,158,11,.12),rgba(254,243,199,.5))">
+      <td style="padding:3px 6px;font-size:10px;line-height:1.3;color:var(--amber);font-weight:700">#${miPos+1}</td>
+      <td style="padding:3px 3px;font-size:10px;line-height:1.3;color:var(--amber);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:110px">${nombreCorto} ★</td>
+      <td style="padding:3px 8px;text-align:right;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;line-height:1.3;color:var(--amber)">${miData[campo]}</td>
+    </tr>`;
+  }
+
+  table.innerHTML = rows;
+}
+
+function cerrarBienvenida(){
+  document.getElementById('modal-bienvenida').style.display='none';
+}
+
+// ══════════════════════════════════════════
+// CATÁLOGO PINs — dinámico desde LIDERES_INFO
+// ══════════════════════════════════════════
+let _catRevealed = {};
+
+function renderCatalogo(){
+  const q = (document.getElementById('cat-search')?.value||'').toLowerCase().trim();
+  _catRevealed = {}; // reset al renderizar
+
+  const allUsers = [
+    ...ADMIN_INFO.map(u=>({...u, rol:'admin'})),
+    ...GERENTES_INFO.map(u=>({...u, rol:'gerente'})),
+    ...LIDERES_INFO.map(u=>({...u, rol:'lider'})),
+  ].filter(u => !q || u.nombre.toLowerCase().includes(q) || u.key.toLowerCase().includes(q));
+
+  const sections = [
+    {label:'⚙️ Administración', items: allUsers.filter(u=>u.rol==='admin')},
+    {label:'👔 Gerentes',        items: allUsers.filter(u=>u.rol==='gerente')},
+    {label:'👥 Líderes',         items: allUsers.filter(u=>u.rol==='lider')},
+  ].filter(s=>s.items.length>0);
+
+  const container = document.getElementById('cat-container');
+  if(!container) return;
+
+  container.innerHTML = sections.map(s=>`
+    <div class="cat-section-label">${s.label} (${s.items.length})</div>
+    <div class="cat-grid">
+      ${s.items.map(u=>{
+        const pin = u.pin_seed ? hashPin(u.pin_seed) : '—';
+        const rolClass = u.rol==='admin'?'rol-admin':u.rol==='gerente'?'rol-gerente':'rol-lider';
+        const rolLabel = u.rol==='admin'?'ra':u.rol==='gerente'?'rg':'rl';
+        const rolText  = u.rol.toUpperCase();
+        return `<div class="cat-card ${rolClass}" data-key="${u.key}">
+          <div class="cat-rol ${rolLabel}">${rolText}${u.activo===false?' · INACTIVO':''}</div>
+          <div class="cat-nombre" style="${u.activo===false?'opacity:.55':''}">${u.nombre}</div>
+          <div class="cat-pin-row">
+            <div>
+              <div style="font-size:9px;color:var(--gray2);margin-bottom:2px">PIN</div>
+              <div class="cat-pin-val" id="catpin-${u.key}" onclick="toggleCatPin('${u.key}')">${pin}</div>
+            </div>
+            <div class="cat-eye" onclick="toggleCatPin('${u.key}')">👁</div>
+          </div>
+          <div class="cat-seed">RUT seed: ****${u.pin_seed||'—'}</div>
+        </div>`;
+      }).join('')}
+    </div>
+  `).join('');
+
+  if(!allUsers.length){
+    container.innerHTML = `<div class="empty-state">Sin resultados para "${q}"</div>`;
+  }
+}
+
+function toggleCatPin(key){
+  _catRevealed[key] = !_catRevealed[key];
+  const el  = document.getElementById('catpin-'+key);
+  const eye = el?.closest('.cat-card')?.querySelector('.cat-eye');
+  if(el)  el.classList.toggle('shown', _catRevealed[key]);
+  if(eye) eye.textContent = _catRevealed[key] ? '🙈' : '👁';
+}
+
+function filtrarCatalogo(){ renderCatalogo(); }
+
+// ══════════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════════
+let _tt;
+function toast(msg,err=false){
+  const el=document.getElementById('toast');
+  el.textContent=msg;el.className='toast show'+(err?' err':'');
+  clearTimeout(_tt);_tt=setTimeout(()=>{el.className='toast';},3000);
+}
+</script>
+
+</body>
+</html>
