@@ -152,5 +152,12 @@
     "fecha": "2026-06-11",
     "resultado": "Seguimiento",
     "ts": 1781231878444
+  },
+  {
+    "id": 1781231942818,
+    "asesor": "JUAN DANIEL ALARCÓN MARAMBIO",
+    "fecha": "2026-06-11",
+    "resultado": "Pérdida",
+    "ts": 1781231942818
   }
 ]
