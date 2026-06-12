@@ -25,5 +25,14 @@
     "contrato": "4706",
     "fecha": "2026-06-11",
     "ts": 1781187082374
+  },
+  {
+    "id": 1781225847489,
+    "asesor": "NELSON ALFREDO RODRIGUEZ PEREZ",
+    "empresa": "PF",
+    "monto": 3450000,
+    "contrato": "4722",
+    "fecha": "2026-06-12",
+    "ts": 1781225847489
   }
 ]
