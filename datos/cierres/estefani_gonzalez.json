@@ -43,5 +43,14 @@
     "contrato": "109663",
     "fecha": "2026-06-12",
     "ts": 1781281522724
+  },
+  {
+    "id": 1781281652279,
+    "asesor": "YASMELY RAMONA VARGAS INFANTE",
+    "empresa": "VU",
+    "monto": 400000,
+    "contrato": "109831",
+    "fecha": "2026-06-12",
+    "ts": 1781281652279
   }
 ]
