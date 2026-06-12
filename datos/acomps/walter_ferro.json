@@ -40,5 +40,12 @@
     "fecha": "2026-06-11",
     "resultado": "Pérdida",
     "ts": 1781211754503
+  },
+  {
+    "id": 1781225851696,
+    "asesor": "NELSON ALFREDO RODRIGUEZ PEREZ",
+    "fecha": "2026-06-12",
+    "resultado": "Cierre",
+    "ts": 1781225851696
   }
 ]
