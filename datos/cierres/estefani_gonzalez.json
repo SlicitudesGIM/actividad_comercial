@@ -7,5 +7,14 @@
     "contrato": "4543",
     "fecha": "2026-06-12",
     "ts": 1781280898391
+  },
+  {
+    "id": 1781281049453,
+    "asesor": "MARIA ALEJANDRA CAMEJO ACUNA",
+    "empresa": "PF",
+    "monto": 180000,
+    "contrato": "4702",
+    "fecha": "2026-06-12",
+    "ts": 1781281049453
   }
 ]
