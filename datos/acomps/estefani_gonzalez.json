@@ -33,5 +33,12 @@
     "fecha": "2026-06-07",
     "resultado": "Pérdida",
     "ts": 1781281229251
+  },
+  {
+    "id": 1781281290547,
+    "asesor": "THIARE CATALINA CONTRERAS GAETE",
+    "fecha": "2026-06-09",
+    "resultado": "Seguimiento",
+    "ts": 1781281290547
   }
 ]
