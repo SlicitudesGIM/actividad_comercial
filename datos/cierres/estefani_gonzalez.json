@@ -25,5 +25,14 @@
     "contrato": "1016135",
     "fecha": "2026-06-12",
     "ts": 1781281065001
+  },
+  {
+    "id": 1781281186465,
+    "asesor": "THIARE CATALINA CONTRERAS GAETE",
+    "empresa": "VU",
+    "monto": 1000000,
+    "contrato": "1016142",
+    "fecha": "2026-06-12",
+    "ts": 1781281186465
   }
 ]
