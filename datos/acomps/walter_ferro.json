@@ -61,5 +61,12 @@
     "fecha": "2026-06-13",
     "resultado": "Pérdida",
     "ts": 1781397279427
+  },
+  {
+    "id": 1781397302781,
+    "asesor": "DIEGO ALEJANDRO VASQUEZ FLORES",
+    "fecha": "2026-06-13",
+    "resultado": "Pérdida",
+    "ts": 1781397302781
   }
 ]
