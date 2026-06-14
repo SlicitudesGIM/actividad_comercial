@@ -68,5 +68,12 @@
     "fecha": "2026-06-13",
     "resultado": "Pérdida",
     "ts": 1781397302781
+  },
+  {
+    "id": 1781478574298,
+    "asesor": "ENRIQUE RODRIGO VALDEBENITO TORRES",
+    "fecha": "2026-06-14",
+    "resultado": "Pérdida",
+    "ts": 1781478574298
   }
 ]
