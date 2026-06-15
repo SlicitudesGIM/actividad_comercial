@@ -88,5 +88,14 @@
     "contrato": "2727288",
     "fecha": "2026-06-15",
     "ts": 1781549009926
+  },
+  {
+    "id": 1781549066150,
+    "asesor": "GABRIELA KATALINA ARCOS SANCHEZ",
+    "empresa": "VU",
+    "monto": 352000,
+    "contrato": "09876272",
+    "fecha": "2026-06-15",
+    "ts": 1781549066150
   }
 ]
