@@ -61,5 +61,14 @@
     "contrato": "000000",
     "fecha": "2026-06-15",
     "ts": 1781551659477
+  },
+  {
+    "id": 1781551675166,
+    "asesor": "VICTOR MANUEL PARADA MACHUCA",
+    "empresa": "PF",
+    "monto": 198000,
+    "contrato": "111111",
+    "fecha": "2026-06-15",
+    "ts": 1781551675166
   }
 ]
