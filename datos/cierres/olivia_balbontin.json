@@ -7,5 +7,14 @@
     "contrato": "0000",
     "fecha": "2026-06-15",
     "ts": 1781544453587
+  },
+  {
+    "id": 1781544684806,
+    "asesor": "PEDRO NICOLÁS FLORES PÉREZ",
+    "empresa": "PF",
+    "monto": 200000,
+    "contrato": "3908",
+    "fecha": "2026-06-10",
+    "ts": 1781544684806
   }
 ]
