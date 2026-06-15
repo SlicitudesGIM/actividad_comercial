@@ -1,26 +1,30 @@
 {
-  "CLAUDIA ANDREA ANDIA BURGOS": {
-    "cierres": 0
-  },
   "EVELYN SCHLACK ZAMORA": {
-    "cierres": 8
+    "cierres_pf": 8,
+    "cierres_vu": 1
   },
-  "FABIÁN PATRICIO CORONADO QUINTANILLA": {
-    "cierres": 0
+  "JUAN DANIEL ALARCÓN MARAMBIO": {
+    "cierres_pf": 0,
+    "cierres_vu": 1
   },
-  "MARISOL DEL CARMEN JORQUERA DÍAZ": {
-    "cierres": 0
+  "LUIS ALBERTO MELLADO DIAZ": {
+    "cierres_pf": 0,
+    "cierres_vu": 1
   },
-  "MARLENY CAROLINA YEPEZ ROJAS": {
-    "cierres": 0
+  "MARCO ANTONIO GONZÁLEZ MENDEZ": {
+    "cierres_pf": 0,
+    "cierres_vu": 0
+  },
+  "MAURICIO ESTEBAN MILLARES BUSTAMANTE": {
+    "cierres_pf": 0,
+    "cierres_vu": 0
   },
   "MIRIAM PAOLA TALCIANI HERMOSILLO": {
-    "cierres": 10
-  },
-  "SUSANA GEMA ELIZABETH MEZA": {
-    "cierres": 0
+    "cierres_pf": 10,
+    "cierres_vu": 0
   },
   "TOMÁS FERNANDO BATLLE CÁRCAMO": {
-    "cierres": 4
+    "cierres_pf": 4,
+    "cierres_vu": 0
   }
 }
