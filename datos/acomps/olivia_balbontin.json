@@ -89,5 +89,12 @@
     "fecha": "2026-06-10",
     "resultado": "Seguimiento",
     "ts": 1781544639466
+  },
+  {
+    "id": 1781544706250,
+    "asesor": "PEDRO NICOLÁS FLORES PÉREZ",
+    "fecha": "2026-06-10",
+    "resultado": "Cierre",
+    "ts": 1781544706250
   }
 ]
