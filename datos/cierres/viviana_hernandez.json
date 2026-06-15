@@ -79,5 +79,14 @@
     "contrato": "001010011",
     "fecha": "2026-06-15",
     "ts": 1781548988942
+  },
+  {
+    "id": 1781549009926,
+    "asesor": "DENNISSE ALONDRA RAMIREZ OSORIO",
+    "empresa": "PF",
+    "monto": 100000,
+    "contrato": "2727288",
+    "fecha": "2026-06-15",
+    "ts": 1781549009926
   }
 ]
