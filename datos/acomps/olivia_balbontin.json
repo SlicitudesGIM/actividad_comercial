@@ -82,5 +82,12 @@
     "fecha": "2026-06-14",
     "resultado": "Seguimiento",
     "ts": 1781544511901
+  },
+  {
+    "id": 1781544639466,
+    "asesor": "NICOLÁS IGNACIO ROCHA BECERRA",
+    "fecha": "2026-06-10",
+    "resultado": "Seguimiento",
+    "ts": 1781544639466
   }
 ]
