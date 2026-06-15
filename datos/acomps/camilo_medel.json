@@ -103,5 +103,12 @@
     "fecha": "2026-06-12",
     "resultado": "Seguimiento",
     "ts": 1781273394847
+  },
+  {
+    "id": 1781551687508,
+    "asesor": "VICTOR MANUEL PARADA MACHUCA",
+    "fecha": "2026-06-15",
+    "resultado": "Cierre",
+    "ts": 1781551687508
   }
 ]
