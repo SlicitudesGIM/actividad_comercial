@@ -229,5 +229,12 @@
     "fecha": "2026-06-12",
     "resultado": "Seguimiento",
     "ts": 1781545545302
+  },
+  {
+    "id": 1781545680312,
+    "asesor": "MARGARITA CRISTINA ROJAS QUEZADA",
+    "fecha": "2026-06-13",
+    "resultado": "Seguimiento",
+    "ts": 1781545680312
   }
 ]
