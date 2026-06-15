@@ -250,5 +250,12 @@
     "fecha": "2026-06-12",
     "resultado": "Cierre",
     "ts": 1781545872567
+  },
+  {
+    "id": 1781545888703,
+    "asesor": "YOHANY MARGARITA GONZALEZ ROJAS",
+    "fecha": "2026-06-13",
+    "resultado": "Cierre",
+    "ts": 1781545888703
   }
 ]
