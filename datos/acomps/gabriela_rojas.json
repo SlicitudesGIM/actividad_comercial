@@ -222,5 +222,12 @@
     "fecha": "2026-06-14",
     "resultado": "Seguimiento",
     "ts": 1781545506988
+  },
+  {
+    "id": 1781545545302,
+    "asesor": "ISIDORA BELÉN ODDE VEAS",
+    "fecha": "2026-06-12",
+    "resultado": "Seguimiento",
+    "ts": 1781545545302
   }
 ]
