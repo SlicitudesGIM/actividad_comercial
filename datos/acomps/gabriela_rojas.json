@@ -215,5 +215,12 @@
     "fecha": "2026-06-12",
     "resultado": "Seguimiento",
     "ts": 1781545450307
+  },
+  {
+    "id": 1781545506988,
+    "asesor": "FRANCISCA ANDREA DELGADO LOYOLA",
+    "fecha": "2026-06-14",
+    "resultado": "Seguimiento",
+    "ts": 1781545506988
   }
 ]
