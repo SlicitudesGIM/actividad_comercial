@@ -75,5 +75,12 @@
     "fecha": "2026-06-03",
     "resultado": "Cierre",
     "ts": 1781544375991
+  },
+  {
+    "id": 1781544511901,
+    "asesor": "CRISTOPHER ALIRO VALVERDE RAMÍREZ",
+    "fecha": "2026-06-14",
+    "resultado": "Seguimiento",
+    "ts": 1781544511901
   }
 ]
