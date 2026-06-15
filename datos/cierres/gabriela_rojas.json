@@ -106,5 +106,14 @@
     "contrato": "000001",
     "fecha": "2026-06-15",
     "ts": 1781545614094
+  },
+  {
+    "id": 1781545820311,
+    "asesor": "YOHANY MARGARITA GONZALEZ ROJAS",
+    "empresa": "PF",
+    "monto": 249000,
+    "contrato": "000003",
+    "fecha": "2026-06-15",
+    "ts": 1781545820311
   }
 ]
