@@ -68,5 +68,12 @@
     "fecha": "2026-06-01",
     "resultado": "Seguimiento",
     "ts": 1781141841299
+  },
+  {
+    "id": 1781544375991,
+    "asesor": "BASTIÁN AARÓN ARANEDA BELMAR",
+    "fecha": "2026-06-03",
+    "resultado": "Cierre",
+    "ts": 1781544375991
   }
 ]
