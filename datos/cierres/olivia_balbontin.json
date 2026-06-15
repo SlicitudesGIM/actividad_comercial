@@ -16,5 +16,14 @@
     "contrato": "3908",
     "fecha": "2026-06-10",
     "ts": 1781544684806
+  },
+  {
+    "id": 1781544854811,
+    "asesor": "BASTIÁN AARÓN ARANEDA BELMAR",
+    "empresa": "PF",
+    "monto": 200000,
+    "contrato": "00000",
+    "fecha": "2026-06-12",
+    "ts": 1781544854811
   }
 ]
