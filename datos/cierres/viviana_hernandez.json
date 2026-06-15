@@ -70,5 +70,14 @@
     "contrato": "11111",
     "fecha": "2026-06-15",
     "ts": 1781548068835
+  },
+  {
+    "id": 1781548988942,
+    "asesor": "DENNISSE ALONDRA RAMIREZ OSORIO",
+    "empresa": "VU",
+    "monto": 250000,
+    "contrato": "001010011",
+    "fecha": "2026-06-15",
+    "ts": 1781548988942
   }
 ]
