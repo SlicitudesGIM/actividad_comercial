@@ -208,5 +208,12 @@
     "fecha": "2026-06-13",
     "resultado": "Seguimiento",
     "ts": 1781545423322
+  },
+  {
+    "id": 1781545450307,
+    "asesor": "FERNANDA CAROLINA CRUCES GARCÍA",
+    "fecha": "2026-06-12",
+    "resultado": "Seguimiento",
+    "ts": 1781545450307
   }
 ]
