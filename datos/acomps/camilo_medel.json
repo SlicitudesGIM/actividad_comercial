@@ -110,5 +110,12 @@
     "fecha": "2026-06-15",
     "resultado": "Cierre",
     "ts": 1781551687508
+  },
+  {
+    "id": 1781554647201,
+    "asesor": "LUIS ALBERTO OSORES OSORES",
+    "fecha": "2026-06-15",
+    "resultado": "Seguimiento",
+    "ts": 1781554647201
   }
 ]
