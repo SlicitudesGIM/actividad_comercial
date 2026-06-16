@@ -26,5 +26,12 @@
     "fecha": "2026-06-16",
     "resultado": "Seguimiento",
     "ts": 1781573362642
+  },
+  {
+    "id": 1781573365025,
+    "asesor": "LUIS ALBERTO MELLADO DIAZ",
+    "fecha": "2026-06-16",
+    "resultado": "Seguimiento",
+    "ts": 1781573365025
   }
 ]
