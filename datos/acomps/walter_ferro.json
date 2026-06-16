@@ -75,5 +75,12 @@
     "fecha": "2026-06-14",
     "resultado": "Pérdida",
     "ts": 1781478574298
+  },
+  {
+    "id": 1781571837326,
+    "asesor": "ADRIANA ISABEL HERNANDEZ SANCHEZ",
+    "fecha": "2026-06-15",
+    "resultado": "Seguimiento",
+    "ts": 1781571837326
   }
 ]
