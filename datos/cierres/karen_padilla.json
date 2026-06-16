@@ -7,5 +7,14 @@
     "contrato": "09876",
     "fecha": "2026-06-15",
     "ts": 1781553522819
+  },
+  {
+    "id": 1781573505501,
+    "asesor": "EVELYN SCHLACK ZAMORA",
+    "empresa": "PF",
+    "monto": 285000,
+    "contrato": "4929",
+    "fecha": "2026-06-16",
+    "ts": 1781573505501
   }
 ]
