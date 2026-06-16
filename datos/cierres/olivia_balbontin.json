@@ -25,5 +25,14 @@
     "contrato": "00000",
     "fecha": "2026-06-12",
     "ts": 1781544854811
+  },
+  {
+    "id": 1781639382437,
+    "asesor": "ANTONELLA ANDREA ORTEGA VILLANUEVA",
+    "empresa": "PF",
+    "monto": 250000,
+    "contrato": "3918",
+    "fecha": "2026-06-15",
+    "ts": 1781639382437
   }
 ]
