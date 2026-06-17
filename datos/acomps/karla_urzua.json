@@ -117,5 +117,12 @@
     "fecha": "2026-06-17",
     "resultado": "Pérdida",
     "ts": 1781699391281
+  },
+  {
+    "id": 1781710517077,
+    "asesor": "PÍA KARINA GUTIÉRREZ SILVA",
+    "fecha": "2026-06-17",
+    "resultado": "Cierre",
+    "ts": 1781710517077
   }
 ]
