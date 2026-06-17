@@ -16,5 +16,14 @@
     "contrato": "4929",
     "fecha": "2026-06-16",
     "ts": 1781573505501
+  },
+  {
+    "id": 1781662853105,
+    "asesor": "MIRIAM PAOLA TALCIANI HERMOSILLO",
+    "empresa": "PF",
+    "monto": 180000,
+    "contrato": "4930",
+    "fecha": "2026-06-17",
+    "ts": 1781662853105
   }
 ]
