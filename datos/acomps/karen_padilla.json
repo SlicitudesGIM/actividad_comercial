@@ -54,5 +54,12 @@
     "fecha": "2026-06-17",
     "resultado": "Cierre",
     "ts": 1781662871956
+  },
+  {
+    "id": 1781662937982,
+    "asesor": "MARCO ANTONIO GONZÁLEZ MENDEZ",
+    "fecha": "2026-06-17",
+    "resultado": "Seguimiento",
+    "ts": 1781662937982
   }
 ]
