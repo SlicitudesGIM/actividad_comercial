@@ -110,5 +110,12 @@
     "fecha": "2026-06-16",
     "resultado": "Seguimiento",
     "ts": 1781790087223
+  },
+  {
+    "id": 1781790126489,
+    "asesor": "ENRIQUE RODRIGO VALDEBENITO TORRES",
+    "fecha": "2026-06-17",
+    "resultado": "Seguimiento",
+    "ts": 1781790126489
   }
 ]
