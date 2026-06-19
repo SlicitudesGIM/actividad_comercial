@@ -47,5 +47,12 @@
     "fecha": "2026-06-10",
     "resultado": "Pérdida",
     "ts": 1781887509574
+  },
+  {
+    "id": 1781887567591,
+    "asesor": "MONSERRAT TORO RENGIFO",
+    "fecha": "2026-06-11",
+    "resultado": "Seguimiento",
+    "ts": 1781887567591
   }
 ]
