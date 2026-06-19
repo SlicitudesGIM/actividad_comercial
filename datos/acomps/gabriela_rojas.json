@@ -327,5 +327,12 @@
     "fecha": "2026-06-16",
     "resultado": "Seguimiento",
     "ts": 1781877605486
+  },
+  {
+    "id": 1781877658980,
+    "asesor": "NAYARET TATIANA PUGA MARCHANT",
+    "fecha": "2026-06-19",
+    "resultado": "Cierre",
+    "ts": 1781877658980
   }
 ]
