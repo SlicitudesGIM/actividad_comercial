@@ -131,5 +131,12 @@
     "fecha": "2026-06-18",
     "resultado": "Pérdida",
     "ts": 1781880427095
+  },
+  {
+    "id": 1781888758517,
+    "asesor": "GABRIELA ESTRELLA ROMERO URRUTIA",
+    "fecha": "2026-06-19",
+    "resultado": "Pérdida",
+    "ts": 1781888758517
   }
 ]
