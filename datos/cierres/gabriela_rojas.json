@@ -151,5 +151,14 @@
     "contrato": "4789",
     "fecha": "2026-06-19",
     "ts": 1781877770474
+  },
+  {
+    "id": 1781877798112,
+    "asesor": "YOHANY MARGARITA GONZALEZ ROJAS",
+    "empresa": "VU",
+    "monto": 300000,
+    "contrato": "109866",
+    "fecha": "2026-06-19",
+    "ts": 1781877798112
   }
 ]
