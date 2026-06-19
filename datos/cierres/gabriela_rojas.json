@@ -133,5 +133,14 @@
     "contrato": "00012",
     "fecha": "2026-06-15",
     "ts": 1781545859440
+  },
+  {
+    "id": 1781877385365,
+    "asesor": "KATHERINE ANDREA ROMERO MILLAN",
+    "empresa": "PF",
+    "monto": 50000,
+    "contrato": "090909",
+    "fecha": "2026-06-19",
+    "ts": 1781877385365
   }
 ]
