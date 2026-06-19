@@ -313,5 +313,12 @@
     "fecha": "2026-06-16",
     "resultado": "Seguimiento",
     "ts": 1781877542085
+  },
+  {
+    "id": 1781877583476,
+    "asesor": "MARTÍN ALEJANDRO TORRES DURÁN",
+    "fecha": "2026-06-18",
+    "resultado": "Seguimiento",
+    "ts": 1781877583476
   }
 ]
