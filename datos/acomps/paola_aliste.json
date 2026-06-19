@@ -75,5 +75,12 @@
     "fecha": "2026-06-19",
     "resultado": "Pérdida",
     "ts": 1781869449020
+  },
+  {
+    "id": 1781869460624,
+    "asesor": "EUDINES SEMIRAMIS PEROZO FUENTES",
+    "fecha": "2026-06-19",
+    "resultado": "Seguimiento",
+    "ts": 1781869460624
   }
 ]
