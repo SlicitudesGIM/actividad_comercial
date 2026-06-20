@@ -138,5 +138,12 @@
     "fecha": "2026-06-19",
     "resultado": "Pérdida",
     "ts": 1781888758517
+  },
+  {
+    "id": 1781979980880,
+    "asesor": "FRANCESCA NICOLE SANCHEZ PACHECO",
+    "fecha": "2026-06-20",
+    "resultado": "Cierre",
+    "ts": 1781979980880
   }
 ]
