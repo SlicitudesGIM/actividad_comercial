@@ -152,5 +152,12 @@
     "fecha": "2026-06-20",
     "resultado": "Seguimiento",
     "ts": 1782054428472
+  },
+  {
+    "id": 1782054602353,
+    "asesor": "DIEGO ALEJANDRO VASQUEZ FLORES",
+    "fecha": "2026-06-20",
+    "resultado": "Cierre",
+    "ts": 1782054602353
   }
 ]
