@@ -145,5 +145,12 @@
     "fecha": "2026-06-20",
     "resultado": "Cierre",
     "ts": 1781979980880
+  },
+  {
+    "id": 1782054428472,
+    "asesor": "ASDREYM CAROLINA GUILLEN VALDES",
+    "fecha": "2026-06-20",
+    "resultado": "Seguimiento",
+    "ts": 1782054428472
   }
 ]
