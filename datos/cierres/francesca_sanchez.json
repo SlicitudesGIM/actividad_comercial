@@ -7,5 +7,14 @@
     "contrato": "4749",
     "fecha": "2026-06-15",
     "ts": 1781659604352
+  },
+  {
+    "id": 1782138585691,
+    "asesor": "DANIELA CASTRO VALDEBENITO",
+    "empresa": "PF",
+    "monto": 2650000,
+    "contrato": "4793",
+    "fecha": "2026-06-18",
+    "ts": 1782138585691
   }
 ]
