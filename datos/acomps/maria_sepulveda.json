@@ -54,5 +54,12 @@
     "fecha": "2026-06-22",
     "resultado": "Seguimiento",
     "ts": 1782139840638
+  },
+  {
+    "id": 1782332058670,
+    "asesor": "ALICIA DEL CARMEN SALAZAR AYÓN",
+    "fecha": "2026-06-23",
+    "resultado": "Seguimiento",
+    "ts": 1782332058670
   }
 ]
