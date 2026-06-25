@@ -159,5 +159,12 @@
     "fecha": "2026-06-24",
     "resultado": "Seguimiento",
     "ts": 1782390476388
+  },
+  {
+    "id": 1782390533522,
+    "asesor": "MARCO ANTONIO GONZÁLEZ MENDEZ",
+    "fecha": "2026-06-22",
+    "resultado": "Seguimiento",
+    "ts": 1782390533522
   }
 ]
