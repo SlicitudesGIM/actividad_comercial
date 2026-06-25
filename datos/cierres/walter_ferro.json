@@ -169,5 +169,14 @@
     "contrato": "4815",
     "fecha": "2026-06-22",
     "ts": 1782164096326
+  },
+  {
+    "id": 1782422035525,
+    "asesor": "MARCELO CISTERNA LEON",
+    "empresa": "PF",
+    "monto": 2137500,
+    "contrato": "4830",
+    "fecha": "2026-06-25",
+    "ts": 1782422035525
   }
 ]
