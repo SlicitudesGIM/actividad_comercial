@@ -201,5 +201,12 @@
     "fecha": "2026-06-04",
     "resultado": "Seguimiento",
     "ts": 1782348376587
+  },
+  {
+    "id": 1782348386145,
+    "asesor": "DANIELA CASTRO VALDEBENITO",
+    "fecha": "2026-06-04",
+    "resultado": "Pérdida",
+    "ts": 1782348386145
   }
 ]
