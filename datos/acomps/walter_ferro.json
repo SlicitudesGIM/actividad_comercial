@@ -187,5 +187,12 @@
     "fecha": "2026-06-25",
     "resultado": "Cierre",
     "ts": 1782422046355
+  },
+  {
+    "id": 1782422110674,
+    "asesor": "GABRIELA ESTRELLA ROMERO URRUTIA",
+    "fecha": "2026-06-25",
+    "resultado": "Seguimiento",
+    "ts": 1782422110674
   }
 ]
