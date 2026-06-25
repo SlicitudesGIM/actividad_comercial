@@ -383,5 +383,12 @@
     "fecha": "2026-06-22",
     "resultado": "Pérdida",
     "ts": 1782390467318
+  },
+  {
+    "id": 1782390724906,
+    "asesor": "MARIA CLARISA ARRANO MORALES",
+    "fecha": "2026-06-19",
+    "resultado": "Pérdida",
+    "ts": 1782390724906
   }
 ]
