@@ -180,5 +180,12 @@
     "fecha": "2026-06-22",
     "resultado": "Pérdida",
     "ts": 1782163984229
+  },
+  {
+    "id": 1782422046355,
+    "asesor": "MARCELO CISTERNA LEON",
+    "fecha": "2026-06-25",
+    "resultado": "Cierre",
+    "ts": 1782422046355
   }
 ]
