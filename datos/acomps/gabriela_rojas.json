@@ -397,5 +397,12 @@
     "fecha": "2026-06-28",
     "resultado": "Cierre",
     "ts": 1782391073013
+  },
+  {
+    "id": 1782391173334,
+    "asesor": "FELIPE IGNACIO CIFUENTES GONZALEZ",
+    "fecha": "2026-06-28",
+    "resultado": "Seguimiento",
+    "ts": 1782391173334
   }
 ]
