@@ -117,5 +117,12 @@
     "fecha": "2026-06-20",
     "resultado": "Pérdida",
     "ts": 1782347788890
+  },
+  {
+    "id": 1782347836097,
+    "asesor": "JOSÉ BASTIAN ARÉVALO HIDALGO",
+    "fecha": "2026-06-19",
+    "resultado": "Seguimiento",
+    "ts": 1782347836097
   }
 ]
