@@ -194,5 +194,12 @@
     "fecha": "2026-06-25",
     "resultado": "Seguimiento",
     "ts": 1782422110674
+  },
+  {
+    "id": 1782443652304,
+    "asesor": "MARCELO CISTERNA LEON",
+    "fecha": "2026-06-26",
+    "resultado": "Seguimiento",
+    "ts": 1782443652304
   }
 ]
