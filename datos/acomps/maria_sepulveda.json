@@ -68,5 +68,12 @@
     "fecha": "2026-06-26",
     "resultado": "Seguimiento",
     "ts": 1782510236712
+  },
+  {
+    "id": 1782510276783,
+    "asesor": "BASTIAN LUCIANO RUZ JOFRE",
+    "fecha": "2026-06-26",
+    "resultado": "Pérdida",
+    "ts": 1782510276783
   }
 ]
