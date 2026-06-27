@@ -229,5 +229,12 @@
     "fecha": "2026-06-26",
     "resultado": "Cierre",
     "ts": 1782593873833
+  },
+  {
+    "id": 1782593901339,
+    "asesor": "DANIELA CASTRO VALDEBENITO",
+    "fecha": "2026-06-26",
+    "resultado": "Cierre",
+    "ts": 1782593901339
   }
 ]
