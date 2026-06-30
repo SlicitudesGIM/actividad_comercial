@@ -43,5 +43,14 @@
     "contrato": "4900",
     "fecha": "2026-06-22",
     "ts": 1782390047833
+  },
+  {
+    "id": 1782824921550,
+    "asesor": "TOMÁS FERNANDO BATLLE CÁRCAMO",
+    "empresa": "PF",
+    "monto": 835000,
+    "contrato": "4890",
+    "fecha": "2026-06-27",
+    "ts": 1782824921550
   }
 ]
