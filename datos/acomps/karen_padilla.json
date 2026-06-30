@@ -187,5 +187,12 @@
     "fecha": "2026-06-27",
     "resultado": "Seguimiento",
     "ts": 1782824630057
+  },
+  {
+    "id": 1782824677889,
+    "asesor": "MIRIAM PAOLA TALCIANI HERMOSILLO",
+    "fecha": "2026-06-27",
+    "resultado": "Pérdida",
+    "ts": 1782824677889
   }
 ]
