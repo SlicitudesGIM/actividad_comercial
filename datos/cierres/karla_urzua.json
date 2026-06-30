@@ -16,5 +16,14 @@
     "contrato": "4074",
     "fecha": "2026-06-28",
     "ts": 1782850057982
+  },
+  {
+    "id": 1782850131848,
+    "asesor": "YAMILETH FLORES TORREALBA",
+    "empresa": "PF",
+    "monto": 236500,
+    "contrato": "4106",
+    "fecha": "2026-06-30",
+    "ts": 1782850131848
   }
 ]
