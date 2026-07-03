@@ -117,5 +117,12 @@
     "fecha": "2026-06-11",
     "resultado": "Cierre",
     "ts": 1781137801416
+  },
+  {
+    "id": 1783045401157,
+    "asesor": "WALTER FABRICIO SALAZAR LIMA",
+    "fecha": "2026-07-03",
+    "resultado": "Cierre",
+    "ts": 1783045401157
   }
 ]
