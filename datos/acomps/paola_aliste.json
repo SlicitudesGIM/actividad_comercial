@@ -194,5 +194,12 @@
     "fecha": "2026-06-30",
     "resultado": "Pérdida",
     "ts": 1782822240389
+  },
+  {
+    "id": 1783200647886,
+    "asesor": "PABLO IGNACIO LUCERO RECABAL",
+    "fecha": "2026-07-04",
+    "resultado": "Cierre",
+    "ts": 1783200647886
   }
 ]
