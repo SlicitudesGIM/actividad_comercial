@@ -327,5 +327,12 @@
     "fecha": "2026-07-05",
     "resultado": "Seguimiento",
     "ts": 1783267046285
+  },
+  {
+    "id": 1783267053864,
+    "asesor": "EVELYN SCHLACK ZAMORA",
+    "fecha": "2026-07-05",
+    "resultado": "Seguimiento",
+    "ts": 1783267053864
   }
 ]
