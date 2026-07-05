@@ -285,5 +285,12 @@
     "fecha": "2026-07-04",
     "resultado": "Seguimiento",
     "ts": 1783266901184
+  },
+  {
+    "id": 1783266930565,
+    "asesor": "NAHOMY CONSTANZA PARDO SOTO",
+    "fecha": "2026-07-04",
+    "resultado": "Seguimiento",
+    "ts": 1783266930565
   }
 ]
