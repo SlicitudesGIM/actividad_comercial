@@ -306,5 +306,12 @@
     "fecha": "2026-07-05",
     "resultado": "Pérdida",
     "ts": 1783267022439
+  },
+  {
+    "id": 1783267032147,
+    "asesor": "MARCO ANTONIO GONZÁLEZ MENDEZ",
+    "fecha": "2026-07-05",
+    "resultado": "Pérdida",
+    "ts": 1783267032147
   }
 ]
