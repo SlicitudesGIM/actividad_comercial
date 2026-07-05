@@ -292,5 +292,12 @@
     "fecha": "2026-07-04",
     "resultado": "Seguimiento",
     "ts": 1783266930565
+  },
+  {
+    "id": 1783266964555,
+    "asesor": "TOMÁS FERNANDO BATLLE CÁRCAMO",
+    "fecha": "2026-07-04",
+    "resultado": "Pérdida",
+    "ts": 1783266964555
   }
 ]
