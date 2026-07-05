@@ -341,5 +341,12 @@
     "fecha": "2026-07-05",
     "resultado": "Pérdida",
     "ts": 1783267064837
+  },
+  {
+    "id": 1783267080279,
+    "asesor": "NAHOMY CONSTANZA PARDO SOTO",
+    "fecha": "2026-07-05",
+    "resultado": "Seguimiento",
+    "ts": 1783267080279
   }
 ]
