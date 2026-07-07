@@ -7,5 +7,14 @@
     "contrato": "4906",
     "fecha": "2026-07-01",
     "ts": 1783022814566
+  },
+  {
+    "id": 1783458987051,
+    "asesor": "FILOMENA DEL CARMEN MENDOZA JIMÉNEZ",
+    "empresa": "PF",
+    "monto": 222300,
+    "contrato": "4148",
+    "fecha": "2026-07-06",
+    "ts": 1783458987051
   }
 ]
