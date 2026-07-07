@@ -1,19 +1,5 @@
 [
   {
-    "id": 1780955407359,
-    "asesor": "ANABEL DEL VALLE VELASQUEZ CARRENO",
-    "fecha": "2026-06-04",
-    "resultado": "Seguimiento",
-    "ts": 1780955407359
-  },
-  {
-    "id": 1780955539269,
-    "asesor": "ANABEL DEL VALLE VELASQUEZ CARRENO",
-    "fecha": "2026-06-04",
-    "resultado": "Seguimiento",
-    "ts": 1780955539269
-  },
-  {
     "id": 1780965775950,
     "asesor": "ANABEL DEL VALLE VELASQUEZ CARRENO",
     "fecha": "2026-06-09",
@@ -26,41 +12,6 @@
     "fecha": "2026-06-09",
     "resultado": "Seguimiento",
     "ts": 1780966045257
-  },
-  {
-    "id": 1781029083141,
-    "asesor": "KARINA DEL VALLE ESCALONA GONZALEZ",
-    "fecha": "2026-06-04",
-    "resultado": "Seguimiento",
-    "ts": 1781029083141
-  },
-  {
-    "id": 1781029396289,
-    "asesor": "VERONICA MEDINA ARMIJO",
-    "fecha": "2026-06-04",
-    "resultado": "PÃÂÃÂ©rdida",
-    "ts": 1781029396289
-  },
-  {
-    "id": 1781029442513,
-    "asesor": "VERONICA MEDINA ARMIJO",
-    "fecha": "2026-06-04",
-    "resultado": "PÃÂ©rdida",
-    "ts": 1781029442513
-  },
-  {
-    "id": 1781029444244,
-    "asesor": "VERONICA MEDINA ARMIJO",
-    "fecha": "2026-06-04",
-    "resultado": "PÃ©rdida",
-    "ts": 1781029444244
-  },
-  {
-    "id": 1781029533540,
-    "asesor": "WALTER FABRICIO SALAZAR LIMA",
-    "fecha": "2026-06-04",
-    "resultado": "Seguimiento",
-    "ts": 1781029533540
   },
   {
     "id": 1781123341900,
