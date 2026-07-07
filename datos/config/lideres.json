@@ -42,7 +42,7 @@
         "09ycrQkoRP0LZn7v_9WReibmJ",
         "YKJDdp527N35DN3Io9cnCVQwZDlOEBJ9ctCyIMi4G6q"
       ],
-      "activo": true
+      "activo": false
     },
     {
       "key": "CAMILO MEDEL",
@@ -86,7 +86,7 @@
         "58YdJ5KBqbMquGG6_GdewcWgZ",
         "AU6wa3D5VQBUNNA51ewSFqJN1ZSD1h7tlKRW3ft0WZW"
       ],
-      "activo": true
+      "activo": false
     },
     {
       "key": "KAREN PADILLA",
@@ -148,6 +148,13 @@
       "key": "MARIA SEPULVEDA",
       "nombre": "Maria Sepulveda",
       "pin_seed": "6196",
+      "_t": [],
+      "activo": true
+    },
+    {
+      "key": "DOMINGO SOLORZA",
+      "nombre": "Domingo Solorza",
+      "pin_seed": "3174",
       "_t": [],
       "activo": true
     }
