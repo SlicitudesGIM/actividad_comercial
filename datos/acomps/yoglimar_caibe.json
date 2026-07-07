@@ -33,5 +33,12 @@
     "fecha": "2026-07-01",
     "resultado": "Cierre",
     "ts": 1783022773526
+  },
+  {
+    "id": 1783457330920,
+    "asesor": "FILOMENA DEL CARMEN MENDOZA JIMÉNEZ",
+    "fecha": "2026-07-06",
+    "resultado": "Cierre",
+    "ts": 1783457330920
   }
 ]
