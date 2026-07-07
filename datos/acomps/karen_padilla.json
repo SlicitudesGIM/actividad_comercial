@@ -369,5 +369,12 @@
     "fecha": "2026-07-07",
     "resultado": "Seguimiento",
     "ts": 1783458497324
+  },
+  {
+    "id": 1783458548598,
+    "asesor": "MAURICIO ESTEBAN MILLARES BUSTAMANTE",
+    "fecha": "2026-07-07",
+    "resultado": "Pérdida",
+    "ts": 1783458548598
   }
 ]
