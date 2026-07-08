@@ -432,5 +432,12 @@
     "fecha": "2026-07-06",
     "resultado": "Seguimiento",
     "ts": 1783538161655
+  },
+  {
+    "id": 1783538241210,
+    "asesor": "DAISY VICTORIA CAROCA BUSTOS",
+    "fecha": "2026-07-10",
+    "resultado": "Seguimiento",
+    "ts": 1783538241210
   }
 ]
