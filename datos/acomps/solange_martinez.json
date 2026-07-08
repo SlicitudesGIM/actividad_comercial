@@ -12,5 +12,12 @@
     "fecha": "2026-07-08",
     "resultado": "Seguimiento",
     "ts": 1783469607739
+  },
+  {
+    "id": 1783540549662,
+    "asesor": "CAROLINA ARAYA VÁSQUEZ",
+    "fecha": "2026-07-08",
+    "resultado": "Pérdida",
+    "ts": 1783540549662
   }
 ]
