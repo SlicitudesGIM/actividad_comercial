@@ -223,5 +223,14 @@
     "contrato": "4908",
     "fecha": "2026-07-08",
     "ts": 1783538408995
+  },
+  {
+    "id": 1783538763908,
+    "asesor": "KATHERINE ANDREA ROMERO MILLAN",
+    "empresa": "VU",
+    "monto": 414000,
+    "contrato": "109913",
+    "fecha": "2026-07-08",
+    "ts": 1783538763908
   }
 ]
