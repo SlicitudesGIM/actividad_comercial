@@ -110,5 +110,12 @@
     "fecha": "2026-07-04",
     "resultado": "Seguimiento",
     "ts": 1783541442229
+  },
+  {
+    "id": 1783541500705,
+    "asesor": "TAMARA PATRICIA ARAYA MARAMBIO",
+    "fecha": "2026-07-03",
+    "resultado": "Seguimiento",
+    "ts": 1783541500705
   }
 ]
