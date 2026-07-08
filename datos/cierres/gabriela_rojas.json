@@ -205,5 +205,14 @@
     "contrato": "1016213",
     "fecha": "2026-06-25",
     "ts": 1782391066601
+  },
+  {
+    "id": 1783538055347,
+    "asesor": "CONSTANZA BELEN LOBOS PEDREROS",
+    "empresa": "PF",
+    "monto": 120000,
+    "contrato": "4589",
+    "fecha": "2026-07-08",
+    "ts": 1783538055347
   }
 ]
