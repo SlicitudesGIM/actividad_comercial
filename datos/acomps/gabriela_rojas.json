@@ -404,5 +404,12 @@
     "fecha": "2026-06-24",
     "resultado": "Pérdida",
     "ts": 1782391241394
+  },
+  {
+    "id": 1783537844589,
+    "asesor": "ANA SOLANGE CELEDON DE LA FUENTE",
+    "fecha": "2026-07-03",
+    "resultado": "Seguimiento",
+    "ts": 1783537844589
   }
 ]
