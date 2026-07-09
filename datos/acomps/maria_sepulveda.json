@@ -117,5 +117,12 @@
     "fecha": "2026-07-04",
     "resultado": "Seguimiento",
     "ts": 1783348844076
+  },
+  {
+    "id": 1783639831270,
+    "asesor": "MARÍA TERESA SEPÚLVEDA VÉLEZ",
+    "fecha": "2026-07-09",
+    "resultado": "Seguimiento",
+    "ts": 1783639831270
   }
 ]
