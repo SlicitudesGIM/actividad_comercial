@@ -145,5 +145,12 @@
     "fecha": "2026-07-06",
     "resultado": "Seguimiento",
     "ts": 1783607307114
+  },
+  {
+    "id": 1783607416228,
+    "asesor": "DENISSE XIOMARA MARTINEZ TENORIO",
+    "fecha": "2026-07-07",
+    "resultado": "Pérdida",
+    "ts": 1783607416228
   }
 ]
