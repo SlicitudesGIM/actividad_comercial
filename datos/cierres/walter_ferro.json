@@ -214,5 +214,14 @@
     "contrato": "4938",
     "fecha": "2026-07-10",
     "ts": 1783704527985
+  },
+  {
+    "id": 1783704840112,
+    "asesor": "BRANDON JACE PAYA MOLINA",
+    "empresa": "PF",
+    "monto": 2200000,
+    "contrato": "4929",
+    "fecha": "2026-07-10",
+    "ts": 1783704840112
   }
 ]
