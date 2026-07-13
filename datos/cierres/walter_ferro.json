@@ -259,5 +259,14 @@
     "contrato": "1016357",
     "fecha": "2026-07-11",
     "ts": 1783950734021
+  },
+  {
+    "id": 1783950817369,
+    "asesor": "DANIELA ANDREA RIVERA HURTADO",
+    "empresa": "PF",
+    "monto": 2240000,
+    "contrato": "4970",
+    "fecha": "2026-07-11",
+    "ts": 1783950817369
   }
 ]
