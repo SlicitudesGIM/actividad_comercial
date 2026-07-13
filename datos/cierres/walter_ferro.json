@@ -250,5 +250,14 @@
     "contrato": "1016356",
     "fecha": "2026-07-11",
     "ts": 1783950714356
+  },
+  {
+    "id": 1783950734021,
+    "asesor": "ASDREYM CAROLINA GUILLEN VALDES",
+    "empresa": "VU",
+    "monto": 3000000,
+    "contrato": "1016357",
+    "fecha": "2026-07-11",
+    "ts": 1783950734021
   }
 ]
