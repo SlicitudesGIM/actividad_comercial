@@ -481,5 +481,12 @@
     "fecha": "2026-07-12",
     "resultado": "Cierre",
     "ts": 1783940987574
+  },
+  {
+    "id": 1783940990108,
+    "asesor": "MAURICIO ESTEBAN MILLARES BUSTAMANTE",
+    "fecha": "2026-07-12",
+    "resultado": "Cierre",
+    "ts": 1783940990109
   }
 ]
