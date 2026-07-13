@@ -215,5 +215,12 @@
     "fecha": "2026-07-11",
     "resultado": "Cierre",
     "ts": 1783950751219
+  },
+  {
+    "id": 1783950903184,
+    "asesor": "DANIELA ANDREA RIVERA HURTADO",
+    "fecha": "2026-07-12",
+    "resultado": "Cierre",
+    "ts": 1783950903184
   }
 ]
