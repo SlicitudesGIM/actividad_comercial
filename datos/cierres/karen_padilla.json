@@ -70,5 +70,14 @@
     "contrato": "4989",
     "fecha": "2026-07-12",
     "ts": 1783940916861
+  },
+  {
+    "id": 1783940954711,
+    "asesor": "MAURICIO ESTEBAN MILLARES BUSTAMANTE",
+    "empresa": "PF",
+    "monto": 235500,
+    "contrato": "4990",
+    "fecha": "2026-07-12",
+    "ts": 1783940954711
   }
 ]
