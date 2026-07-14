@@ -236,5 +236,12 @@
     "fecha": "2026-07-12",
     "resultado": "Pérdida",
     "ts": 1783950930525
+  },
+  {
+    "id": 1783993615159,
+    "asesor": "CAROLINA DEL PILAR ARAVENA DE LA FUENTE",
+    "fecha": "2026-07-14",
+    "resultado": "Pérdida",
+    "ts": 1783993615159
   }
 ]
