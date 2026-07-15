@@ -488,5 +488,12 @@
     "fecha": "2026-07-12",
     "resultado": "Cierre",
     "ts": 1783940990109
+  },
+  {
+    "id": 1784083335484,
+    "asesor": "TOMÁS FERNANDO BATLLE CÁRCAMO",
+    "fecha": "2026-07-15",
+    "resultado": "Cierre",
+    "ts": 1784083335484
   }
 ]
