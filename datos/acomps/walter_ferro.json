@@ -271,5 +271,12 @@
     "fecha": "2026-07-14",
     "resultado": "Pérdida",
     "ts": 1784083441208
+  },
+  {
+    "id": 1784083453814,
+    "asesor": "OSLY OJEDA COLMENARES",
+    "fecha": "2026-07-14",
+    "resultado": "Seguimiento",
+    "ts": 1784083453814
   }
 ]
