@@ -285,5 +285,12 @@
     "fecha": "2026-07-15",
     "resultado": "Seguimiento",
     "ts": 1784219702477
+  },
+  {
+    "id": 1784219712505,
+    "asesor": "IVÁN ELIEXER PÉREZ RODRÍGUEZ",
+    "fecha": "2026-07-15",
+    "resultado": "Seguimiento",
+    "ts": 1784219712505
   }
 ]
