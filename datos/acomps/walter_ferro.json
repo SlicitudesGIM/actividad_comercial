@@ -299,5 +299,12 @@
     "fecha": "2026-07-17",
     "resultado": "Seguimiento",
     "ts": 1784321517872
+  },
+  {
+    "id": 1784321532616,
+    "asesor": "WALTER FERRO",
+    "fecha": "2026-07-16",
+    "resultado": "Seguimiento",
+    "ts": 1784321532616
   }
 ]
