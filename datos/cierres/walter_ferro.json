@@ -304,5 +304,14 @@
     "contrato": "4991",
     "fecha": "2026-07-15",
     "ts": 1784219679082
+  },
+  {
+    "id": 1784321401647,
+    "asesor": "ASDREYM CAROLINA GUILLEN VALDES",
+    "empresa": "PF",
+    "monto": 1500000,
+    "contrato": "4968",
+    "fecha": "2026-07-16",
+    "ts": 1784321401647
   }
 ]
