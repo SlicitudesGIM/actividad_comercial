@@ -349,5 +349,14 @@
     "contrato": "4976",
     "fecha": "2026-07-17",
     "ts": 1784387446055
+  },
+  {
+    "id": 1784387469486,
+    "asesor": "MARCELO CISTERNA LEON",
+    "empresa": "PF",
+    "monto": 1987500,
+    "contrato": "4977",
+    "fecha": "2026-07-17",
+    "ts": 1784387469486
   }
 ]
