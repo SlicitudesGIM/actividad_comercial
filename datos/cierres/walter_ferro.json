@@ -439,5 +439,14 @@
     "contrato": "5027",
     "fecha": "2026-07-20",
     "ts": 1784770441992
+  },
+  {
+    "id": 1784770476362,
+    "asesor": "IVÁN ELIEXER PÉREZ RODRÍGUEZ",
+    "empresa": "PF",
+    "monto": 2835000,
+    "contrato": "5028",
+    "fecha": "2026-07-20",
+    "ts": 1784770476362
   }
 ]
