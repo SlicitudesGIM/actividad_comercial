@@ -334,5 +334,12 @@
     "fecha": "2026-07-19",
     "resultado": "Pérdida",
     "ts": 1784420679558
+  },
+  {
+    "id": 1784770518508,
+    "asesor": "BRANDON JACE PAYA MOLINA",
+    "fecha": "2026-07-21",
+    "resultado": "Cierre",
+    "ts": 1784770518508
   }
 ]
