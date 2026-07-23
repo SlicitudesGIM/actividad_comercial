@@ -341,5 +341,12 @@
     "fecha": "2026-07-21",
     "resultado": "Cierre",
     "ts": 1784770518508
+  },
+  {
+    "id": 1784770533766,
+    "asesor": "WALTER FERRO",
+    "fecha": "2026-07-21",
+    "resultado": "Pérdida",
+    "ts": 1784770533766
   }
 ]
