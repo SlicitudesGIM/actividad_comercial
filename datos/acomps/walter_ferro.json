@@ -348,5 +348,12 @@
     "fecha": "2026-07-21",
     "resultado": "Pérdida",
     "ts": 1784770533766
+  },
+  {
+    "id": 1784770666986,
+    "asesor": "ASDREYM CAROLINA GUILLEN VALDES",
+    "fecha": "2026-07-21",
+    "resultado": "Seguimiento",
+    "ts": 1784770666986
   }
 ]
