@@ -502,5 +502,14 @@
     "contrato": "5148",
     "fecha": "2026-08-05",
     "ts": 1786029812292
+  },
+  {
+    "id": 1786029865384,
+    "asesor": "DIEGO ALEJANDRO VASQUEZ FLORES",
+    "empresa": "PF",
+    "monto": 2650000,
+    "contrato": "5097",
+    "fecha": "2026-08-05",
+    "ts": 1786029865384
   }
 ]
